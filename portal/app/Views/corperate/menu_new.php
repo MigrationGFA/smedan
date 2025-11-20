@@ -8,7 +8,7 @@ $regBatchData = $this->gfa_model->regAllBatch();
 ?>
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
       <div class="navbar-header">
-       <center><img src="https://gfa-tech.com/wema.lms.login//public/assets/images/logo.webp" align="center"></center>
+       <center><img src="https://katsina.remsana.com/wema.lms.login//public/assets/images/logo.webp" align="center"></center>
 		
     </div><br> <br> <br>
       <div class="shadow-bottom"></div>

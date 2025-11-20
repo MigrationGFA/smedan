@@ -26,8 +26,8 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'gfa.mysql.database.azure.com',
-        'username' => 'GFAAdmin',
+        'hostname' => 'dimpmysql.mysql.database.azure.com',
+        'username' => 'dimpified',
         'password' => '-jWxNJlsW6qC75NuC@2]',
         'database' => 'getfylig_wema',
         'DBDriver' => 'MySQLi',

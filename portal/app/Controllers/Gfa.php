@@ -43,7 +43,7 @@ class Gfa extends BaseController {
 
         
         
-        $data['page_title'] = "Wema Ekiti Upskilling Programme";
+        $data['page_title'] = "Wema smedan Upskilling Programme";
         $data['sliders'] = $this->gfa_model->getAllSlider();
 
         
@@ -60,7 +60,7 @@ class Gfa extends BaseController {
 
         
         
-        $data['page_title'] = "Wema Ekiti Upskilling Programme";
+        $data['page_title'] = "Wema smedan Upskilling Programme";
         $data['sliders'] = $this->gfa_model->getAllSlider();
 
  
@@ -72,7 +72,7 @@ class Gfa extends BaseController {
 
     public function index() {
 
-        return redirect()->to("https://gfa-tech.com/wema.lms.login/");
+        return redirect()->to("https://smedan.remsana.com/wema.lms.login/");
         
         // $data['page_title'] = "FGN-ALAT Login Upskilling Programme";
         // $data['sliders'] = $this->gfa_model->getAllSlider();
@@ -698,7 +698,7 @@ public function mentor_info($id="")
     {
         
         
-        $data['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $data['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         $data['email'] =  $email;
@@ -728,7 +728,7 @@ public function mentorship()
     {
         
         
-        $data['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $data['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         $data['email'] =  $email;
@@ -760,7 +760,7 @@ public function mentorship()
     {
         
         
-        $data['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $data['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         $data['email'] =  $email;
@@ -2545,28 +2545,28 @@ public function group_members_api()
 
     }
 
-    	public function learning_wema($email="",$platform="",$unique_code=""){
+    	public function learning_wema($first_name="",$last_name="",$uid="",$program_type="",$course="",$platform=""){
 
-    			$email = strtolower(urldecode($email));
+    			$uid = strtolower(urldecode($uid));
     			$platform = $platform;
-    			$state = 'Ekiti';
-    			$unique_code = $unique_code.time();
-    			session()->set('email', $email);   
+    			$state = 'smedan';
+    			$uid = $uid.time();
+    			session()->set('uid', $uid);   
                 
                 session()->set('account_type', 'startup');
-                session()->set('wema_email', $email);
+                session()->set('wema_uid', $uid);
                 $data = array(
 
-                	'email' => $email,
+                	'uid' => $uid,
                 	'state' => $state,
                 	'account_type' => $platform,
-                	'ref' => $unique_code
+                	'ref' => $uid
                 	
 
                 );
 
                 $this->gfa_model->wema_course_access($data);
-                return redirect()->to('https://ekiti-wema.dimpified.com/portal/gfa/learning_path');
+                return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/learning_path');
 
     }
     public function learning_wema_api()
@@ -2576,19 +2576,24 @@ public function group_members_api()
         // Ensure it's a POST request
         if ($this->request->getMethod() === 'post') {
             // Retrieve form data from POST request
-            $email = $this->request->getPost('email');
-            $unique_code = $this->request->getPost('unique_code');
+            
+            $first_name = $this->request->getPost('first_name');
+            $last_name = $this->request->getPost('last_name');
+            $uid = $this->request->getPost('uid');
+            $program_type = $this->request->getPost('program_type');
+            $course = $this->request->getPost('course');
+            // $unique_code = $this->request->getPost('unique_code');
             $platform = $this->request->getPost('platform');
 
             // Basic validation (check if all required fields are filled)
-            if (!empty($email) && !empty($unique_code) && !empty($platform)) {
+            if (!empty($first_name) && !empty($last_name) && !empty($uid) && !empty($program_type) && !empty($course) && !empty($platform)) {
                 // Perform login or verification logic here
                 
                 // If login/verification is successful, redirect to the specified URL
                 return $this->response->setJSON([
                     'status' => 'success',
                     'message' => 'Login successful',
-                    'url' =>'https://ekiti-wema.dimpified.com/portal/gfa/learning_wema/'.$email.'/'.$unique_code.'/'.$platform.''
+                    'url' =>'https://smedan-learning.remsana.com/portal/gfa/learning_wema/'.$first_name.'/'.$last_name.'/'.$uid.'/'.$program_type.'/'.$course.'/'.$platform.''
                 ])->setStatusCode(Response::HTTP_OK);
                 //return redirect()->to('https://nora.cipme.ci/portal/gfa/learning');
             } else {
@@ -2613,7 +2618,7 @@ public function group_members_api()
         
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
-        $title['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $title['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $data['email'] =  $email;
         $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
     	$learnerDetails = $this->admin_model->getAllStartUpNByEmail($email);
@@ -2708,7 +2713,7 @@ public function group_members_api()
         
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
-        $title['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $title['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $data['email'] =  $email;
         $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
     	$learnerDetails = $this->admin_model->getAllStartUpNByEmail($email);
@@ -2826,7 +2831,7 @@ public function group_members_api()
         
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
-        $title['page_title'] = "Ekiti Wema Empowerment Program for MSMES";
+        $title['page_title'] = "smedan Wema Empowerment Program for MSMES";
         $data['email'] =  $email;
         $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
         $main_cat = "soft skill";
@@ -2862,7 +2867,7 @@ public function group_members_api()
     public function login()
 
     {
-        return redirect()->to("https://gfa-tech.com/wema.lms.login/");
+        return redirect()->to("https://smedan.remsana.com/wema.lms.login/");
 
         // $title['page_title'] = "FGN-ALAT Login Upskilling Programme";
         // $title['sliders'] = $this->gfa_model->getAllSlider();
@@ -5483,12 +5488,12 @@ $data_connection = array(
             $profile_request = $this->gfa_model->getBornoCertificateData($ucode);
     
             if($ucode == $profile_request[0]['ucode']) {
-                $data['page_title'] = "Certificate of Completion - Ekiti Wema Empowerment Program for MSMES";
+                $data['page_title'] = "Certificate of Completion - smedan Wema Empowerment Program for MSMES";
                 $data['certData'] = $profile_request;
             
                 $html = view('certificate2', $data);
                 $pdf = new Pdf();
-                $certificate_name = 'Ekiti Wema-certificate'.time().'.pdf';
+                $certificate_name = 'smedan Wema-certificate'.time().'.pdf';
                 $pdf->generate($html, $certificate_name);
             
             } else {
@@ -5970,7 +5975,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
     }
       public function signinAction() {
 
-				        return redirect()->to("https://gfa-tech.com/wema.lms.login/");
+				        return redirect()->to("https://smedan.remsana.com/wema.lms.login/");
 
 				//         $email  = strtolower($this->request->getPost("email"));
 
@@ -6226,7 +6231,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
         $time_submit = date("Y-m-d H:i:s", time());
         //$cert_type = array("fgn-alat-course","fgn-alat-soft");
         // Combine the parts to form the reference code
-        $refCodeNysc = "WEMAEKITI{$currentYear}/{$currentMonth}/{$currentDay}/{$randomNumber}";
+        $refCodeNysc = "WEMAsmedan{$currentYear}/{$currentMonth}/{$currentDay}/{$randomNumber}";
         $getCerticateData = $this->gfa_model->get_user_learning_summary($email); 
         $getCertificateCourse = $this->gfa_model->getCertificateEmailCourseWemaEkiti($email);
         //print_r($getCerticateData);
@@ -6244,7 +6249,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
                 'email' => $email,
                 'ref' => $random_2,
                 'prog' => $refCodeNysc,
-                'cert_type' => "ekiti-wema-course",
+                'cert_type' => "smedan-wema-course",
                 'time_submit' => $time_submit,
                 'status' => "active",
                 'course' => $getCerticateData[0]['CurrentlyOngoing'],
@@ -6306,7 +6311,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
                 'email' => $email,
                 'ref' => $random_2,
                 'prog' => $refCodeNysc,
-                'cert_type' => "ekiti-wema-soft",
+                'cert_type' => "smedan-wema-soft",
                 'time_submit' => $time_submit,
                 'status' => "active",
                 'course' => $getCerticateData[0]['courses'],
@@ -6332,7 +6337,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
 	{
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }		
-		$title['page_title'] = "Certificate Center - Ekiti Wema Empowerment Program for MSMES";
+		$title['page_title'] = "Certificate Center - smedan Wema Empowerment Program for MSMES";
        	$data['getStartUpDetails'] = $this->gfa_model->getStartUpDetails($email);
         $data['email'] =$email;
 
@@ -6348,7 +6353,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
 	{
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }		
-		$title['page_title'] = "Certificate not eligible - Ekiti Wema Empowerment Program for MSMES";
+		$title['page_title'] = "Certificate not eligible - smedan Wema Empowerment Program for MSMES";
         $data['course_type'] =$course_type;
         $data['email'] =$email;
 
@@ -6364,7 +6369,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
 	{
         // $email  = session()->get('email') ;
        if(($ref == '')){ return redirect()->to(base_url('gfa/login')); }		
-		$data['page_title'] = "Certificate of Completion Soft Skills - Ekiti Wema Empowerment Program for MSMES";
+		$data['page_title'] = "Certificate of Completion Soft Skills - smedan Wema Empowerment Program for MSMES";
         $data['certData'] =$this->gfa_model->getCertificateEmailCourseRef($ref);
 		// echo view('head_doc',$title);
         // echo view('nav_new',$title);
@@ -6375,7 +6380,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
         // Create an instance of the Pdf library
         $pdf = new Pdf();
 
-        $certificate_name = 'ekiti-wema-certificate-soft'.time().'.pdf';
+        $certificate_name = 'smedan-wema-certificate-soft'.time().'.pdf';
 
         // Generate the PDF and display it in the browser
         $pdf->generate($html, $certificate_name);
@@ -6387,7 +6392,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
 	{
 //$email  = session()->get('email') ;
        if(($ref == '')){ return redirect()->to(base_url('gfa/login')); }		
-		$data['page_title'] = "Certificate of Completion - Ekiti Wema Empowerment Program for MSMES";
+		$data['page_title'] = "Certificate of Completion - smedan Wema Empowerment Program for MSMES";
         $data['certData'] =$this->gfa_model->getCertificateEmailCourseRef($ref);
 		// echo view('head_doc',$title);
         // echo view('nav_new',$title);
@@ -6401,7 +6406,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
         // Create an instance of the Pdf library
         $pdf = new Pdf();
 
-        $certificate_name = 'ekiti-wema-certificate'.time().'.pdf';
+        $certificate_name = 'smedan-wema-certificate'.time().'.pdf';
 
         // Generate the PDF and display it in the browser
         $pdf->generate($html, $certificate_name);
@@ -8763,7 +8768,7 @@ public function signoutAction()
     }
     session()->destroy(); 
 
-    return redirect()->to("https://gfa-tech.com/wema.lms.login/");
+    return redirect()->to("https://smedan.remsana.com/wema.lms.login/");
 }
 
 public function checkProfileErrorDemo()
@@ -9797,7 +9802,7 @@ public function sendMailTicket($recipient_email, $message,$subject)
         $mail->Port =465;
         
         //$mail->setFrom('info@totalcpfa-ng.com');
-        $mail->From ="info@gfa-tech.com";
+        $mail->From ="info@remsana.com";
         $mail->FromName ="FGN/ALAT Digital Skillnovation Program For MSMEs";
         //$mail->addReplyTo('info@trixpmedia.com');
         $mail->addAddress($recipient_email);

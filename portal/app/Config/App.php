@@ -30,7 +30,7 @@ class App extends BaseConfig
     // @var bool
     // public $displayErrorDetails = false; 
     
-    public string $baseURL = 'https://ekiti-wema.dimpified.com/portal/';
+    public string $baseURL = 'https://smedan-learning.remsana.com/portal/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

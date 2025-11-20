@@ -9,7 +9,7 @@
         © <script>
         document.write(new Date().getFullYear())
         </script>
-        , All rights resevered. Created with ❤️ by <a href="https://gfa-tech.com" target="_blank" class="fw-semibold">GFA Technologies Team</a>
+        , All rights resevered. Created with ❤️ by <a href="https://katsina.remsana.com" target="_blank" class="fw-semibold">REMSANA Technologies Team</a>
       </div>
       <!-- <div> -->
         

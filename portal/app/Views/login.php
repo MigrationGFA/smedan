@@ -92,7 +92,7 @@
                 </div>
                 <div class="logo">
                   <a class="navbar-brand" href="#">
-                  <!-- https://gfa-tech.com/wema.lms.login/public/assets/images/logo.webp -->
+                  <!-- https://smedan.remsana.com/wema.lms.login/public/assets/images/logo.webp -->
                     <img
 
                       
