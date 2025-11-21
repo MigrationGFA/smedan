@@ -1,0 +1,25 @@
+ERROR - 2025-11-21 15:59:28 --> mysqli_sql_exception: Unknown column 'uid' in 'field list' in C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `we...', 0)
+#1 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `we...')
+#2 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `we...')
+#3 C:\xampp\htdocs\smedan\portal\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `we...', Array, false)
+#4 C:\xampp\htdocs\smedan\portal\app\Models\GfaModel.php(5801): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\smedan\portal\app\Controllers\Gfa.php(2568): App\Models\GfaModel->wema_course_access(Array)
+#6 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(934): App\Controllers\Gfa->learning_wema('John', 'Doe', 'stu123451763737...', 'smedan', 'smedan')
+#7 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+#8 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\smedan\portal\index.php(69): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-11-21 15:59:28 --> Unknown column 'uid' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `wema_course_access` (`uid`, `state`, `account_type`, `ref`) VALUES (\'stu123451763737167\', \'smedan\', \'\', \'stu123451763737167\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wema_course_access` (`uid`, `state`, `account_type`, `ref`) VALUES (\'stu123451763737167\', \'smedan\', \'\', \'stu123451763737167\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wema_course_access` (`uid`, `state`, `account_type`, `ref`) VALUES (\'stu123451763737167\', \'smedan\', \'\', \'stu123451763737167\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wema_course_access` (`uid`, `state`, `account_type`, `ref`) VALUES (:uid:, :state:, :account_type:, :ref:)', [...], false)
+ 5 APPPATH\Models\GfaModel.php(5801): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Gfa.php(2568): App\Models\GfaModel->wema_course_access([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->learning_wema('John', 'Doe', 'stu123451763737167', 'smedan', 'smedan')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(69): CodeIgniter\CodeIgniter->run()
