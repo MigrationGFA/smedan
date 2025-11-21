@@ -5851,7 +5851,7 @@ $data_connection = array(
                 );
 
                 $this->gfa_model->wema_course_access($data);
-                return redirect()->to('https://katsina-learning.remsana.com/portal/gfa/dashboard');
+                return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
 
     }
 
@@ -5878,7 +5878,7 @@ $data_connection = array(
                 return $this->response->setJSON([
                     'status' => 'success',
                     'message' => 'Login successful',
-                    'url' =>'https://katsina-learning.remsana.com/portal/gfa/learning_wema/'.$first_name.'/'.$last_name.'/'.$email.'/'.$program_type.''
+                    'url' =>'https://smedan-learning.remsana.com/portal/gfa/learning_wema/'.$first_name.'/'.$last_name.'/'.$email.'/'.$program_type.''
                 ])->setStatusCode(Response::HTTP_OK);
                 //return redirect()->to('https://nora.cipme.ci/portal/gfa/learning');
             } else {
