@@ -47,7 +47,7 @@
                        <div class="avatar-content">GFA</div>
                     </div>
                     <div class="list-item-body flex-grow-1">
-                      <p class="media-heading"><span class="fw-bolder">Congratulation Seun ðŸŽ‰</span></p><small class="notification-text"> Welcome to GFA.</small>
+                      <p class="media-heading"><span class="fw-bolder">Congratulation Seun ð???</span></p><small class="notification-text"> Welcome to GFA.</small>
                     </div>
                   </div></a><a class="d-flex" href="#">
                   <div class="list-item d-flex align-items-start">
@@ -65,7 +65,7 @@
                       </div>
                     </div>
                     <div class="list-item-body flex-grow-1">
-                      <p class="media-heading"><span class="fw-bolder">Announcement ðŸ‘‹</span>&nbsp;New Partnership</p><small class="notification-text"> With Microsoft</small>
+                      <p class="media-heading"><span class="fw-bolder">Announcement ð???</span>&nbsp;New Partnership</p><small class="notification-text"> With Microsoft</small>
                     </div>
                   </div></a>
                 <div class="list-item d-flex align-items-center">
@@ -133,9 +133,17 @@
 
       ?>
               </span></div><span class="avatar"><img class="round" src="<?php echo base_url().$showPhoto ?>" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="<?php echo base_url(); ?>gfa/profile_corperate"><i class="me-50" data-feather="user"></i> Profile</a>
 				
-           <a class="dropdown-item" href="<?php echo base_url(); ?>gfa/signoutActionAdmin"><i class="me-50" data-feather="power"></i> Logout</a>
+            <?php if($admin_access=='admin' || $admin_access=='sub-admin'){ echo '';}else{ ?>
+            <a class="dropdown-item" href="<?php echo base_url(); ?>gfa/startup_profile_corperate"><i class="me-50" data-feather="credit-card"></i>Add Startup/SME</a>
+            <a class="dropdown-item" href="<?php echo base_url(); ?>gfa/invite_user"><i class="me-50" data-feather="credit-card"></i>Invite Admin</a>
+            <a class="dropdown-item" href="<?php echo base_url(); ?>gfa/manage_user"><i class="me-50" data-feather="credit-card"></i>Manage Admin</a>
+            <?php }   ?>
+              <div class="dropdown-divider"></div><!--<a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a>-->
+              <!--<a class="dropdown-item" href="<?php echo base_url(); ?>gfa/subscribe"><i class="me-50" data-feather="credit-card"></i>Subscription</a>-->
+              <!--<a class="dropdown-item" href="<?php echo base_url(); ?>gfa/billing"><i class="me-50" data-feather="credit-card"></i>Billing</a>-->
+              <!--<a class="dropdown-item" href="#"><i class="me-50" data-feather="help-circle"></i> FAQ</a>--><a class="dropdown-item" href="<?php echo base_url(); ?>gfa/signoutAction"><i class="me-50" data-feather="power"></i> Logout</a>
             </div>
           </li>
         </ul>

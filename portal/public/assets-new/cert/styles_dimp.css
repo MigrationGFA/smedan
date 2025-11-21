@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Marcellus&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sofia&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Change as needed */
+}
+
+.certificate-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 20px; /* Add some margin to the sides */
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay h1 {
+  position: absolute;
+  top: 45.5%;
+  left: 59%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 1.2rem; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 18px; /* Adjust as needed */
+}
+
+.text-overlay h2 {
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 0.8rem; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.text-overlay h3 {
+  position: absolute;
+  top: 60%;
+  left: 40.3%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 10px; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+.text-overlay h4 {
+  position: absolute;
+  top: 68.7%;
+  left: 21%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 14px; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+.text-overlay h5 {
+  position: absolute;
+  top: 74%;
+  left: 75%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 10px; /* Adjust as needed */
+  color: #1d1b1b; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.text-overlay p {
+  position: absolute;
+  top: 3%;
+  left: 83%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+
+  font-size: 8px; /* Adjust as needed */
+  color: #000; /* Change as needed */
+}

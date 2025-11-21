@@ -31,8 +31,6 @@
             $getOneTicket = $this->gfa_model->getOneTicket($id);
             $t_id = $getOneTicket[0]['ticket_id'];
             $getViewTickets = $this->gfa_model->getViewTickets($t_id);
-			$getTicketRole = $this->gfa_model->getTicketRole($t_id);
-
         ?>
 
         <div class="d-flex justify-content-between align-items-center">
@@ -68,8 +66,7 @@
                                     <textarea name="message" class="form-control" rows="2" required></textarea>
                                     </div>
                                     <input type="hidden" name="ticket_id" value="<?= $t_id?>">
-        
-                                    <input type="hidden" name="role" value="<?= $getTicketRole == 'Guest' ? $getTicketRole : 'Admin'; ?>">
+                                    <input type="hidden" name="role" value="Admin">
                                 </div>
                                 <div class="col-12 mt-2">
                                     <button type="submit" class="btn btn-success EventBtn mb-2">Send</button><span class="displayAction"></span>

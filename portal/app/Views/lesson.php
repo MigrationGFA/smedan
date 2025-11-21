@@ -93,7 +93,7 @@ if ($position !== false) {
             <a href="<?php echo base_url("gfa/lesson/{$prevId}/{$lesson_url_prev}") ?>" class="btn rounded-pill btn-primary">Previous</a>
             <?php }  ?>
             <?php if(!empty($getNextData)){  $lesson_url_next = str_replace(" ","-", $getNextData['title']); $nextId = $getNextData['id']; ?>
-            <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark">Next</a>
+            <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark userActivity" ls="<?= $getNextData['title'];  ?>">Next</a>
             <?php }  ?>
             <?php if($getQuizByLessonIdData[0]['lesson_id'] ==''){  echo ''; }else{ ?>
             <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" class="btn rounded-pill btn-secondary">Quiz</a>
@@ -129,7 +129,7 @@ if ($position !== false) {
             </div>
             <div class="d-flex flex-column">
               <span class="fw-medium">Admin</span>
-              <small class="text-muted">FGNALAT </small> 
+              <small class="text-muted">GFA </small> 
             </div>
           </div>
         </div>
@@ -298,10 +298,10 @@ if ($position !== false) {
     margin-bottom: 10px;
   } */
 
-  /* .toggle {
-     cursor: pointer;
-     background: #000;
-   } */
+  // .toggle {
+  //   cursor: pointer;
+  //   background: #000;
+  // }
 
   /* .sections-container {
     display: flex;

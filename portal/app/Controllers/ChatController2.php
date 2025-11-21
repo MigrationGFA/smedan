@@ -59,10 +59,10 @@ class ChatController2 extends BaseController
         
         if ($account_type == 'mentorship') {
              $results = $this->gfa_model->db->table('startups_inv')
-                    ->select("Primary_Contact_Name AS ReceiverName, Contact_Email AS ReceiverEmail, Is_Online")
+                    ->select("Primary_Contact_Name AS ReceiverName, Contact_Email AS ReceiverEmail")
                 	->whereIn('Batch', ['A'])
                 	->whereIn('Interest_Fund_Raise', ['Aspiring Business Owner', 'Business Owner'])
-                    ->orderBy('Is_Online', "desc")
+                    ->orderBy('STUP_ID', "desc")
                     ->limit(1000)
                     ->get();
                        

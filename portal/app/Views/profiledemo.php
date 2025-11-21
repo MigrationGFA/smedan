@@ -2,7 +2,6 @@
   $this->gfa_model = model('App\Models\GfaModel');
   $this->admin_model = model('App\Models\AdminModel');
    ?>
-  
       <!-- BEGIN: Content-->
     <div class="app-content content ">
       <div class="content-overlay"></div>

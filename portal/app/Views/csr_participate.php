@@ -52,7 +52,7 @@ $row =  $this->gfa_model->getAllCsr(); foreach($row as $rowStoryArray){ ?>
             <div class="avatar me-50">
                 <?php           $getPhoto =  $this->gfa_model->getPhotoUploaded($rowStoryArray['email']);  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 

@@ -37,14 +37,12 @@ $routes->add('admin', 'Admin::index');
 $routes->add('gfa', 'Gfa::index');
 $routes->add('gfa/(:any)', 'Gfa::$1');
 // $routes->add('chat/(:any)', 'ChatController::$1');
-$routes->add('calendar/(:any)', 'CalendarController::$1');
 $routes->add('chat', 'ChatController2::index');
 $routes->add('chat/(:any)', 'ChatController2::$1');
 
 $routes->group('api/v1', ['filter' => 'verifyapirequest'], function ($routes) {
     $routes->post('validateuseronsso', 'ApiController::validateUserOnSSO');
     $routes->get('allgroupmembers', 'ApiController::group_members_api');
-    $routes->post('updatecoursestatus', 'ApiController::updateCourseStatus');
 });
 
 // $routes->set404Override('');

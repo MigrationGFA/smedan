@@ -25,7 +25,7 @@
       
       $getPhoto =  $getSpeaker['speakerPhoto'];  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/files/".$getPhoto; 

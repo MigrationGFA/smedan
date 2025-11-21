@@ -236,7 +236,7 @@ $row = $this->gfa_model->getAllJobByEmail($email);  foreach($row as $rowStoryArr
 
     $getPhoto =  $this->gfa_model->getLogoUploaded($email);  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 

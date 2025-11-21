@@ -11,21 +11,21 @@ class ChatModel2 extends Model
     
     public function getChatContacts($senderEmail)
     {
-         $query = $this->db->query("CALL GetRecentChatsForFgn(?)", [$senderEmail]);
+         $query = $this->db->query("CALL GetRecentChatsForGateway(?)", [$senderEmail]);
     
         return $query->getResultArray();
     }
     
     public function getLatestChatMessage($senderEmail)
     {
-      $query = $this->db->query("CALL GetLatestChatMessageForFgn(?)", [$senderEmail]);
+      $query = $this->db->query("CALL GetLatestChatMessageForGateway(?)", [$senderEmail]);
     
         return $query->getResultArray();
     }
     
     public function fetchFirstChat($senderEmail, $receiverEmail)
     {
-       $query = $this->db->query("CALL FetchFirstChatForFgn(?, ?)", [$senderEmail, $receiverEmail]);
+       $query = $this->db->query("CALL FetchFirstChatForGateway(?, ?)", [$senderEmail, $receiverEmail]);
     
         return $query->getRowArray(); 
        
@@ -33,7 +33,7 @@ class ChatModel2 extends Model
     
     public function getData($senderEmail, $receiverEmail)
     {
-        $query = $this->db->query("CALL GetChatMessagesForFgn(?, ?)", [$senderEmail, $receiverEmail]);
+        $query = $this->db->query("CALL GetChatMessagesForGateway(?, ?)", [$senderEmail, $receiverEmail]);
     
         return $query->getResultArray();
     }
@@ -47,13 +47,6 @@ class ChatModel2 extends Model
         $this->where('ReceiverEmail', $senderEmail);
         return $this->update();
 
-    }
-
-    public function updateIsOnline($data)
-    {
-        return $this->where('id', $data)->update($data);
-
-        // return $this->db->affectedRows();
     }
     
     public function insertChat($data)

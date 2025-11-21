@@ -35,7 +35,7 @@
                             <option value="Application Issues">Application Issues</option>
                             <option value="Assessment Issues">Assessment Issues</option>
                             <option value="Chat Issues">Chat Issues</option>
-                            <option value="Certificate">Certificate Issues</option>
+                            <option value="Certificate">Certificate</option>
                             <option value="Community Issues">Community Issues</option>
                             <option value="General Question">General Question</option>
                             <option value="Login Issues">Login Issues</option>

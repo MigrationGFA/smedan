@@ -655,14 +655,14 @@ $(wrapperx).append('<div class="removeMoreot"><div data-repeater-item><div class
      type: "POST",
      url: "<?php echo base_url('gfa/Eventpostpro'); ?>",
 	 error:function() {$(".displayAction").html('Error')},
-	 beforeSend:function() {$(".displayAction").html('Submiting Event...'); $(".EventBtn").prop('disabled', false);},
+	 beforeSend:function() {$(".displayAction").html('Submiting Event...'); $(".EventBtn").prop('disabled', true);},
 	 processData: false,
     contentType: false,
       success: function(data) {
         
 	 $(".displayAction").html(data);  
 	   //$(".saveBtn").html(data); 
-		 //$(".EventBtn").prop('disabled', true);
+		 $(".EventBtn").prop('disabled', true);
      window.open("<?php echo base_url(); ?>gfa/manage_event", "_self");
 
 

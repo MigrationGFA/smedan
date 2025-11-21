@@ -1,7 +1,3 @@
-<?php 
-                $this->gfa_model = model('App\Models\GfaModel');
-                $this->admin_model = model('App\Models\AdminModel');
-      ?>
 <div class="app-content content">
       <div class="content-overlay"></div>
       <div class="header-navbar-shadow"></div>

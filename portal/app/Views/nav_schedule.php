@@ -48,7 +48,7 @@
                   
                   <?php  echo $user_name_contact; ?>
               <?php  
-                $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+                $showPhoto = "assets/images/uploads/default-avatar.jpg";
               ?>
               </span></div><span class="avatar"><img class="round" src="<?php echo base_url().$showPhoto ?>" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
           </li>

@@ -117,7 +117,7 @@
                                 <!-- Contact items here -->
                             </ul>
                         </div>
-                    </div>
+                    </div> 
                     </div>
                     </div>
                     <!-- /Chat contacts -->
@@ -180,28 +180,28 @@
     <!-- build:js assets/vendor/js/core.js -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const sidebarToggle = document.getElementById("sidebarToggle");
-        const sidebarCloseToggle = document.getElementById("sidebarCloseToggle");
-        const sidebar = document.querySelector("#app-chat-contacts");
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebarCloseToggle = document.getElementById("sidebarCloseToggle");
+    const sidebar = document.querySelector("#app-chat-contacts");
 
-        sidebarToggle.addEventListener("click", function() {
-            const sidebarCollapsed = sidebar.classList.contains("collapse");
-            if (sidebarCollapsed) {
-                sidebar.classList.remove("show");
-            } else {
-                sidebar.classList.add("show");
-            }
-        });
-
-        sidebarCloseToggle.addEventListener("click", function() {
-            const sidebarCollapsed = sidebar.classList.contains("show");
-            if (sidebarCollapsed) {
-                sidebar.classList.remove("show");
-            } else {
-                sidebar.classList.add("show");
-            }
-        });
+    sidebarToggle.addEventListener("click", function() {
+        const sidebarCollapsed = sidebar.classList.contains("collapse");
+        if (sidebarCollapsed) {
+            sidebar.classList.remove("show");
+        } else {
+            sidebar.classList.add("show");
+        }
     });
+
+    sidebarCloseToggle.addEventListener("click", function() {
+        const sidebarCollapsed = sidebar.classList.contains("show");
+        if (sidebarCollapsed) {
+            sidebar.classList.remove("show");
+        } else {
+            sidebar.classList.add("show");
+        }
+    });
+});
     </script>
     <script src="<?= base_url('public/assets-new')?>/vendor/libs/jquery/jquery.js"></script>
     <script src="<?= base_url('public/assets-new')?>/vendor/libs/popper/popper.js"></script>

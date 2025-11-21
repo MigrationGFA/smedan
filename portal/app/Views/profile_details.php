@@ -80,7 +80,7 @@
           
             <a href="#" class="btn btn-warning backBtn" onclick="goBack()">Back</a>
             
-            <a href="<?php echo base_url('chat/'); ?>" class="btn btn-dark">Chat</a>
+            <!--<button type="button" class="btn btn-dark" data-bs-target="#referEarnModal" data-bs-toggle="modal" actionMsg="invest">Invest</button>-->
             <script>
 function goBack() {
     window.history.back();

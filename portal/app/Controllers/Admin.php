@@ -71,14 +71,14 @@ public function index()
 public function matchInvestor()
 
 	{
-	    $data['id'] =  $this->request->getPost("id");
+	    $data['id'] =  $this->input->post("id");
 	   	echo view('admin/loadInvestor',$data); 
 	}
 	
 	public function matchStartup()
 
 	{
-	    $data['id'] =  $this->request->getPost("id");
+	    $data['id'] =  $this->input->post("id");
 	   	echo view('admin/loadStartup',$data); 
 	}
 public function payment()
@@ -1296,8 +1296,8 @@ public function payment()
 	{	
 	    
         $time 	=  date("Y-m-d h:i:s A",time());
-	    $commission	= $this->request->getPost("commission");
-	    $ref	= $this->request->getPost("ref");
+	    $commission	= $this->input->post("commission");
+	    $ref	= $this->input->post("ref");
 	    
 	    $data	= 	array(
 
@@ -1315,10 +1315,10 @@ public function payment()
 		public function sendeventpro()
 
 	{
-	    $id = $this->request->getPost("id"); 
-	    $More_Info = $this->request->getPost("More_Info"); 
-	    $Email = $this->request->getPost("Email"); 
-	    $Credit = $this->request->getPost("Credit"); 
+	    $id = $this->input->post("id"); 
+	    $More_Info = $this->input->post("More_Info"); 
+	    $Email = $this->input->post("Email"); 
+	    $Credit = $this->input->post("Credit"); 
 	    $Status = 'active';
 	    $Time_submit	 	=  date("Y-m-d h:i:s A",time());
 	    $data_credit = array(
@@ -1345,12 +1345,12 @@ $this->sendMail($Email, $message,$subject);
 	public function sendinvagreementpro()
 
 	{
-	    $connect_id = $this->request->getPost("connect_id"); 
-	    $edit_id = $this->request->getPost("edit_id");
-	    $email = $this->request->getPost("email"); 
-	    $admin = $this->request->getPost("admin"); 
-	    //$content = utf8_decode(html_entity_decode(htmlentities($this->request->getPost("content"), ENT_QUOTES))); 
-	    $content = $this->request->getPost("content");
+	    $connect_id = $this->input->post("connect_id"); 
+	    $edit_id = $this->input->post("edit_id");
+	    $email = $this->input->post("email"); 
+	    $admin = $this->input->post("admin"); 
+	    //$content = utf8_decode(html_entity_decode(htmlentities($this->input->post("content"), ENT_QUOTES))); 
+	    $content = $this->input->post("content");
 	    $status = 'pending';
 	    $time_submit	 	=  date("Y-m-d h:i:s A",time());
 	    $data_agreement = array(
@@ -1388,10 +1388,10 @@ $subject = "Onboarding Credit Activated";
 	public function sendcreditpro()
 
 	{
-	    $id = $this->request->getPost("id"); 
-	    $More_Info = $this->request->getPost("More_Info"); 
-	    $Email = $this->request->getPost("Email"); 
-	    $Credit = $this->request->getPost("Credit"); 
+	    $id = $this->input->post("id"); 
+	    $More_Info = $this->input->post("More_Info"); 
+	    $Email = $this->input->post("Email"); 
+	    $Credit = $this->input->post("Credit"); 
 	    $Status = 'active';
 	    $Time_submit	 	=  date("Y-m-d h:i:s A",time());
 	    $data_credit = array(
@@ -1421,7 +1421,7 @@ $this->sendMail($Email, $message,$subject);
 	{
 	    
 	    
-	    $id = $this->request->getPost("id"); 
+	    $id = $this->input->post("id"); 
 	    	
 	   	$this->admin_model->deleteFile($id); 
 	}
@@ -1430,7 +1430,7 @@ $this->sendMail($Email, $message,$subject);
 	{
 	    
 	    
-	    $id = $this->request->getPost("id"); 
+	    $id = $this->input->post("id"); 
 		$email = $this->gfa_model->getInviteUser($id);
 	    $this->admin_model->deleteLoginUser($email[0]['Email']);	
 	   	$this->admin_model->deleteInviteUser($id);
@@ -1442,7 +1442,7 @@ $this->sendMail($Email, $message,$subject);
 	{
 	    
 	    
-	    $id = $this->request->getPost("id"); 
+	    $id = $this->input->post("id"); 
 	    	
 	   	$this->admin_model->deleteCohort($id); 
 	}
@@ -1451,7 +1451,7 @@ $this->sendMail($Email, $message,$subject);
 	{
 	    
 	    
-	    $id = $this->request->getPost("id"); 
+	    $id = $this->input->post("id"); 
 	    	
 	   	$this->admin_model->deleteEventAttendee($id); 
 	}	
@@ -1460,7 +1460,7 @@ public function deleteCredit()
 	{
 	    
 	    
-	    $id = $this->request->getPost("id"); 
+	    $id = $this->input->post("id"); 
 	    	
 	   	$this->admin_model->deleteCredit($id); 
 	}
@@ -1491,16 +1491,16 @@ public function deleteCredit()
 		public function update_cohort_upload(){
     $this->load->library('upload');
     
-    $id  =  $this->request->getPost("id");
-    $Title  =  $this->request->getPost("Title");
-    $Short_Desc	= $this->request->getPost("Short_Desc");
-    $Main_Desc	= $_POST['Main_Desc']; //$this->request->getPost("Main_Desc");
-    $Date	= $this->request->getPost("Date");
-    $Fee	= $this->request->getPost("Fee");
-    $Cohort_Program	= $this->request->getPost("Cohort_Program");
-    $Cohort_Duration	= $this->request->getPost("Cohort_Duration");
-    $Cohort_Type	= $this->request->getPost("Cohort_Type");
-    $Demo_Date	= $this->request->getPost("Demo_Date");
+    $id  =  $this->input->post("id");
+    $Title  =  $this->input->post("Title");
+    $Short_Desc	= $this->input->post("Short_Desc");
+    $Main_Desc	= $_POST['Main_Desc']; //$this->input->post("Main_Desc");
+    $Date	= $this->input->post("Date");
+    $Fee	= $this->input->post("Fee");
+    $Cohort_Program	= $this->input->post("Cohort_Program");
+    $Cohort_Duration	= $this->input->post("Cohort_Duration");
+    $Cohort_Type	= $this->input->post("Cohort_Type");
+    $Demo_Date	= $this->input->post("Demo_Date");
     
     $Url	= "https://getfundedafrica.com/cohort/startup/?org=".str_replace(" ","-",$Title);
     $Status	= "active";
@@ -1529,17 +1529,17 @@ public function deleteCredit()
     if(!empty($dataInfo[0]['file_name'])){
        $Logo = $dataInfo[0]['file_name'] ;  
     }else{
-        $Logo	= $this->request->getPost("Logo"); 
+        $Logo	= $this->input->post("Logo"); 
     }
      if(!empty($dataInfo[1]['file_name'])){
        $Banner = $dataInfo[1]['file_name'] ;  
     }else{
-         $Banner	= $this->request->getPost("Banner");
+         $Banner	= $this->input->post("Banner");
     }
      if(!empty($dataInfo[2]['file_name'])){
        $Partner_logo = $dataInfo[2]['file_name'] ;  
     }else{
-      $Partner_logo	= $this->request->getPost("Partner_logo");  
+      $Partner_logo	= $this->input->post("Partner_logo");  
         
     }
 	$data_file = array(
@@ -1571,15 +1571,15 @@ public function deleteCredit()
 	public function cohort_upload(){
     $this->load->library('upload');
     
-    $Title  =  $this->request->getPost("Title");
-    $Short_Desc	= $this->request->getPost("Short_Desc");
-    $Main_Desc	= html_entity_decode($this->request->getPost("Main_Desc"));
-    $Date	= $this->request->getPost("Date");
-    $Fee	= $this->request->getPost("Fee");
-    $Cohort_Program	= $this->request->getPost("Cohort_Program");
-    $Cohort_Duration	= $this->request->getPost("Cohort_Duration");
-    $Cohort_Type	= $this->request->getPost("Cohort_Type");
-    $Demo_Date	= $this->request->getPost("Demo_Date");
+    $Title  =  $this->input->post("Title");
+    $Short_Desc	= $this->input->post("Short_Desc");
+    $Main_Desc	= html_entity_decode($this->input->post("Main_Desc"));
+    $Date	= $this->input->post("Date");
+    $Fee	= $this->input->post("Fee");
+    $Cohort_Program	= $this->input->post("Cohort_Program");
+    $Cohort_Duration	= $this->input->post("Cohort_Duration");
+    $Cohort_Type	= $this->input->post("Cohort_Type");
+    $Demo_Date	= $this->input->post("Demo_Date");
     $Url	= "https://getfundedafrica.com/cohort/startup/?org=".str_replace(" ","-",$Title);
     $Status	= "active";
     $Time_submit	 	=  date("Y-m-d h:i:s A",time());
@@ -1772,21 +1772,21 @@ $this->admin_model->insertStartups($dataRow);
 	}
 	
 	public function startup_form(){
-	    $name = $this->request->getPost("name");
-	    $company_name = $this->request->getPost("company_name");
-	    $company_description = $this->request->getPost("company_description");
-	    $company_type = $this->request->getPost("company_type");
-	    $industry = $this->request->getPost("industry");
-	    $company_headquarters = $this->request->getPost("company_headquarters");
-	    $date_founded = $this->request->getPost("date_founded");
-	    $number_of_employees = $this->request->getPost("number_of_employees");
-	    $website = $this->request->getPost("website");
-	    $company_phone = $this->request->getPost("company_phone");
-	    $email = $this->request->getPost("email");
-	    $facebook = $this->request->getPost("facebook");
-	    $linkedin = $this->request->getPost("linkedin");
-	    $twitter = $this->request->getPost("twitter");
-	    $funding = $this->request->getPost("funding");
+	    $name = $this->input->post("name");
+	    $company_name = $this->input->post("company_name");
+	    $company_description = $this->input->post("company_description");
+	    $company_type = $this->input->post("company_type");
+	    $industry = $this->input->post("industry");
+	    $company_headquarters = $this->input->post("company_headquarters");
+	    $date_founded = $this->input->post("date_founded");
+	    $number_of_employees = $this->input->post("number_of_employees");
+	    $website = $this->input->post("website");
+	    $company_phone = $this->input->post("company_phone");
+	    $email = $this->input->post("email");
+	    $facebook = $this->input->post("facebook");
+	    $linkedin = $this->input->post("linkedin");
+	    $twitter = $this->input->post("twitter");
+	    $funding = $this->input->post("funding");
 	
 		$dataRow	= 	array(
 
@@ -1814,42 +1814,42 @@ $this->admin_model->insertStartups($dataRow);
 	}
 	
 	public function investor_form(){
-	    $countryArray = $this->request->getPost("country");
-	    $regional_focus_industriesArray = $this->request->getPost("regional_focus_industries");
+	    $countryArray = $this->input->post("country");
+	    $regional_focus_industriesArray = $this->input->post("regional_focus_industries");
         $regional_focus_industries = implode(",",$regional_focus_industriesArray); 
 	    $country = implode(",",$countryArray);
 
 	    
 	    
-	    $name = $this->request->getPost("name");
-	    $company_name = $this->request->getPost("company_name");
-	    $preference = $this->request->getPost("preference");
-	    $title = $this->request->getPost("title");
-	    $gender = $this->request->getPost("gender");
-	    $position = $this->request->getPost("position");
-	    $date_founded = $this->request->getPost("date_founded");
-	    $investor_type = $this->request->getPost("investor_type");
-	    $website = $this->request->getPost("website");
-	    $email = $this->request->getPost("email");
-	    $phone = $this->request->getPost("phone");
-	    $facebook= $this->request->getPost("facebook");
-	    $linkedin = $this->request->getPost("linkedin");
-	    $twitter = $this->request->getPost("twitter");
-	    $instagram = $this->request->getPost("instagram");
-	     $investment_stage_focus = $this->request->getPost("investment_stage_focus");
-	       $address = $this->request->getPost("address");
-	        $industry_focus = $this->request->getPost("industry_focus");
-	         $min_cheque = $this->request->getPost("min_cheque");
-	          $max_cheque = $this->request->getPost("max_cheque");
-	          $experience = $this->request->getPost("experience");
-	        $education = $this->request->getPost("education");
-	         $degree = $this->request->getPost("degree");
-	           $course = $this->request->getPost("course");
-	        $invested_companies = $this->request->getPost("invested_companies");
-	        $stage = $this->request->getPost("stage");
-	         $stage_invested_in_africa = $this->request->getPost("stage_invested_in_africa");
-	          $investment_level = $this->request->getPost("investment_level");
-	           $additional_information = $this->request->getPost("additional_information");
+	    $name = $this->input->post("name");
+	    $company_name = $this->input->post("company_name");
+	    $preference = $this->input->post("preference");
+	    $title = $this->input->post("title");
+	    $gender = $this->input->post("gender");
+	    $position = $this->input->post("position");
+	    $date_founded = $this->input->post("date_founded");
+	    $investor_type = $this->input->post("investor_type");
+	    $website = $this->input->post("website");
+	    $email = $this->input->post("email");
+	    $phone = $this->input->post("phone");
+	    $facebook= $this->input->post("facebook");
+	    $linkedin = $this->input->post("linkedin");
+	    $twitter = $this->input->post("twitter");
+	    $instagram = $this->input->post("instagram");
+	     $investment_stage_focus = $this->input->post("investment_stage_focus");
+	       $address = $this->input->post("address");
+	        $industry_focus = $this->input->post("industry_focus");
+	         $min_cheque = $this->input->post("min_cheque");
+	          $max_cheque = $this->input->post("max_cheque");
+	          $experience = $this->input->post("experience");
+	        $education = $this->input->post("education");
+	         $degree = $this->input->post("degree");
+	           $course = $this->input->post("course");
+	        $invested_companies = $this->input->post("invested_companies");
+	        $stage = $this->input->post("stage");
+	         $stage_invested_in_africa = $this->input->post("stage_invested_in_africa");
+	          $investment_level = $this->input->post("investment_level");
+	           $additional_information = $this->input->post("additional_information");
 		$dataRow	= 	array(
 
 					'name' 	=> 	 $name,
@@ -1896,7 +1896,7 @@ $this->admin_model->insertInvestors($dataRow);
 
 	{
 	    	
-	  $regional_focus_industriesArray = $this->request->getPost("id");
+	  $regional_focus_industriesArray = $this->input->post("id");
 // 	 echo print_r($regional_focus_industriesArray);
 // 	 exit;
 	 
@@ -1917,7 +1917,7 @@ $this->admin_model->insertInvestors($dataRow);
 	public function fetchStartups()
 
 	{
-	    $industryArray = $this->request->getPost("industry");
+	    $industryArray = $this->input->post("industry");
 	
 		foreach($industryArray  as $key => $n ) {
 		    
@@ -1936,7 +1936,7 @@ $this->admin_model->insertInvestors($dataRow);
 	public function fetchStartupsData()
 
 	{
-	    $industryArray = $this->request->getPost("industry");
+	    $industryArray = $this->input->post("industry");
 	
 		
 		    if($industryArray[0] !=''){
@@ -2018,7 +2018,7 @@ $this->admin_model->insertInvestors($dataRow);
 	{
 
 		
-		$id	= $this->request->getPost("id");
+		$id	= $this->input->post("id");
     	$startId = $this->admin_model->getAllStartUpsId($id);
                 echo '<div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Industry:</label>
@@ -2103,7 +2103,7 @@ echo '<div class=" col-12 col-md-12" style="margin-top:5px;">
 	public function fetchInvestor()
 
 	{
-            $id	= $this->request->getPost("id");
+            $id	= $this->input->post("id");
     	    $startId = $this->admin_model->getAllStartUpsId($id);
     	   
     	    $startFunding= $this->admin_model->getAllStartUpsFund($startId[0]['industry']);
@@ -2145,8 +2145,8 @@ echo '<tr>
 		public function fetchStartupsNNN()
 
 	{
-	     $Min_Cheque = $this->request->getPost("Min_Cheque");
-	   //   $Max_Cheque = $this->request->getPost("Max_Cheque");
+	     $Min_Cheque = $this->input->post("Min_Cheque");
+	   //   $Max_Cheque = $this->input->post("Max_Cheque");
 	   
 	  
           
@@ -2200,8 +2200,8 @@ echo '<tr>
 		public function fetchInvestorsNNN()
 
 	{
-	     $Min_Cheque = $this->request->getPost("Min_Cheque");
-	      $Max_Cheque = $this->request->getPost("Max_Cheque");
+	     $Min_Cheque = $this->input->post("Min_Cheque");
+	      $Max_Cheque = $this->input->post("Max_Cheque");
 	   
 	  
           
@@ -2255,7 +2255,7 @@ echo '<tr>
 
 	{
 	     
-	      $implementStage = $this->request->getPost("implementStage");
+	      $implementStage = $this->input->post("implementStage");
         $position = $this->admin_model->implementationStageByCode($implementStage)[0]['code_id'];
 	  
     
@@ -2319,8 +2319,8 @@ echo '<tr>
 		public function fetchStartupsNN()
 
 	{
-	     $regional_focus_industriesArray = $this->request->getPost("regional_focus_industries");
-	      $countryArray = $this->request->getPost("country");
+	     $regional_focus_industriesArray = $this->input->post("regional_focus_industries");
+	      $countryArray = $this->input->post("country");
 	   //if(!empty($regional_focus_industriesArray)){
 	       
 
@@ -2387,7 +2387,7 @@ echo '<tr>
 		public function fetchInvestorsNNIS()
 
 	{
-	     $implementStage = $this->request->getPost("implementStage");
+	     $implementStage = $this->input->post("implementStage");
           
          
          $position = $this->admin_model->implementationStageByCode($implementStage)[0]['code_id'];
@@ -2439,8 +2439,8 @@ echo '<tr>
 	public function fetchInvestorsNN()
 
 	{
-	     $regional_focus_industriesArray = $this->request->getPost("regional_focus_industries");
-	      $countryArray = $this->request->getPost("country");
+	     $regional_focus_industriesArray = $this->input->post("regional_focus_industries");
+	      $countryArray = $this->input->post("country");
 	   if(!empty($regional_focus_industriesArray)){
 	       
 
@@ -2508,8 +2508,8 @@ echo '<tr>
 		public function fetchStartupsNS()
 
 	{
-	     $industryArray = $this->request->getPost("industry");
-	      $StagesArray = $this->request->getPost("Stages");
+	     $industryArray = $this->input->post("industry");
+	      $StagesArray = $this->input->post("Stages");
 	   //if(!empty($industryArray)){
 	       
 
@@ -2583,8 +2583,8 @@ echo '<tr>
 		public function fetchStartupsN()
 
 	{
-	     $industryArray = $this->request->getPost("industry");
-	      $StagesArray = $this->request->getPost("Stages");
+	     $industryArray = $this->input->post("industry");
+	      $StagesArray = $this->input->post("Stages");
 	   //if(!empty($industryArray)){
 	       
 
@@ -2658,8 +2658,8 @@ echo '<tr>
 	public function fetchInvestorsNS()
 
 	{
-	     $industryArray = $this->request->getPost("industry");
-	      $StagesArray = $this->request->getPost("Stages");
+	     $industryArray = $this->input->post("industry");
+	      $StagesArray = $this->input->post("Stages");
 	   //if(!empty($industryArray)){
 	       
 
@@ -2727,8 +2727,8 @@ echo '<tr>
 		public function fetchInvestorsN()
 
 	{
-	     $industryArray = $this->request->getPost("industry");
-	      $StagesArray = $this->request->getPost("Stages");
+	     $industryArray = $this->input->post("industry");
+	      $StagesArray = $this->input->post("Stages");
 	   //if(!empty($industryArray)){
 	       
 
@@ -2797,7 +2797,7 @@ echo '<tr>
 	{
 	    
 	   
-          $industryArray = $this->request->getPost("industry");
+          $industryArray = $this->input->post("industry");
           
           
 	
@@ -2845,8 +2845,8 @@ echo '<tr>
 	
 	public function storystatuspro(){
 	   
-	  $id = $this->request->getPost("id");
-	  $file_status = $this->request->getPost("file_status");
+	  $id = $this->input->post("id");
+	  $file_status = $this->input->post("file_status");
 	  $rowArray = $this->admin_model->getStoryPostById($id);
 	  $personalDetails =  $this->admin_model->getAllStartUpNByEmail($rowArray[0]['email']);
 	  
@@ -2921,8 +2921,8 @@ $subject = 'Story Declined';
 	
 		public function eventstatuspro(){
 	   
-	  $id = $this->request->getPost("id");
-	  $file_status = $this->request->getPost("file_status");
+	  $id = $this->input->post("id");
+	  $file_status = $this->input->post("file_status");
 	  $rowArray = $this->admin_model->getEventsPostById($id);
 	  $personalDetails =  $this->admin_model->getAllStartUpNByEmail($rowArray[0]['email']);
 	  
@@ -2995,8 +2995,8 @@ $subject = 'Event Declined';
 	
 	public function filestatusproX(){
 	   
-	  $id = $this->request->getPost("id");
-	  $file_status = $this->request->getPost("file_status");
+	  $id = $this->input->post("id");
+	  $file_status = $this->input->post("file_status");
 	  $rowArray = $this->admin_model->getInvestorsFileUploadedById($id);
 	  $personalDetails =  $this->gfa_model->getInvestorDetails($rowArray['email']);;
 	  
@@ -3103,8 +3103,8 @@ $subject = 'Action Required — RE: [Your e-KYC application has been Denied]';
 	
 		public function filestatuspro(){
 	   
-	  $id = $this->request->getPost("id");
-	  $file_status = $this->request->getPost("file_status");
+	  $id = $this->input->post("id");
+	  $file_status = $this->input->post("file_status");
 	  $rowArray = $this->admin_model->getRecentFileUploadedXById($id);
 	  $personalDetails =  $this->admin_model->getAllStartUpNByEmail($rowArray[0]['Email']);
 	  
@@ -3177,33 +3177,33 @@ $subject = 'File Declined';
 	{
 		 $this->load->library('upload');
 		
-		$email = $this->request->getPost("email") ;
-		$name = $this->request->getPost("founderName");
-		$organization = $this->request->getPost("organization");
-		$phoneNumber = $this->request->getPost("phoneNumber");
-		$address = $this->request->getPost("address");
-		$website = $this->request->getPost("website");
-		$startup_country = $this->request->getPost("startup_country");
-		$industry = $this->request->getPost("industry");
-		$current_stage = $this->request->getPost("current_stage");
-		$Implementation_stage = $this->request->getPost("Implementation_stage");
-		$fund_to_raise = $this->request->getPost("fund_to_raise");
-		$about = $this->request->getPost("about");
-		$facebook = $this->request->getPost("facebook");
-		$linkedIn = $this->request->getPost("linkedIn");
-		$country = $this->request->getPost("country");
-		$state = $this->request->getPost("state");
-		$zipCode = $this->request->getPost("zipCode");
-		$year_founded = $this->request->getPost("year_founded");
-		$Revenue = $this->request->getPost("revenue");
-		$NoOfEmployees = $this->request->getPost("NoOfEmployees");
-		$Hear_Us = $this->request->getPost("Hear_Us");
-		$OperatingRegions = $this->request->getPost("OperatingRegions");
-		$Designation = $this->request->getPost("designation");
-		$coFounderName = $this->request->getPost("coFounderName");
-		$coDesignation = $this->request->getPost("coDesignation");
-		$Event_Name = $this->request->getPost("Event_Name");
-		$Youtube_Url = $this->request->getPost("Youtube_Url");
+		$email = $this->input->post("email") ;
+		$name = $this->input->post("founderName");
+		$organization = $this->input->post("organization");
+		$phoneNumber = $this->input->post("phoneNumber");
+		$address = $this->input->post("address");
+		$website = $this->input->post("website");
+		$startup_country = $this->input->post("startup_country");
+		$industry = $this->input->post("industry");
+		$current_stage = $this->input->post("current_stage");
+		$Implementation_stage = $this->input->post("Implementation_stage");
+		$fund_to_raise = $this->input->post("fund_to_raise");
+		$about = $this->input->post("about");
+		$facebook = $this->input->post("facebook");
+		$linkedIn = $this->input->post("linkedIn");
+		$country = $this->input->post("country");
+		$state = $this->input->post("state");
+		$zipCode = $this->input->post("zipCode");
+		$year_founded = $this->input->post("year_founded");
+		$Revenue = $this->input->post("revenue");
+		$NoOfEmployees = $this->input->post("NoOfEmployees");
+		$Hear_Us = $this->input->post("Hear_Us");
+		$OperatingRegions = $this->input->post("OperatingRegions");
+		$Designation = $this->input->post("designation");
+		$coFounderName = $this->input->post("coFounderName");
+		$coDesignation = $this->input->post("coDesignation");
+		$Event_Name = $this->input->post("Event_Name");
+		$Youtube_Url = $this->input->post("Youtube_Url");
 		$time = date("Y-m-d h:i:s A",time());
 		 $randPass = sha1(time());
 		 $password = "gfa".substr($randPass,0,5);
@@ -3368,18 +3368,18 @@ if(empty($this->admin_model->checkLoginReg($email))){
 	
 
 		$ref_id = rand(1,10).time();	
-		$package	= $this->request->getPost("package");
-		$subscription	= $this->request->getPost("subscription");
+		$package	= $this->input->post("package");
+		$subscription	= $this->input->post("subscription");
 		
 
-		$subscription_type = $this->request->getPost("subscription_type");		
+		$subscription_type = $this->input->post("subscription_type");		
 
-		$pricing_desc = $this->request->getPost("pricing_desc");
-		$amount = $this->request->getPost("amount");
-		$details = $this->request->getPost("details");
-		$per_campaign = $this->request->getPost("per_campaign");
-		$per_month = $this->request->getPost("per_month");
-		$maximum_contacts = $this->request->getPost("maximum_contacts");
+		$pricing_desc = $this->input->post("pricing_desc");
+		$amount = $this->input->post("amount");
+		$details = $this->input->post("details");
+		$per_campaign = $this->input->post("per_campaign");
+		$per_month = $this->input->post("per_month");
+		$maximum_contacts = $this->input->post("maximum_contacts");
 		
 		$status = "pending";
 		$time 	=  date("Y-m-d h:i:s A",time());
@@ -3431,19 +3431,19 @@ $this->admin_model->insertSub($data);
 	
 	
 
-		$id	= $this->request->getPost("id");	
-		$package	= $this->request->getPost("package");
-		$subscription	= $this->request->getPost("subscription");
+		$id	= $this->input->post("id");	
+		$package	= $this->input->post("package");
+		$subscription	= $this->input->post("subscription");
 		
 
-		$subscription_type = $this->request->getPost("subscription_type");		
+		$subscription_type = $this->input->post("subscription_type");		
 
-		$pricing_desc = $this->request->getPost("pricing_desc");
-		$amount = $this->request->getPost("amount");
-		$details = $this->request->getPost("details");
-		$per_campaign = $this->request->getPost("per_campaign");
-		$per_month = $this->request->getPost("per_month");
-		$maximum_contacts = $this->request->getPost("maximum_contacts");
+		$pricing_desc = $this->input->post("pricing_desc");
+		$amount = $this->input->post("amount");
+		$details = $this->input->post("details");
+		$per_campaign = $this->input->post("per_campaign");
+		$per_month = $this->input->post("per_month");
+		$maximum_contacts = $this->input->post("maximum_contacts");
 		
  		$new_entry_key          = array();
 		foreach($details as $key => $n ) {

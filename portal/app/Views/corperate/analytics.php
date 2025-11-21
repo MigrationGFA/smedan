@@ -7,7 +7,6 @@
       <div class="header-navbar-shadow"></div>
       <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
-      <h4>FGN-ALAT Login Upskilling Programme (<?php echo $batchData[0]['Description'] ?>) </h4> 
         </div>
         <div class="content-body"><!-- Dashboard Analytics Start -->
 <section id="dashboard-analytics">
@@ -27,10 +26,7 @@
 
 </section>
 <!-- Dashboard Analytics end -->
-      
-      <input type="hidden" id="batch" value="<?php echo $batchSet ?>" />
-		 <input type="hidden" id="start_date" value="<?php echo $batchData[0]['start_date'] ?>" />
-       <input type="hidden" id="end_date" value="<?php echo $batchData[0]['end_date'] ?>" />
+
         </div>
       </div>
     </div>
@@ -38,17 +34,12 @@
     
     <script>
     $(document).ready(function() {
-      var batch = $('#batch').val();
-      var start_date = $('#start_date').val();
-      var end_date = $('#end_date').val();
-      
        $(window).on('load', function() {
     
     // Perform an AJAX request after the page has loaded 1
     $.ajax({
         url: '<?php echo base_url("gfa/loadModule1") ?>',
-        method: 'POST',
-    	data:{batch:batch},
+        method: 'GET',
         beforeSend: function() {
             // Code to be executed before the AJAX request is sent
             $(".loadingPage1").html("Loading application breakdown...");
@@ -67,37 +58,14 @@
             $(".loadingPage1").html('Error:', status, error);
         }
     });
-        // Perform an AJAX request after the page has loaded 2
-    $.ajax({
-        url: '<?php echo base_url("gfa/loadModule2") ?>',
-        method: 'POST',
-    	data:{batch:batch},
-        beforeSend: function() {
-            // Code to be executed before the AJAX request is sent
-            $(".loadingPage2").html("Loading account opening analysis...");
-
-            // You can add loading indicators or other preparations here
-        },
-        success: function(response) {
-            // Code to be executed after the AJAX request is successful
-        	$(".loadingPage2").html("");
-            $(".loadModule2").html(response);
-            
-            // You can perform additional actions or manipulate the loaded content here
-        },
-        error: function(xhr, status, error) {
-            // Handle errors if the AJAX request fails
-            $(".loadingPage2").html('Error:', status, error);
-        }
-    });
-       // Perform an AJAX request after the page has loaded 2
+       
+     // Perform an AJAX request after the page has loaded 1
     $.ajax({
         url: '<?php echo base_url("gfa/loadModule3") ?>',
-        method: 'POST',
-    	data:{batch:batch,start_date:start_date,end_date:end_date},
+        method: 'GET',
         beforeSend: function() {
             // Code to be executed before the AJAX request is sent
-            $(".loadingPage3").html("Loading total application with locations...");
+            $(".loadingPage3").html("Loading application breakdown...");
 
             // You can add loading indicators or other preparations here
         },
@@ -113,11 +81,10 @@
             $(".loadingPage3").html('Error:', status, error);
         }
     });
-       // Perform an AJAX request after the page has loaded 2
+        
     $.ajax({
         url: '<?php echo base_url("gfa/loadModule4") ?>',
-        method: 'POST',
-    	data:{batch:batch},
+        method: 'GET',
         beforeSend: function() {
             // Code to be executed before the AJAX request is sent
             $(".loadingPage4").html("Loading application by gender and target...");

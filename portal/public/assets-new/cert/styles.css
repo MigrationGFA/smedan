@@ -1,73 +1,128 @@
+@font-face {
+  font-family: "Marcellus";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/marcellus/v8/7A7MEp__e6Fc4MmzGMMbR3A7DikP.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 100 700;
+  src: url("https://fonts.gstatic.com/s/robotomono/v15/4iKz51D6fdsp8wG_7EBp_4iRWo7j9u1J7Kx9tB7X8dmr3kOs1iZsX5PjA.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Sofia";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sofia/v9/1w28N8tWf7Xht_pN6_3zXb58RpaYr.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("https://fonts.gstatic.com/s/urbanist/v10/2h0EE2q1lN5V_i7sWb0A9B0HGCfsZv5iPQ9n7U7PbOq_TqU.woff2")
+    format("woff2");
+}
 
 
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0; /* Change as needed */
-      }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Change as needed */
+}
 
-      .certificate-container {
-        position: relative;
-        max-width: 100%;
-        margin: 0 20px; /* Add some margin to the sides */
-      }
+.certificate-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 20px; /* Add some margin to the sides */
+}
 
-      .certificate-image {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-      .text-overlay h1 {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        font-family: "Outfit", sans-serif;
-        font-weight: 500;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 1.8rem; /* Adjust as needed */
-        color: #990c81; /* Change as needed */
-        margin-bottom: 25px; /* Adjust as needed */
-      }
+.text-overlay h1 {
+  position: absolute;
+  top: 40%;
+  left: 28%;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 2rem; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 25px; /* Adjust as needed */
+}
 
-      .text-overlay h2 {
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 25px; /* Adjust as needed */
-        color: #990c81; /* Change as needed */
-        margin-bottom: 20px; /* Adjust as needed */
-      }
+.text-overlay h2 {
+  position: absolute;
+  top: 59%;
+  left: 26%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 1.5rem; /* Adjust as needed */
+  color: #2a2828;; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
 
-      .text-overlay h3 {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 18px; /* Adjust as needed */
-        color: #1d1b1b; /* Change as needed */
-        margin-bottom: 20px; /* Adjust as needed */
-      }
+.text-overlay h3 {
+  position: absolute;
+  top: 59%;
+  left: 40.3%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 10px; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+.text-overlay h4 {
+  position: absolute;
+  top: 65%;
+  left: 21%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-size: 14px; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+.text-overlay h5 {
+  position: absolute;
+  top: 74%;
+  left: 75%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 10px; /* Adjust as needed */
+  color: #1d1b1b; /* Change as needed */
+  margin-bottom: 20px; /* Adjust as needed */
+}
 
-      .text-overlay p {
-        position: absolute;
-        top: 5%;
-        left: 56%;
-        font-family: "Outfit", sans-serif;
-        font-weight: 500;
-        
-        font-size: 10px; /* Adjust as needed */
-        color: #990c81; /* Change as needed */
-      }
+.text-overlay p {
+  position: absolute;
+  top: 2%;
+  left: 83%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+
+  font-size: 8px; /* Adjust as needed */
+  color: #ffffff; /* Change as needed */
+}

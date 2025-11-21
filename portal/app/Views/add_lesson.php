@@ -16,7 +16,7 @@
                    
                     <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>gfa/manage_lesson">Manage Lesson</a>
                     </li>
-                     <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>gfa/add_quiz">+ Add Quiz</a> 
+                     <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>gfa/add_quiz">+ Add Quiz</a>
                     </li>
                     
                     

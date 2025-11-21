@@ -1,16 +1,17 @@
 <?php 
   $this->gfa_model = model('App\Models\GfaModel');
+  $totalJobs = is_array($this->gfa_model->getAllJobs()) ? count($this->gfa_model->getAllJobs()) : 0;
    ?>
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
-
-      <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
+  
+ 
+	  <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
           <i class="ti ti-menu-2 ti-sm"></i>
         </a>
       </div>
 
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-
         
         <!-- Search -->
         <!--<div class="navbar-nav align-items-center">-->
@@ -69,7 +70,7 @@
                     <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                       <i class="ti ti-user fs-4"></i>
                     </span>
-                     <a href="<?php // echo base_url("gfa/dashboard") ?>" class="stretched-link">Learning</a>
+                     <a href="<?php echo base_url("gfa/dashboard") ?>" class="stretched-link">Learning</a>
                     <small class="text-muted mb-0">Dashboard</small>
                   </div>
                   <div class="dropdown-shortcuts-item col">
@@ -133,12 +134,19 @@
             </div>
           </li> -->
           <!-- Quick links -->
-
+<!-- <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('gfa/all_job_details'); ?>">
+              <button class="btn btn-sm btn-primary clickAction" lsm="Job Application">
+                Apply for Jobs                
+              </button>
+              <span class="badge bg-danger rounded-pill badge-notifications"><?=$totalJobs?></span>
+            </a>
+          </li> -->
           <!-- Notification -->
           <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
               <i class="ti ti-bell ti-md"></i>
-              <span class="badge bg-danger rounded-pill badge-notifications">4</span>
+              <span class="badge bg-danger rounded-pill badge-notifications">0</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end py-0">
               <li class="dropdown-menu-header border-bottom">
@@ -149,7 +157,7 @@
               </li>
               <li class="dropdown-notifications-list scrollable-container">
                 <ul class="list-group list-group-flush">
-                  <!-- <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                     <li class="list-group-item list-group-item-action dropdown-notifications-item">
                    
                         <div class="d-flex">
                             
@@ -158,36 +166,11 @@
                           <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-chart-pie"></i></span>
                         </div>
                       </div>
-                      <a href="<?php // echo base_url("gfa/notify/5/Job-Alert") ?>"><div class="flex-grow-1">
+                      <a href="#<?php echo base_url("gfa/notify/2/Learning-Guidelines") ?>"><div class="flex-grow-1">
                         <h6 class="mb-1">Information Desk</h6>
-                        <p class="mb-0">Job Alert</p>
+                        <p class="mb-0">Learning Guidelines</p>
                         <small class="text-muted"><?php  
-                        // $timestamp = strtotime('2024-04-03 8:00:00'); // Replace with your actual timestamp
-                                      //  echo $this->gfa_model->timeAgo($timestamp); 
-                        ?></small>
-                      </div></a>
-                      <div class="flex-shrink-0 dropdown-notifications-actions">
-                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                        <a href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                      </div>
-                      
-                    </div>
-                    
-                  </li> -->
-                  <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                   
-                        <div class="d-flex">
-                            
-                      <div class="flex-shrink-0 me-3">
-                        <div class="avatar">
-                          <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-chart-pie"></i></span>
-                        </div>
-                      </div>
-                      <a href="<?php echo base_url("gfa/notify/6/FGN-ALAT-Referral-Winners") ?>"><div class="flex-grow-1">
-                        <h6 class="mb-1">Information Desk</h6>
-                        <p class="mb-0">First Batch Of Referral Winners</p>
-                        <small class="text-muted"><?php  
-                        $timestamp = strtotime('2024-05-24 14:00:00'); // Replace with your actual timestamp
+                        $timestamp = strtotime('2024-01-17 17:00:00'); // Replace with your actual timestamp
                                         echo $this->gfa_model->timeAgo($timestamp); 
                         ?></small>
                       </div></a>
@@ -208,58 +191,7 @@
                           <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-chart-pie"></i></span>
                         </div>
                       </div>
-                      <a href="<?php echo base_url("gfa/notify/3/Activate-Your-FGN-ALAT-Bank-Account") ?>"><div class="flex-grow-1">
-                        <h6 class="mb-1">Information Desk</h6>
-                        <p class="mb-0">Activate Your FGN-ALAT Bank Account</p>
-                        <small class="text-muted"><?php  
-                        $timestamp = strtotime('2024-02-27 8:00:00'); // Replace with your actual timestamp
-                                        echo $this->gfa_model->timeAgo($timestamp); 
-                        ?></small>
-                      </div></a>
-                      <div class="flex-shrink-0 dropdown-notifications-actions">
-                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                        <a href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                      </div>
-                      
-                    </div>
-                    
-                  </li>
-                  <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                   
-                        <div class="d-flex">
-                            
-                      <div class="flex-shrink-0 me-3">
-                        <div class="avatar">
-                          <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-chart-pie"></i></span>
-                        </div>
-                      </div>
-                      <a href="<?php echo base_url("gfa/notify/4/Next-Stage-of-FGN-ALAT-Digital-Skillnovation-Program") ?>"><div class="flex-grow-1">
-                        <h6 class="mb-1">Information Desk</h6>
-                        <p class="mb-0">Next Stage of FGN-ALAT Digital Skillnovation Program</p>
-                        <small class="text-muted"><?php  
-                        $timestamp = strtotime('2024-02-23 17:00:00'); // Replace with your actual timestamp
-                                        echo $this->gfa_model->timeAgo($timestamp); 
-                        ?></small>
-                      </div></a>
-                      <div class="flex-shrink-0 dropdown-notifications-actions">
-                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                        <a href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                      </div>
-                      
-                    </div>
-                    
-                  </li>
-                     
-                  <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                   
-                        <div class="d-flex">
-                            
-                      <div class="flex-shrink-0 me-3">
-                        <div class="avatar">
-                          <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-chart-pie"></i></span>
-                        </div>
-                      </div>
-                      <a href="<?php echo base_url("gfa/notify/1/Survey-on-services-for-your-growth") ?>"><div class="flex-grow-1">
+                      <a href="#<?php echo base_url("gfa/notify/1/Survey-on-services-for-your-growth") ?>"><div class="flex-grow-1">
                         <h6 class="mb-1">Information Desk</h6>
                         <p class="mb-0">Survey on services for your growth</p>
                         <small class="text-muted"><?php  
@@ -311,20 +243,20 @@
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block"><?=$email?></span>
+                      <span class="fw-semibold d-block"><?php echo $StartupArray[0]['Primary_Contact_Name']  ?></span>
                       <small class="text-muted"><?= $StartupArray[0]['Startup_Company_Name']  ?></small>
                     </div>
                   </div>
                 </a>
               </li>
               <li>
-               <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div>
               </li>
               <li>
-               <a class="dropdown-item" href="<?php echo base_url('gfa/profilestartup'); ?>">
-                 <i class="ti ti-user-check me-2 ti-sm"></i>
-                 <span class="align-middle">My Profile</span>
-               </a>
+                <a class="dropdown-item" href="<?php echo base_url('gfa/profilestartup'); ?>">
+                  <i class="ti ti-user-check me-2 ti-sm"></i>
+                  <span class="align-middle">My Profile</span>
+                </a>
               </li>
 			   
 			  <!--<li>-->
@@ -396,3 +328,52 @@
 
       <!-- Content wrapper -->
       <div class="content-wrapper">
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+      <script>
+$(document).ready(function () {
+  $(".clickAction").click(function (e) {
+    e.preventDefault(); // stop default navigation
+ 
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function () {
+  $(".clickAction").click(function (e) {
+    e.preventDefault(); // stop default navigation
+
+    var getValue = $(this).attr("lsm");
+    var userData = {
+      event: getValue,
+      url: window.location.pathname,
+      referrer: document.referrer,
+      userAgent: navigator.userAgent,
+      screen: window.screen.width + "x" + window.screen.height,
+      language: navigator.language || navigator.userLanguage,
+      timestamp: new Date().toISOString(),
+      session_id: "sess005",
+      app_name: "Kaduna Upskill",
+      email: "<?php echo isset($email) ? $email : ''; ?>"
+    };
+
+    $.ajax({
+      url: 'https://gfa-tech.com/portal/gfa/page_view_events',
+      type: 'POST',
+      data: userData,
+      success: function (response) {
+        console.log("Data sent successfully:", response);
+        // Navigate after tracking
+        window.location.href = "<?php echo base_url('gfa/all_job_details'); ?>";
+      },
+      error: function (xhr, status, error) {
+        console.error("Error sending data:", error);
+        window.location.href = "<?php echo base_url('gfa/all_job_details'); ?>";
+      }
+    });
+  });
+});
+</script>
+

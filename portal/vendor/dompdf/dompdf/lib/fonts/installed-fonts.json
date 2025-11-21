@@ -1,29 +1,50 @@
 {
-    "dongle": {
-        "300": "C:\\xampp\\htdocs\\fgn\\fgn-alat\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/dongle_300_9349b4d2e9c3a08b6ca71d1901552fcd",
-        "normal": "C:\\xampp\\htdocs\\fgn\\fgn-alat\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/dongle_normal_3dc617c702b771c195bfe021bf7f3768",
-        "bold": "dongle_bold_93a8698586afa0fa8a0480f8c76b6f95"
+    "dancing script": {
+        "normal": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/dancing_script_normal_57f62b9db724483dd74bcf7e72f6fa14",
+        "500": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/dancing_script_500_7ef06bbf2eab695258b736de51053696",
+        "600": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/dancing_script_600_021a7032258a9368fda9188b94cdea2d",
+        "bold": "dancing_script_bold_bd0823ab0770f675ba23d3ebd683592e"
     },
-    "rampart one": {
-        "normal": "rampart_one_normal_25a91c1c6984bd4b88326bd6b462950b"
+    "marcellus": {
+        "normal": "marcellus_normal_3584226aeabae45bba3a60368c930074"
     },
-    "cookie": {
-        "normal": "cookie_normal_5898caf42950bcbd07c955bc566f5331"
+    "roboto mono": {
+        "100_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_100_italic_12a66c2d3ad9d6962bd750a8483e1c36",
+        "200_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_200_italic_f979bf86f6e58e55247c0da76ae0839d",
+        "300_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_300_italic_4347049e96c2cb0e4adb5e379b1f339f",
+        "italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_italic_b6de51b739f488c0f14085dc9d2d126e",
+        "500_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_500_italic_cebf7f4ed711608b8568bbcd525e6362",
+        "600_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_600_italic_a942458d12dde410c34cd9d3119c8b40",
+        "bold_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_bold_italic_7676298c75ec50857f9848f92ace4c33",
+        "100": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_100_0096e562ef39723eeb73cc29116ee118",
+        "200": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_200_b3a465664e0ac8d65ce223adbfce178f",
+        "300": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_300_fec321538db636b4866b8c7d9af87c2c",
+        "normal": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_normal_4bc0b0c44b32a9f9b9f76564b2c6afa1",
+        "500": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_500_a658bb903902ae82c0f8835039bf7f73",
+        "600": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/roboto_mono_600_957fbd94f6016f33a94d696ceab72382",
+        "bold": "roboto_mono_bold_19c1cc1175205657777002ccb3023a27"
     },
-    "outfit": {
-        "100": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_100_9aa2fa082087cd5eb076ac69328bf7c0",
-        "200": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_200_b264c26ce792f8d61caf4b78de1b6b41",
-        "300": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_300_aa7bbb813abdd624f7711842f96c48a7",
-        "normal": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_normal_4c4beae9ee8ba86b6b3544a4ae9583a2",
-        "500": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_500_9c7b15f5835e846e37fc472d14e10339",
-        "600": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_600_45476b029db8737f6b73d8f1bd1272b8",
-        "bold": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_bold_6ccba8ca533806e6a09b21b5090092f7",
-        "800": "C:\\xampp\\htdocs\\ekiti_wema\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/outfit_800_9717c2ff255d4b653f33a486cefab091",
-        "900": "outfit_900_47cdb3fb134fb8410688a81105e52d02"
+    "sofia": {
+        "normal": "sofia_normal_f45b6f341a9d13166854ca2b6a9aa1b8"
     },
-    "poppins": {
-        "normal": "C:\\xampp\\htdocs\\fgn-alat\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_normal_a62832bf75823019dc29c5a9c470d64d",
-        "500": "C:\\xampp\\htdocs\\fgn-alat\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_500_a885de0ea35a644243715bf64b6d1a65",
-        "600": "poppins_600_ca6698540fb485d7b756c91a54a37d8e"
+    "urbanist": {
+        "100_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_100_italic_58f6c4a7aac33afe2cf393362ba5fe2e",
+        "200_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_200_italic_e8a91df7f4d8e62690c6b04b5f5c3927",
+        "300_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_300_italic_c0ef4ae3b5520a329d5ff7415ea77abf",
+        "italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_italic_e23a184ea0584902da0ae509a4e74b1f",
+        "500_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_500_italic_aa827de868247507653b9f1f4b13e6a5",
+        "600_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_600_italic_ec55ba721fab6777887931b39fd8c5b6",
+        "bold_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_bold_italic_93a9334ff947a8395dbad989e6e2cdf2",
+        "800_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_800_italic_afa78af2bdcfa1ec49672363bbcb62dd",
+        "900_italic": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_900_italic_512858a96ffc85b2e67f6368a8287ae4",
+        "100": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_100_c6a3695722502cc25c5cb688b9235120",
+        "200": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_200_db6fe9c0f7fb6bb1340dad9d7deaaf89",
+        "300": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_300_8c4e170e7b581db7a47085f3a540b753",
+        "normal": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_normal_a05d6f85b0658eb17df72bc59d490be9",
+        "500": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_500_3cf9808dcb3c133352e8b2632970a0bc",
+        "600": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_600_c42ce526139cf4fa2cec499887a2e795",
+        "bold": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_bold_a69fad8d8108435abb8f5d90e99c963c",
+        "800": "C:\\xampp\\htdocs\\kaduna-digital-academy\\portal\\vendor\\dompdf\\dompdf\/lib\/fonts\/urbanist_800_bd2ae489bc8c0af6c13e9a780d45645c",
+        "900": "urbanist_900_9b4cc202ce4c6f6e3cceb394a8100f4e"
     }
 }

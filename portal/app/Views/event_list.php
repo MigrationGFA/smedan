@@ -1,3 +1,4 @@
+
   <?php 
   $this->gfa_model = model('App\Models\GfaModel');
   $this->admin_model = model('App\Models\AdminModel');

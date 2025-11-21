@@ -85,8 +85,7 @@
       <li class="nav-item"><a class="nav-link active" href="#"><i class='ti ti-user-check ti-xs me-1'></i> Profile</a></li>
       <!--<li class="nav-item"><a class="nav-link" href="pages-profile-teams.html"><i class='ti ti-users ti-xs me-1'></i> Teams</a></li>-->
       <!--<li class="nav-item"><a class="nav-link" href="pages-profile-projects.html"><i class='ti ti-layout-grid ti-xs me-1'></i> Projects</a></li>-->
-      <li class="nav-item"><a class="nav-link" href="<?php echo base_url("chat") ?>"><i class='ti ti-link ti-xs me-1'></i> Chat</a></li>
-      <!-- <li class="nav-item"><a class="nav-link" href="<?php echo base_url("chat/index/{$groupHeadDetails[0]['STUP_ID']}") ?>"><i class='ti ti-link ti-xs me-1'></i> Chat</a></li> -->
+      <li class="nav-item"><a class="nav-link" href="<?php echo base_url("gfa/chat") ?>"><i class='ti ti-link ti-xs me-1'></i> Chat</a></li>
     </ul>
   </div>
 </div>

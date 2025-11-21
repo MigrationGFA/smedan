@@ -1,6 +1,5 @@
-<?php 
-  $this->gfa_model = model('App\Models\GfaModel');
-?><!DOCTYPE html>
+<?php $this->gfa_model = model('App\Models\GfaModel'); ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,29 +20,27 @@
       rel="apple-touch-icon"
       href="https://getfundedafrica.com/gfa/upload/cropped-TG-Thumb-180x180.png"
     />
-    <link rel="stylesheet" href="<?php echo base_url('public/assets-new/cert_soft/styles.css'); ?>" />
-    
+    <link rel="stylesheet" href="<?php echo base_url('public/assets-new/cert/styles.css'); ?>" />
   </head>
   <body>
     <div class="certificate-container">
       <img
-        src="<?php echo base_url('public/assets-new/cert_soft/Certificate_alat.jpg'); ?>"
+        src="<?php echo base_url('public/assets-new/cert/Certificate_soft.jpg'); ?>"
         alt="Certificate"
         class="certificate-image"
       />
 
       <div class="text-overlay">
         <p><?php echo $certData[0]['prog'] ?></p>
-        <h1>
-          <?php 
-            $nameArray = explode(" ", $certData[0]['name']);
-            echo ucwords(trim(($nameArray[0] ?? ''). ' '.($nameArray[2] ?? '') .' '.($nameArray[1] ?? ''))); 
-          ?>
-        </h1>
-        <h2> <?php echo str_replace(",","|",$certData[0]['course']) ?> </h2>
-        <h3><?php echo date("F Y",time()); ?> </h3>
+        <h1><?php 
+          $nameArray = explode(" ", $certData[0]['name']);
+          echo ucwords(trim(($nameArray[0] ?? ''). ' '.($nameArray[2] ?? '') .' '.($nameArray[1] ?? ''))); 
+        ?></h1>
+        <h3>
+          <?php echo str_replace(","," |",$certData[0]['course']) ?>
+        </h3>
+        <h4><?php echo date("F Y", strtotime($certData[0]['time_submit'])); ?></h4>
       </div>
     </div>
-    <!-- Print and Export to PDF buttons -->
   </body>
 </html>

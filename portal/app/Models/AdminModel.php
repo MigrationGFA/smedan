@@ -10,90 +10,7 @@ class AdminModel extends Model
   protected $table = 'payment';
 	 
 //GENERAL
-#==================================== Mentor_Startups=================================================
-public function matchAllMentorStartup($PrimaryBusinessIndustry, $Mentorship, $Startup_Implementation_Stage)
-    {
-        $builder = $this->db->table('Startups_Inv');
-        
-        if (!empty($Mentorship)) {
-            $builder->like('Mentorship', $Mentorship, 'both');
-        }
 
-        if (!empty($Startup_Implementation_Stage)) {
-            $builder->like('Startup_Implementation_Stage', $Startup_Implementation_Stage, 'both');
-        }
-
-       
-
-        if (!empty($PrimaryBusinessIndustry)) {
-            $builder->groupStart();
-            foreach ($PrimaryBusinessIndustry as $key => $industry) {
-                if ($key === 0) {
-                    $builder->like('PrimaryBusinessIndustry', $industry, 'both');
-                } else {
-                    $builder->orLike('PrimaryBusinessIndustry', $industry, 'both');
-                }
-            }
-            $builder->groupEnd();
-        }
-
-        $query = $builder->get();
-        $countRows = $query->getNumRows();
-
-        if ($countRows > 0) {
-            return $query->getResultArray();
-        } else {
-            return [];
-        }
-        
-    }
-public function countMentorConnect($email,$connectionType)
-{           
-        $builder = $this->db->table('all_connections');
-        $builder->where('email', $email);
-        $builder->where('connection', $connectionType);
-        $query = $builder->get();
-
-        if ($query->getNumRows() > 0) {
-            return $query->getNumRows();
-        } else {
-            return 0;
-        }
-    
-            
-}
-public function countMentorStartup($primaryBusinessIndustry, $mentorForcus, $startupImplementationStage)
-{
-    return $this->db->table('Startups_Inv')
-       
-        ->groupStart()
-            ->like("PrimaryBusinessIndustry", $primaryBusinessIndustry ?? '', 'both', '!', true)
-            ->orLike("CurrentInvestmentStage", $startupImplementationStage ?? '', 'both', '!', true)
-            ->orLike("Startup_Implementation_Stage", $startupImplementationStage ?? '', 'both', '!', true)
-            ->orLike("Mentorship", $mentorForcus ?? '', 'both', '!', true)
-        ->groupEnd()
-        ->get()
-        ->getNumRows();
-}
-public function matchMentorStartup($primaryBusinessIndustry, $mentorForcus, $startupImplementationStage)
-{
-    return $this->db->table('Startups_Inv')
-        ->limit(50)
-       
-        ->groupStart()
-            ->like("PrimaryBusinessIndustry", $primaryBusinessIndustry ?? '', 'both', '!', true)
-            // ->orLike("CurrentInvestmentStage", $startupImplementationStage ?? '', 'both', '!', true)
-            ->orLike("Startup_Implementation_Stage", $startupImplementationStage ?? '', 'both', '!', true)
-            ->orLike("Mentorship", $mentorForcus ?? '', 'both', '!', true)
-        ->groupEnd()
-        ->get()
-        ->getResultArray();
-}
-
-
-
-#=====================================End Mentor_Startups ============================================
-//edit-investor 1
 public function getAdminByEmail($email)
     {
         $query = $this->db->table('admin')
@@ -106,8 +23,6 @@ public function getAdminByEmail($email)
             return [];
         }
     }
-
-
 
 public function matchAllStartup($PrimaryBusinessIndustry, $CurrentInvestmentStage, $Startup_Implementation_Stage, $CountryHQ, $Next_Funding_Round_Target_Sought)
     {
@@ -2884,7 +2799,7 @@ public function getAllEventsPost()
     if ($query->getNumRows() > 0) {
         return $query->getResultArray();
     } else {
-        return null;
+        return 0;
     }
 }
 

@@ -31,8 +31,8 @@
       <div class="card display_1">
          
         <div class="card-header">
-          <p><h2 class="mb-1 text-center">Welcome <?= ucwords($learnerDetails[0]['Primary_Contact_Name']) ?>!</h2></p>
-        <p class="mb-2 text-center">Congratulations for being shortlisted for the FGN/ALAT Digital Skillnovation Program for MSMEs.</p>
+          <p></p><h2 class="mb-1 text-center">Welcome <?= ucwords($learnerDetails[0]['Primary_Contact_Name']) ?>!</h2></p>
+        <p class="mb-2 text-center">Congratulations for being shortlisted for the POLARIS BANK Digital Skillnovation Program for MSMEs.</p>
         </div>
         <div class="card-body">
           <form class="form form-horizontal submitForm" action="#" enctype="multipart/form-data">
@@ -117,7 +117,7 @@
       <!-- Verification of BVN/NIN  -->
       <div class="card display_2" style="display:none">
         <div class="card-header text-center">
-          <p><h2 class="mb-1">Verify and Update your Information</h2></p>
+          <p></p><h2 class="mb-1">Verify and Update your Information</h2></p>
         <!--<p class="mb-2">Kindly verify your BVN/NIN</p>-->
         </div>
         <div class="card-body">
@@ -195,7 +195,7 @@
       <!-- Final Form  -->
       <div class="card display_3" style="display:none">
         <div class="card-header text-center">
-           <p><h2 class="mb-1">Group Information</h2></p>
+           <p></p><h2 class="mb-1">Group Information</h2></p>
         <!--<p class="mb-2">Take your course </p>-->
         </div>
         <div class="card-body">
@@ -281,19 +281,12 @@
       <div class="card display_4" style="display:none">
          
         <div class="card-header">
-          <p><h2 class="mb-1 text-center">Completion is Key</h2></p>
-        <!-- <p>You have been assigned a total of 22 compulsory soft skill courses for the next one month. These courses will be accessible to you every weekday until Wednesday, December 27th, 2023. After this date, you will have the flexibility to study the remaining assigned courses within the next three months.</p>
+          <p></p><h2 class="mb-1 text-center">Completion is Key</h2></p>
+        <p>You have been assigned a total of 22 compulsory soft skill courses for the next one month. These courses will be accessible to you every weekday until Wednesday, December 27th, 2023. After this date, you will have the flexibility to study the remaining assigned courses within the next three months.</p>
 
   <p>To progress through these courses, make sure to access each lesson daily on weekdays. Each lesson will be available until the specified deadline. It's important to click the "Complete" button at the bottom of every lesson to indicate that you have studied the material and to proceed to the next lesson. Upon completing all course lessons, locate and click the "Finish Course" button positioned in red at the top right corner of the page. This action is essential to officially mark the course as completed and ensure it is added to your profile, confirming your achievement.</p>
 
-  <p>Take advantage of the opportunity to enhance your soft skills, and ensure that you manage your time effectively to complete all the assigned courses within the given timeframe. If you have any questions or concerns, feel free to reach out to <a href="mailto:fgnalat@wemabank.com">fgnalat@wemabank.com</a>. Good luck with your studies!</p> -->
-
-  <p>You have been assigned compulsory soft skill with your main courses. These courses will be accessible to you every weekday before your main course is introduce. You will have the flexibility to study the remaining assigned courses within three months.</p>
-<p>To progress through these courses, make sure to access each lesson daily. Each lesson will be available until the specified deadline. </p>
- 
-<p>Take advantage of the opportunity to enhance your soft, technical and technological skills, ensure that you manage your time effectively to complete all the assigned courses within the given timeframe. If you have any questions or concerns, feel free to reach out to fgnalat@wemabank.com. </p>
- 
-<p>Good luck with your studies!</p>
+  <p>Take advantage of the opportunity to enhance your soft skills, and ensure that you manage your time effectively to complete all the assigned courses within the given timeframe. If you have any questions or concerns, feel free to reach out to <a href="mailto:fgnalat@wemabank.com">fgnalat@wemabank.com</a>. Good luck with your studies!</p>
 
         </div>
         <div class="col-sm-9 offset-sm-3">

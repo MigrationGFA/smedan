@@ -36,7 +36,7 @@
       
       $getPhoto =  $gfa_model->getPhotoUploaded($profile_request[0]['Contact_Email']);  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 

@@ -1,7 +1,5 @@
-<?php 
-                $this->gfa_model = model('App\Models\GfaModel');
-                $this->admin_model = model('App\Models\AdminModel');
-      ?>
+<?php $admin_model = new \App\Models\AdminModel(); ?>
+<?php $gfa_model = new \App\Models\GfaModel(); ?>
 <div class="content-wrapper">
 
 <section class="content">

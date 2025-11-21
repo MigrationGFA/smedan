@@ -22,7 +22,9 @@
              if(empty($getPhoto)){
           $showPhoto = "public/assets-new/img/avatars/default-img.jpg";
       }else{
-        $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name'];  
+         
+         $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 
+          
       }
          ?>
   <div class="col-xl-4 col-lg-6 col-md-6">
@@ -70,7 +72,7 @@
         <!--</div>-->
         <div class="d-flex align-items-center justify-content-center">
           <a href="<?php echo base_url("gfa/profile_details/{$courseArray['STUP_ID']}") ?>" class="btn btn-primary d-flex align-items-center me-3"><i class="ti-xs me-1 ti ti-user-check me-1"></i>View Profile</a>
-          <a href="<?php echo base_url("chat/index/{$courseArray['STUP_ID']}") ?>" class="btn btn-light d-flex align-items-center me-3"><i class="ti-xs me-1 ti ti-link me-1"></i>Chat</a>
+          <a href="<?php echo base_url("chat/index/{$courseArray['STUP_ID']}") ?>" class="btn btn-light d-flex align-items-center me-3"><i class="ti-xs me-1 ti ti-link me-1"></i>Chat</a>     
           <!-- <a href="javascript:;" class="btn btn-label-secondary btn-icon"><i class="ti ti-mail ti-sm"></i></a> -->
         </div>
       </div>

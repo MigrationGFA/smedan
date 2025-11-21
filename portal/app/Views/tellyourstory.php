@@ -42,7 +42,7 @@
           <div class="d-flex">
               <?php           $getPhoto =  $this->gfa_model->getPhotoUploaded($checkYourStory[0]['email']);  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 

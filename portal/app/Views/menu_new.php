@@ -5,14 +5,14 @@
     <!-- BEGIN: Main Menu-->
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
       <div class="navbar-header">
-       <center><a href="<?php echo base_url('gfa/dashboard'); ?>gfa/dashboard"><img src="<?php echo base_url('public/assets/images/logo.webp'); ?>" align="center"></a></center>
+       <center><a href="<?php echo base_url('gfa/dashboard'); ?>gfa/dashboard"><img src="<?php echo base_url('public/assets/images/logo/GFA-Logo-.png'); ?>" align="center"></a></center>
         
     </div><br> <br> <br>
       <div class="shadow-bottom"></div>
       <div class="main-menu-content">
           <?php 
                 
-                //$loginkey = $this->gfa_model->getWpCred($email);
+                $loginkey = $this->gfa_model->getWpCred($email);
                 $rowArray = $this->admin_model->getAllStartUpNByEmail($email);
            ?>
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
@@ -30,7 +30,26 @@
        <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/group_members'); ?>">
            <i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Group Members</span></a>
        </li>
-       
+           
+       <!-- <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-users"></i>
+        <div data-i18n="Contact Admin">Contact Admin</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="<?php echo base_url("gfa/support_ticket") ?>" class="menu-link">
+            <div data-i18n="Open Ticket">Open Ticket</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="<?php echo base_url("gfa/all_tickets") ?>" class="menu-link">
+            <div data-i18n="All Tickets">All Tickets</div>
+          </a>
+        </li>
+      </ul>
+    </li> -->
+           
           <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/signoutAction'); ?>">
            <i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Logout</span></a>
        </li>

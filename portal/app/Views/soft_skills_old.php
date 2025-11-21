@@ -18,9 +18,8 @@
     <div class="card-header d-flex flex-wrap justify-content-between gap-3">
       <div class="card-title mb-0 me-1">
         <h5 class="mb-1">Soft Skill</h5>
-        <p class="text-muted mb-0">You have been assigned a total of 22 compulsory soft skill courses. Each course will become accessible daily on weekdays until Wednesday, December 27th, 2023. After this date, you can proceed to study other assigned courses within the next three months.</p>
   
-        <p class="text-muted mb-0">Ensure that you click the "Complete" button at the bottom of every lesson, indicating your completion before moving on to the next lesson. Upon finishing all the course lessons, find and click the "Finish Course" button in red at the top right corner of the page. This action is crucial to officially mark the course as completed and ensure it is added to your profile, confirming your achievement.</p>
+        
       </div>
       <input type="hidden" id="action_email" value="<?php echo $email; ?>">
     <!--  <div class="d-flex justify-content-md-end align-items-center gap-3 flex-wrap">-->
@@ -65,25 +64,21 @@
                 <!--<a class="app-academy-md-50 btn btn-label-secondary me-md-2 d-flex align-items-center" href="<?= $courseArrayToday[0]['lmslink'];  ?>">-->
                 <!--  <i class="ti ti-rotate-clockwise-2 align-middle scaleX-n1-rtl  me-2 mt-n1 ti-sm"></i><span>Start Over</span>-->
                 <!--</a>-->
-                <!-- <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center" href="<?= $courseArrayToday[0]['lmslink'];  ?>"> 
-                  <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
-                </a> -->
+             <?php   $cours_url =  str_replace(" ","-",$courseArrayToday[0]['coursetitle']); 
+                    $getActiveSection = $this->gfa_model->getSectionByCourseIdActive($courseArrayToday[0]['id']);
+                    $getActiveLesson = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
+                    $lesson_url = str_replace(" ","-",$getActiveLesson[0]['title']);
+             ?>
+                <a class="app-academy-md-50 btn btn-label-success d-flex align-items-center" ls="<?= $courseArrayToday[0]['coursetitle'];  ?>" href="<?php echo base_url("gfa/course/{$courseArrayToday[0]['id']}/{$cours_url}") ?>"> 
+                  <span class="me-2">Review</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
+                </a> 
 
-                <?php 
-                    $lms_link = $courseArrayToday[0]['lmslink'];
-                    $course_title = $courseArrayToday[0]['coursetitle'];
-                    $course_id = $courseArrayToday[0]['id'];
-                    $item_id = $courseArrayToday[0]['item_id'];
-                    if (strpos($lms_link, 'remsana') !== false) {
-                      $encoded_course_title = urlencode($course_title);
-                      $course_redirect_url = "https://remsana.getfundedafrica.com/sso.php?key=".$loginkey[0]['LoginKey']."&course_url=".$lms_link."&course_id=".$course_id."&item_id=".$item_id;
-                    }
-                    
-                ?>
+             <?php if($getActiveLesson[0]['title'] !="") {  ?>  
 
-                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $courseArrayToday[0]['coursetitle'];  ?>" onclick="saveSSOAction('take_course', '<?php echo $course_redirect_url ?>')"> 
+                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
+                <?php }  ?>
               </div>
             </div>
           </div>
@@ -176,13 +171,20 @@
               <!--<div class="progress mb-4" style="height: 8px">-->
               <!--  <div class="progress-bar w-50" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>-->
               <!--</div>-->
+              <?php   $cours_url =  str_replace(" ","-",$courseDetailsPrev['coursetitle']); 
+                    $getActiveSection = $this->gfa_model->getSectionByCourseIdActive($courseDetailsPrev['id']);
+                    $getActiveLesson = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
+                    $lesson_url = str_replace(" ","-",$getActiveLesson[0]['title']);
+             ?>
              <div class="d-flex flex-column flex-md-row gap-2 text-nowrap">
-                <!--<a class="app-academy-md-50 btn btn-label-secondary me-md-2 d-flex align-items-center" href="<?php echo $courseDetailsPrev['lmslink']; ?>">-->
-                <!--  <i class="ti ti-rotate-clockwise-2 align-middle scaleX-n1-rtl  me-2 mt-n1 ti-sm"></i><span>Start Over</span>-->
-                <!--</a>-->
-                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $courseDetailsPrev['coursetitle'];  ?>" href="<?php echo $courseDetailsPrev['lmslink']; ?>"> 
+                <a class="app-academy-md-50 btn btn-label-success me-md-2 d-flex align-items-center" ls="<?= $courseDetailsPrev['coursetitle'];  ?>" href="<?php echo base_url("gfa/course/{$courseDetailsPrev['id']}/{$cours_url}") ?>">
+                  <i class="ti ti-chevron-right align-middle scaleX-n1-rtl  me-2 mt-n1 ti-sm"></i><span>Review</span>
+                </a>
+                 <?php if($getActiveLesson[0]['title'] !="") {  ?>
+                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
+                <?php }  ?>
               </div>
             </div>
           </div>

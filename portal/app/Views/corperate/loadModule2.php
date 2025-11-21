@@ -1,7 +1,6 @@
 <?php 
                 $this->gfa_model = model('App\Models\GfaModel');
                 $this->admin_model = model('App\Models\AdminModel');
-				$sql =  $this->gfa_model->WemaBankAnalysis($batch);
       ?>
 <div class="col-xl-12 col-md-6 col-12">  
       <div class="card card-statistics">
@@ -21,7 +20,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo $sql[0]['HaveWemaAcct'];  //$this->gfa_model->countAccountInterest("Yes") ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countAccountInterest("Yes") ?></h4>
                   <p class="card-text font-small-3 mb-0">Have Wema Account</p>
                 </div>
               </div>
@@ -34,7 +33,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NoWemaAcct'];  //$this->gfa_model->countAccountInterest("No") ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countAccountInterest("No") ?></h4>
                   <p class="card-text font-small-3 mb-0">No Wema Account</p>
                 </div>
               </div>
@@ -47,7 +46,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NeedWemaBankAccount'];  //  $this->gfa_model->countNeedAccount() ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countNeedAccount() ?></h4>
                   <p class="card-text font-small-3 mb-0">Need Wema Account</p>
                 </div>
               </div>
@@ -61,7 +60,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['BVN']; //  $this->gfa_model->countRegBVNX() ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countRegBVNX() ?></h4>
                   <p class="card-text font-small-3 mb-0">BVN</p>
                 </div>
               </div>
@@ -75,7 +74,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NIN'];   //$this->gfa_model->countRegNINX() ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countRegNINX() ?></h4>
                   <p class="card-text font-small-3 mb-0">NIN</p>
                 </div>
               </div>
@@ -89,7 +88,7 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NeedAcctWithBVNORNIN'];   //  $this->gfa_model->countRegNIN() ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countRegNIN() ?></h4>
                   <p class="card-text font-small-3 mb-0">Need Wema Acct with BVN/NIN</p>
                 </div>
               </div>
@@ -102,22 +101,8 @@
                   </div>
                 </div>
                 <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NeedAcctWithoutBVNORNIN'];  //$this->gfa_model->countRegBVN() ?></h4>
+                  <h4 class="fw-bolder mb-0"><?php echo  $this->gfa_model->countRegBVN() ?></h4>
                   <p class="card-text font-small-3 mb-0">Need Wema Acct without BVN/NIN</p>
-                </div>
-              </div>
-            </div>
-      
-      		 <div class="col-xl-4 col-sm-6 col-12 me-2">
-              <div class="d-flex flex-row">
-                <div class="avatar bg-light-primary me-2">
-                  <div class="avatar-content">
-                    <i data-feather="link-2" class="avatar-icon"></i>
-                  </div>
-                </div>
-                <div class="my-auto">
-                  <h4 class="fw-bolder mb-0"><?php echo  $sql[0]['NoNeedAcctWithoutBVNORNIN'];  //$this->gfa_model->countRegBVN() ?></h4>
-                  <p class="card-text font-small-3 mb-0">No Need Wema Acct without BVN/NIN</p>
                 </div>
               </div>
             </div>
@@ -131,4 +116,3 @@
         </div>
       </div>
     </div>
-    

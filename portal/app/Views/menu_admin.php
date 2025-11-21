@@ -18,6 +18,11 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
          <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Admin </span><i data-feather="more-horizontal"></i>
          
+          
+         
+ 
+         
+          
          
       <li class=" nav-item active"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('admin/'); ?>">
            <i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Admin Dashboard</span></a>
@@ -75,22 +80,33 @@
               <!--<li><a class="d-flex align-items-center" href="<?php echo base_url(); ?>gfa/course_quizz" alt="Quizz"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">Quiz</span></a></li>-->
              </ul>
           </li>
-
-          <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/manage_ticket'); ?>">
+       
+           <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/manage_ticket'); ?>">
             <i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Manage Tickets</span></a>
           </li>
-       
-          <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/manage_comments'); ?>">
-           <i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Manage Comments</span></a>
-       	  </li>
            
           <li class=" nav-item"  style="margin-top:10px;"><a class="d-flex align-items-center" href="<?php echo base_url('gfa/signoutAction'); ?>">
            <i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Logout</span></a>
-          </li>
+       </li>
+         
+           
+          
+         
+          
+           
+          
+          
+          
+           
+          
+         
+          
          
            <!--<li class=" nav-item active"  style="margin-top:10px;"><a class="d-flex align-items-center" href="https://events.getfundedafrica.com" target="_blank">-->
            <!--<i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Events</span></a>-->
             
+          
+          
         </ul>
       </div>
     </div>

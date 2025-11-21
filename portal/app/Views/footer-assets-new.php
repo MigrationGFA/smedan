@@ -9,17 +9,17 @@
         © <script>
         document.write(new Date().getFullYear())
         </script>
-        , All rights resevered. Created with ❤️ by <a href="https://katsina.remsana.com" target="_blank" class="fw-semibold">REMSANA Technologies Team</a>
+        , All rights resevered. Created with ❤️ by <a href="https://gfa-tech.com" target="_blank" class="fw-semibold">REMSANA Technologies Team</a>
       </div>
-      <!-- <div> -->
+      <!-- <div>
         
-        <!-- <a href="https://getfundedafrica.com/contact-us.php" class="footer-link me-4" target="_blank">Get in touch</a>
+        <a href="https://getfundedafrica.com/contact-us.php" class="footer-link me-4" target="_blank">Get in touch</a>
         <a href="https://getfundedafrica.com/request-a-call.php" target="_blank" class="footer-link me-4">Request a call</a>
         
-        <a href="https://getfundedafrica.com/privacy.php" target="_blank" class="footer-link me-4">Privacy</a> -->
+        <a href="https://getfundedafrica.com/privacy.php" target="_blank" class="footer-link me-4">Privacy</a>
         
       
-      <!-- </div> -->
+      </div> -->
     </div>
   </div>
 </footer>
@@ -100,7 +100,7 @@
   </div>
 </div>
   
-
+  
 
   <!-- Core JS -->
   <!-- build:js assets-new/vendor/js/core.js -->
@@ -192,54 +192,6 @@
     </script>
 
 
-<script>
-  //Check if user close tab or browser so as to update is_online field
-  var isPageHidden = false;
-
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-        isPageHidden = true;
-    } else {
-        isPageHidden = false;
-    }
-});
-  $(window).on('unload', function() {
-    let currentUrl = window.location.href;
-      var targetUrl = 'http://localhost/fgn-alat';
-      if (isPageHidden || currentUrl === targetUrl) {
-      $.ajax({
-        url: '<?= base_url('gfa/signoutAction') ?>',
-        type: 'POST',
-        async: false,
-        success: function(response) {
-          console.log('User logged out successfully');
-        },
-        error: function(xhr, status, error) {
-            // console.error('Error logging out:', error);
-        }
-    });
-  }
-  });
-</script>
-<script>
-  // // Function to check session status
-  // function checkSession() {
-  //   fetch('<?= base_url('gfa/check-session') ?>')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.status === 'active') {
-  //         setTimeout(checkSession, 5 * 60 * 1000);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error('Error checking session:', error);
-  //     });
-  // }
-
-  // window.onload = function() {
-  //     setTimeout(checkSession, 5 * 60 * 1000);
-  // };
-</script>
 <!-- <script src="../../../../dist/apexcharts.js"></script> -->
 <script src="<?php echo base_url('public/assets-new/chart/assets-new/apexcharts.js'); ?>"></script>
     <script src=" <?php echo base_url('public/assets-new/chart/assets-new/data.js'); ?>"></script>

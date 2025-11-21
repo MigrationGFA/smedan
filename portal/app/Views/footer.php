@@ -35,37 +35,5 @@
         }
       })
     </script>
-
-
-<script>
-  //Check if user close tab or browser so as to update is_online field
-  var isPageHidden = false;
-
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-        isPageHidden = true;
-    } else {
-        isPageHidden = false;
-    }
-});
-  $(window).on('unload', function() {
-    let currentUrl = window.location.href;
-      var targetUrl = 'http://localhost/fgn-alat';
-      if (isPageHidden || currentUrl === targetUrl) {
-      $.ajax({
-        url: '<?= base_url('gfa/signoutAction') ?>',
-        type: 'POST',
-        async: false,
-        success: function(response) {
-          console.log('User logged out successfully');
-        },
-        error: function(xhr, status, error) {
-            // console.error('Error logging out:', error);
-        }
-    });
-  }
-  });
-</script>
-
-</body>
+  </body>
 </html>

@@ -6,8 +6,23 @@
 ?>
    <!-- Content -->
         
-<div class="container-xxl flex-grow-1 container-p-y">
-        
+<div class="container-xxl flex-grow-1 container-p-y" id="mContent">
+  
+<!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="<?php echo $nonce_value; ?>"></script>
+  <div class="col-lg-12 mb-4">
+    <div class="input-group">
+        <input type="text" class="form-control" value="<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>"  readonly="readonly" id="inputField" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="copyButton">Copy Referral Link</button>
+        </div>
+    </div>
+    <div id="revenueGenerated" class="mb-2 mt-2"><a class="btn btn-outline-primary" href="whatsapp://send?text=<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" data-action="share/whatsapp/share">Share via WhatsApp</a> 
+   <div class="fb-share-button btn btn-outline-primary" data-href="<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" data-layout="button"></div>
+   <a href="https://twitter.com/intent/tweet?url=<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">Share on Twitter</a>
+   <a href="<?php echo base_url('gfa/referral'); ?>" class="btn btn-dark">Details</a>
+   </div>
+  </div>       -->
 
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">My</span> Courses</h4>
 
@@ -46,15 +61,13 @@
            <?php if(!empty($courseArrayToday)){  ?>
            <div class="col-sm-6 col-lg-6">
           <div class="card p-2 h-100 shadow-none border"> 
-           <a href="#" class="h5">Your Course</a> 
+           <a href="#" class="h5">Your Course for this Month</a> 
             <div class="rounded-2 text-center mb-3">
-              <?php if(!empty($courseArrayToday[0]['img'])){  ?>
-              <a href="#"><img class="img-fluid" src="<?php echo base_url("public/assets-new/img/{$courseArrayToday[0]['img']}") ?>" alt="soft skill" /></a>
-            <?php } ?>
+              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseArrayToday[0]['img']?>" alt="soft skill" /></a>
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseArrayToday[0]['duration']; ?> <?php echo $courseArrayToday[0]['duration_time']; ?></ls></span>
+                <!-- <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseArrayToday[0]['duration']; ?> <?php echo $courseArrayToday[0]['duration_time']; ?></ls></span> -->
                 <h6 class="d-flex align-items-center justify-content-center gap-1 mb-0">
                  <!--<span class="text-muted"> Day <?php echo $n++ ?></span>-->
                 </h6>
@@ -75,14 +88,14 @@
                     $lesson_url = str_replace(" ","-",$getActiveLesson[0]['title']);
              ?>
                 <a class="app-academy-md-50 btn btn-label-success d-flex align-items-center userActivity" ls="<?= $courseArrayToday[0]['coursetitle'];  ?>" href="<?php 
-                if($courseArrayToday[0]['lmslink'] ==''){ echo base_url("gfa/course/{$courseArrayToday[0]['id']}/{$cours_url}"); }else{ echo base_url("gfa/course/{$courseArrayToday[0]['id']}/{$cours_url}"); } ?>"> 
+                if($courseArrayToday[0]['lmslink'] ==''){ echo base_url("gfa/course/{$courseArrayToday[0]['id']}/{$cours_url}"); }else{ echo $courseArrayToday[0]['lmslink']; } ?>"> 
                   <span class="me-2">Review</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a> 
 
              <?php if($getActiveLesson[0]['title'] !="") {  ?>  
 
                 <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php 
-                if($courseArrayToday[0]['lmslink'] ==''){ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}");}else{ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}"); }  ?>"> 
+                if($courseArrayToday[0]['lmslink'] ==''){ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}");}else{ echo $courseArrayToday[0]['lmslink']; }  ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
                 <?php }  ?>
@@ -91,19 +104,26 @@
           </div>
         </div>
         <?php } ?>
-        <?php if(!empty($courseArrayRec)){ ?>
-        <a class="h5" href="#">Technology Enabled Courses</a>
-      <?php } ?>
+        
+        <?php if (empty($courseArrayRec)) {?>
+          <a class="h5" href="<?=base_url('gfa/profilestartup')?>">
+            <div class="alert alert alert-danger my-5"  role="alert">
+            	Please Click Here to Choose A Technical Course Under The Course Details Section
+            </div>
+          </a>
+          
+        <?php } else { ?>
+      <a class="h5" href="#">You are required to complete the course Below.</a>
 			<?php $n =1;  foreach ($courseArrayRec as $courseDetailsRec) {  ?>
        
         <div class="col-sm-6 col-lg-4">
           <div class="card p-2 h-100 shadow-none border">
             <div class="rounded-2 text-center mb-3">
-              <a href="#"><img class="img-fluid" src="<?php echo base_url("uploads/files/{$courseDetailsRec['img']}") ?>" alt="soft skill" /></a>
+              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseDetailsRec['img']?>" alt="soft skill" /></a>
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseDetailsRec['duration']; ?> <?php echo $courseDetailsRec['duration_time']; ?></ls></span>
+                <!-- <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseDetailsRec['duration']; ?> <?php echo $courseDetailsRec['duration_time']; ?></ls></span> -->
                 <h6 class="d-flex align-items-center justify-content-center gap-1 mb-0">
                  <!--<span class="text-muted"> Day <?php echo $n++ ?></span>-->
                 </h6>
@@ -127,7 +147,7 @@
                 <?php if($getActiveLesson[0]['title'] !="" || $courseDetailsRec['lmslink'] !=null) {  ?>  
 
                 <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php 
-                if($courseDetailsRec['lmslink'] ==null){ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}");}else{ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}"); }  ?>"> 
+                if($courseDetailsRec['lmslink'] ==null){ echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}");}else{ echo $courseDetailsRec['lmslink']; }  ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
                 <?php }  ?>
@@ -136,10 +156,14 @@
           </div>
         </div>
         
-		<?php }  ?>
+		<?php } } ?>
          
          
+       <select id="mySelect" style="display: none;">
+                  <option value="">Option</option>
+        <option value="Option 1">Option 1</option>
        
+    </select>
 <input type="hidden" name="email" class="emailAcct" value="<?php echo $email;  ?>" />
 		
       <!--<input type="text" class="getValue" value="" />-->
@@ -147,7 +171,8 @@
       </div>
       <script>
           $(document).ready(function() {
-              $(window).on('load', function() {
+              //$(window).on('load', function() {
+        		 $('#mySelect').change(function() {
                 var email = $(".emailAcct").val();  
                   //load analytic page 
                   $.ajax({
@@ -174,20 +199,20 @@
     });
                   
               // Check if the modal has been shown before
-    //if (!localStorage.getItem('modalShown')) {
+    if (!localStorage.getItem('modalShown')) {
       // Show the modal
-      //$('#agreeGrp').modal('show');
+      $('#agreeGrp').modal('show');
 
       // Set a flag in localStorage to indicate that the modal has been shown
-      //localStorage.setItem('modalShown', 'true');
-    //}
+      localStorage.setItem('modalShown', 'true');
+    }
 
     // Event listener for modal close button
     $('#agreeGrp').on('hidden.bs.modal', function () {
       // Clear the localStorage flag when the modal is closed
       localStorage.removeItem('modalShown');
     });
-              });
+              }).change();
     
             $('.userActivity').click(function(){
                 var getValue =  $(this).attr("ls");
@@ -242,37 +267,7 @@
       <!--</nav>-->
     </div>
   </div>
-  <!-- <div class="modal fade" id="agreeGrpDRT" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-edit-user">
-      <div class="modal-content">
-        <div class="modal-header bg-transparent">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button><span class="displayError"></span>
-        </div>
-        <div class="modal-body pb-5 px-sm-5 pt-50">
-          <div class="text-center mb-2">
-            <h4 class="mb-2">Get Exclusive 50% Off Company Registration for FGN-ALAT Participants - Limited Time Offer!</h4>
-          </div>  
-          <p>
-          As a participant of the FGN-ALAT program, a 3rd party partner is offering 50% off company formation from now until May 31st, 2024.</p>
-          <p>You can register your business name, company or NG0 at 50% off.</p>
-          <p>This incredible offer comes with a host of additional benefits designed to set your business up for success:</p>
-          <br>
-
-          <ul>
-            <li>A free .com.ng domain</li>
-            <li>50% discount on a domain hosting plan</li>
-            <li>Business listing on a Marketplacee</li>
-            <li>to sell your services to 30+ countries</li>
-          </ul><br>
-
-          <p>The lawyers will guide you through the entire process, ensuring a smooth and hassle-free experience. Don't miss out on this limited-time opportunity to elevate your business at half the cost.</p><br>
-          
-          <p>Click <a href="<?php echo base_url("gfa/boss_reg") ?>" class="userActivity" ls="boss cac">here</a> to get started!</p> 
-            
-        </div>
-      </div>
-    </div>
-  </div> -->
+  
 
 </div>
 
@@ -308,3 +303,5 @@
               
           });
       </script>
+
+  

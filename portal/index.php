@@ -1,5 +1,6 @@
 <?php
-
+//include files 
+ require 'PHPMailer/PHPMailerAutoload.php';
  require 'lib/ip.php';
  
 // Check PHP version.

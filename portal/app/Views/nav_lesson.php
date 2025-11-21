@@ -25,16 +25,16 @@
 
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
-<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-            <ul class="navbar-nav flex-row align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);" onclick="goBack()">
-                        <i class="ti ti-arrow-left ti-md text-primary"></i> 
-                        <span class="text-primary">Back</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+  <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+    <ul class="navbar-nav flex-row align-items-center">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="goBack()">
+                <i class="ti ti-arrow-left ti-md text-primary"></i> 
+                <span class="text-primary">Back</span>
+            </a>
+        </li>
+    </ul>
+</div>
       
 
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -97,7 +97,7 @@
                     <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                       <i class="ti ti-user fs-4"></i>
                     </span>
-                     <a href="<?php // echo base_url("gfa/dashboard") ?>" class="stretched-link">Learning</a>
+                     <a href="<?php echo base_url("gfa/dashboard") ?>" class="stretched-link">Learning</a>
                     <small class="text-muted mb-0">Dashboard</small>
                   </div>
                   <div class="dropdown-shortcuts-item col">

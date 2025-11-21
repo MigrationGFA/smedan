@@ -24,12 +24,13 @@ class Database extends Config
     /**
      * The default database connection.
      */
+    
     public array $default = [
         'DSN'      => '',
         'hostname' => 'dimpmysql.mysql.database.azure.com',
         'username' => 'dimpified',
         'password' => '-jWxNJlsW6qC75NuC@2]',
-        'database' => 'getfylig_wema',
+        'database' => 'getfylig_gfa',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

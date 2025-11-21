@@ -1,7 +1,3 @@
- <?php 
-  $this->gfa_model = model('App\Models\GfaModel');
-  $this->admin_model = model('App\Models\AdminModel');
-   ?>
  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
@@ -12,8 +8,8 @@
             <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
           </ul>
           <ul class="nav navbar-nav bookmark-icons">
-            <!--<li class="nav-item d-none d-lg-block"><a class="nav-link" href="mailto:info@getfundedafrica.com" data-bs-toggle="tooltip" data-bs-placement="bottom" target="_blank"  title="info@getfundedafrica.com"><i class="ficon" data-feather="mail"></i></a></li>-->
-            <!--<li class="nav-item d-none d-lg-block"><a class="nav-link" href="https://calendly.com/dianateoh"  data-bs-toggle="tooltip" data-bs-placement="bottom" target="_blank" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>-->
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="mailto:info@getfundedafrica.com" data-bs-toggle="tooltip" data-bs-placement="bottom" target="_blank"  title="info@getfundedafrica.com"><i class="ficon" data-feather="mail"></i></a></li>
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="https://calendly.com/dianateoh"  data-bs-toggle="tooltip" data-bs-placement="bottom" target="_blank" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
             
             <!--<li class="nav-item d-none d-lg-block"><a class="nav-link" href="gfa-chat.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Chat"><i class="ficon" data-feather="message-square"></i></a></li>
             <li class="nav-item d-none d-lg-block"><a class="nav-link" href="gfa-todo.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
@@ -105,7 +101,7 @@
                   <?php 
                   
                   
-                  
+                  $account_type= $this->encrypt->decode($this->session->userdata('account_type'));
                  if(empty($account_type)){
                      echo $this->gfa_model->getOldStartUpDetails($email)[0]['name']; 
                  }else{
@@ -115,16 +111,19 @@
                       if($account_type=='investor'){
                   echo $this->gfa_model->getInvestorDetails($email)[0]['Contact_Name'];
                      }
+                      if($account_type=='mentor'){
+                  echo $this->gfa_model->getMentorDetails($email)[0]['Mentor_name'];
+                     }
                   }
                 ?>  
               </span><span class="user-status">
                   
-                  <?php  if(empty($account_type)){ echo "STARTUP"; }else { echo strtoupper($this->gfa_model->getInvestorDetails($email)[0]['Investor_Name']); } ?>
+                  <?php  if(empty($account_type)){ echo "STARTUP"; }else { echo strtoupper($this->gfa_model->getMentorDetails($email)[0]['Company']); } ?>
               <?php  
      
       $getPhoto =  $this->gfa_model->getPhotoUploaded($email);  
       if(empty($getPhoto)){
-          $showPhoto = "public/assets/images/uploads/default-avatar.jpg";
+          $showPhoto = "assets/images/uploads/default-avatar.jpg";
       }else{
          
          $showPhoto = "uploads/onboarding/".$getPhoto[0]['Photo_name']; 

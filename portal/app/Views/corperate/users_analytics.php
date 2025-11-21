@@ -1,8 +1,8 @@
 <?php 
                 $this->gfa_model = model('App\Models\GfaModel');
                 $this->admin_model = model('App\Models\AdminModel');
-				$sql =  $this->gfa_model->WemaEkitiAnalytics();
-
+				$batch = "skill_gateway";
+				$sql =  $this->gfa_model->UsersAnalytics($batch);
       ?>
 <div class="app-content content ">
       <div class="content-overlay"></div>
@@ -87,13 +87,13 @@
               </div>
             
               <div class="transaction-percentage">
-                <h6 class="transaction-title">Completed And Passed Quiz</h6>
+                <h6 class="transaction-title">Completed Assigned Courses</h6>
                 <small>
-                    Total number of people that have completed and passed quiz.  
+                    Total number of people that have completed all their assigned courses.  
 				</small>
               </div>
             </div>
-                 <div class="fw-bolder text-success"><?php echo $sql[0]['CompletedCourseAndPassedQuiz'];  //$completedCourse ?></div>
+                 <div class="fw-bolder text-success"><?php echo $sql[0]['StudentsCompletedCoursePassedQuiz'];  //$completedCourse ?></div>
           </div>
           
 		  <div class="transaction-item"> 

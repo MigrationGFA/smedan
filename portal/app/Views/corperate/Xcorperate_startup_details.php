@@ -44,7 +44,7 @@
             <div class="d-flex align-items-center flex-column">
               <img
                 class="img-fluid rounded mt-3 mb-2"
-                src="<?php echo base_url("public/assets/images/uploads/default-avatar.jpg"); ?>"
+                src="<?php echo base_url("assets/images/uploads/default-avatar.jpg"); ?>"
                 height="110"
                 width="110"
                 alt="User avatar"

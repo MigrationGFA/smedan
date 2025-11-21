@@ -218,13 +218,12 @@ function handleAllContactsTab() {
                     html += `
                         <li class="chat-contact-list-item newItemb" id="new_itemb_${chatContact.ReceiverEmail}" onclick="changeChatContent('${chatContact.ReceiverEmail}', '${chatContact.ReceiverName}', 'new_itemb_')">
                             <a class="d-flex align-items-center">
-                                <div class="flex-shrink-0 avatar ${chatContact.Is_Online == 1 ? 'avatar-online' : 'avatar-offline'} ">
+                                <div class="flex-shrink-0 avatar avatar-offline">
                                     <img src="/portal/public/assets/images/uploads/default-avatar.jpg" alt="Avatar" class="rounded-circle">
                                 </div>
                                 <div class="chat-contact-info flex-grow-1 ms-2">
                                     <h6 class="chat-contact-name text-truncate m-0">${chatContact.ReceiverName}</h6>
                                 </div>
-                                <small class="text-muted mb-auto">${chatContact.Is_Online == 1 ? 'online' : 'offline'}</small>
                             </a>
                         </li>
                     `;
