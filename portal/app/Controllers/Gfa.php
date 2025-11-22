@@ -1884,7 +1884,7 @@ public function course($id="")
         $data['id'] = $id;
         session()->set('course_sess_id', $id);
         echo view('header-assets-new',$title);
-         echo view('menu-assets-new-page',$data);
+         echo view('menu-assets-new',$data);
         echo view('navbar-assets-new',$data);
         echo view('course', $data);
         echo view('footer-assets-new',$data); 
