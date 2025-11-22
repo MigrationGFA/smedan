@@ -166,7 +166,7 @@ private function showLoginError($message)
 }
 
     public function index() {
-        return redirect()->to("https://katsina.remsana.com/wema.lms.login/");
+        return redirect()->to("https://smedan.remsana.com/");
 
         // $data['page_title'] = "Login ";
         // echo view('header_home',$data);
@@ -3177,7 +3177,7 @@ if (is_array($courseArrayUpcoming)) {
 
     {
         
-        return redirect()->to("https://katsina.remsana.com/wema.lms.login/");
+        return redirect()->to("https://smedan.remsana.com/");
         
         // $title['page_title'] = "Login  ";
 
@@ -5599,7 +5599,7 @@ $data_connection = array(
 	}
     
     public function signinAction() {
-        return redirect()->to("https://katsina.remsana.com/wema.lms.login/");
+        return redirect()->to("https://smedan.remsana.com/");
 
 //         $email  = strtolower($this->request->getPost("email"));
 
@@ -5826,59 +5826,91 @@ $data_connection = array(
 
     }
 
-    public function learning_wema($first_name="",$last_name="",$email="",$program_type=""){
+    public function learning_wema($first_name = "", $last_name = "", $email = "", $program_type = "")
+{
+    $email = strtolower(urldecode($email));
+    $platform = $program_type;
+    $ref = $email . time();
 
-    			$email = strtolower(urldecode($email));
-    			$platform = $program_type;
-    			// $state = 'Katsina';
-    			$ref = $email.time();
-    			session()->set('email', $email);   
+    // Save session data
+    session()->set([
+        'email'        => $email,
+        'account_type' => 'startup',
+        'wema_email'   => $email
+    ]);
+
+    // Check if user already exists
+    $existingUser = $this->gfa_model->checkWemaUser($email);
+
+    if (!$existingUser) {
+        // User does NOT exist → insert
+        $data = [
+            'first_name'    => $first_name,
+            'last_name'     => $last_name,
+            'email'         => $email,
+            'program_type'  => $program_type,
+            'platform'      => $platform,
+            'account_type'  => 'startup',
+            'ref'           => $ref
+        ];
+
+        $this->gfa_model->wema_course_access($data);
+    }
+
+    return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
+}
+
+    // public function learning_wema($first_name="",$last_name="",$email="",$program_type=""){
+
+    // 			$email = strtolower(urldecode($email));
+    // 			$platform = $program_type;
+    // 			// $state = 'Katsina';
+    // 			$ref = $email.time();
+    // 			session()->set('email', $email);   
                 
-                session()->set('account_type', 'startup');
-                session()->set('wema_email', $email);
-                $data = array(
+    //             session()->set('account_type', 'startup');
+    //             session()->set('wema_email', $email);
+    //             $data = array(
 
-                	'first_name' => $first_name,
-                	'last_name' => $last_name,
-                	'email' => $email,
-                	'program_type' => $program_type,
-                	// 'course' => $course,
-                	'platform' => $platform,
-                	'account_type' => 'startup',
-                	'ref' => $ref
+    //             	'first_name' => $first_name,
+    //             	'last_name' => $last_name,
+    //             	'email' => $email,
+    //             	'program_type' => $program_type,
+    //             	// 'course' => $course,
+    //             	'platform' => $platform,
+    //             	'account_type' => 'startup',
+    //             	'ref' => $ref
                 	
 
-                );
+    //             );
 
-                $this->gfa_model->wema_course_access($data);
-                return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
+    //             $this->gfa_model->wema_course_access($data);
+    //             return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
 
-    }
+    // }
 
     public function learning_wema_api()
     {
-        // Ensure it's a POST request
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($this->request->getServer('REQUEST_METHOD') === 'POST') {
-            // Retrieve form data from POST request
-            
+                       
             $first_name = $this->request->getPost('firstName');
             $last_name = $this->request->getPost('lastName');
             $email = $this->request->getPost('email');
             $program_type = $this->request->getPost('programType');
-            // $course = $this->request->getPost('course');
-            // $unique_code = $this->request->getPost('unique_code');
-            // $platform = $this->request->getPost('programType');
-
+           
             // Basic validation (check if all required fields are filled)
             if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($program_type)) {
-                // Perform login or verification logic here
-                
-                // If login/verification is successful, redirect to the specified URL
+            
+                $url = 'https://smedan-learning.remsana.com/portal/gfa/learning_wema/'.
+                    rawurlencode($first_name).'/'.
+                    rawurlencode($last_name).'/'.
+                    rawurlencode($email).'/'.
+                    rawurlencode($program_type);
+
                 return $this->response->setJSON([
                     'status' => 'success',
                     'message' => 'Login successful',
-                    'url' =>'https://smedan-learning.remsana.com/portal/gfa/learning_wema/'.$first_name.'/'.$last_name.'/'.$email.'/'.$program_type.''
+                    'url' => $url
                 ])->setStatusCode(Response::HTTP_OK);
                 //return redirect()->to('https://nora.cipme.ci/portal/gfa/learning');
             } else {
@@ -5957,7 +5989,7 @@ $data_connection = array(
 
         if(empty($getCertificateCourse)){
         $getCerticateData = $this->gfa_model->GetCertificateEligibleAssignedCourse($email);
-        $courseTrack = $this->gfa_model->GetUserProgressAssignedCourses($email);
+        $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
         $courseTrackProgress  =trim(str_replace("%","",$courseTrack[0]['Progress']));
         if($courseTrackProgress >=80){
 
@@ -7544,7 +7576,7 @@ public function signoutAction()
     }
     session()->destroy(); 
 
-    return redirect()->to("https://katsina.remsana.com/wema.lms.login/");
+    return redirect()->to("https://smedan.remsana.com/");
 }
 
 public function checkProfileErrorDemo()

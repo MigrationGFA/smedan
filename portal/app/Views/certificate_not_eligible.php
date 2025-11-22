@@ -70,8 +70,8 @@
 
   <?php if($course_type == "course" ){ ?>
   <?php $getCerticateData = $this->gfa_model->GetEachUserCourseList($email);
-                                      // GetUserProgressAssignedCourses
-       $courseTrack = $this->gfa_model->GetUserProgressAssignedCourses($email);
+                                      // GetUserProgressAssignedCoursesWema
+       $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
        // $courseTrack = $this->gfa_model->GetUserEndProgress($email);
   ?>
   <div class="col-lg-6 mb-4 mb-md-0">

@@ -3,7 +3,7 @@
   $email = session()->get('email');
   // $loginkey = $this->gfa_model->getWpCred($email);
 // $cohort = $this->gfa_model->getCohortDetails($email);
-	$courseTrack = $this->gfa_model->GetUserProgressAssignedCourses($email);
+	$courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
 ?>
 <div class="col-sm-6 col-xl-3">
     <div class="card">

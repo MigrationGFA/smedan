@@ -330,15 +330,6 @@
       <div class="content-wrapper">
       
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      
-      <script>
-$(document).ready(function () {
-  $(".clickAction").click(function (e) {
-    e.preventDefault(); // stop default navigation
- 
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
 $(document).ready(function () {

@@ -23,6 +23,16 @@ class GfaModel extends Model
     }
 
     //SMEDAN
+
+    public function checkWemaUser($email)
+{
+    $builder = $this->db->table('wema_course_access');
+    $builder->where('email', $email);
+    $existingUser = $builder->get()->getRowArray();
+
+    return $existingUser;  
+}
+
 public function getCertificateUidCourse($email){
          $builder = $this->db->table('certificate');
        $builder->where('email',$email);
@@ -603,9 +613,9 @@ public function  GetUserProgressNewCurriculum($userEmail){
 }
 
 
-public function  GetUserProgressAssignedCourses($userEmail){
+public function  GetUserProgressAssignedCoursesWema($userEmail){
 
-$query = $this->db->query("CALL GetUserProgressAssignedCourses(?)", [$userEmail]);
+$query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?)", [$userEmail]);
 
 // Check if the query was successful
 if ($query) {
