@@ -92,7 +92,7 @@ if ($position !== false) {
             <a href="<?php echo base_url("gfa/lesson/{$prevId}/{$lesson_url_prev}") ?>" class="btn rounded-pill btn-primary">Previous</a>
             <?php }  ?>
             <?php if(!empty($getNextData)){  $lesson_url_next = str_replace(" ","-", $getNextData['title']); $nextId = $getNextData['id']; ?>
-            <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark userActivity" ls="<?= $getNextData['id'];  ?>">Next</a>
+            <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark userActivity" ls="<?= 'l-' . $getNextData['id'];  ?>">Next</a>
             <?php }  ?>
             <?php if($getQuizByLessonIdData[0]['lesson_id'] ==''){  echo ''; }else{ ?>
             <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" class="btn rounded-pill btn-secondary">Quiz</a>
@@ -203,7 +203,7 @@ if ($position !== false) {
                         $lesson_url = str_replace(" ","-",$getActiveLesson['title']);
                 ?>    
               <div class="form-check d-flex align-items-center mb-3">
-                <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= $getActiveLesson['id'];  ?>" class="userActivity">
+                <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= 'l-' . $getActiveLesson['id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-checks ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">
@@ -220,7 +220,7 @@ if ($position !== false) {
                        
                 ?>    
               <div class="form-check d-flex align-items-center mb-3">
-                <a href="<?php echo base_url("gfa/quiz/{$getActiveQuiz['ref_id']}") ?>" ls="<?= $getActiveQuiz['ref_id'];  ?>" class="userActivity">
+                <a href="<?php echo base_url("gfa/quiz/{$getActiveQuiz['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuiz['ref_id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-box ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">
@@ -255,7 +255,7 @@ if ($position !== false) {
                         $lesson_url = str_replace(" ","-",$getActiveLesson['title']);
                 ?>
               <div class="form-check d-flex align-items-center mb-3">
-                  <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= $getActiveLesson['id'];  ?>" class="userActivity">
+                  <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= 'l-' . $getActiveLesson['id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-checks ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">
@@ -271,7 +271,7 @@ if ($position !== false) {
                        
                 ?>    
               <div class="form-check d-flex align-items-center mb-3">
-                <a href="<?php echo base_url("gfa/quiz/{$getActiveQuiz['ref_id']}") ?>" ls="<?= $getActiveQuiz['ref_id'];  ?>" class="userActivity">
+                <a href="<?php echo base_url("gfa/quiz/{$getActiveQuiz['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuiz['ref_id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-box ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">
