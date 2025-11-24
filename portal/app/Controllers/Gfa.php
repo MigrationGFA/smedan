@@ -2843,10 +2843,10 @@ $data['courseArrayUpcoming'] = $courseArrayUpcoming;
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         
-         $course_type = $this->request->getPost("course_type");
         $course = $this->request->getPost("course");
-        if ($course_type == "DIMP Skill"){
-            $course = "DIMP Skill";
+        $course_type = $course;
+        if ($course == "DIMP Skill"){
+            $course_type = "DIMP Skill";
         }
         // $course = $this->request->getPost("course");
         // $course_type = $this->request->getPost("course_type");
@@ -6264,7 +6264,8 @@ $data_connection = array(
         if(empty($getCertificateCourse)){
         $getCerticateData = $this->gfa_model->GetCertificateEligibleAssignedCourseWema($email);
         $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
-        $courseTrackProgress = $this->gfa_model->checkCompletionSingleCourse($email, $getCerticateData[0]['Course']);
+        $course_id = $this->gfa_model->getCourseIdByTitle($getCerticateData[0]['Course']);
+        $courseTrackProgress = $this->gfa_model->checkCompletionSingleCourse($email, $course_id);
         $courseTrackProgress2  = trim(str_replace("%","",$courseTrack[0]['Progress']));
         if($courseTrackProgress){
             $data = array(

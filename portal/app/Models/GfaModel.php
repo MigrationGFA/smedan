@@ -140,44 +140,66 @@ class GfaModel extends Model
 
         }
 
-    public function checkCompletionSingleCourse($email, $chosenCourse)
-    { 
-        // Get overall course progress
+        public function getCourseIdByTitle($title)
+        {
+            $builder = $this->db->table('courses');
+            $builder->select('id');
+            $builder->where('coursetitle', $title);
+            
+            $row = $builder->get()->getRow();
+
+            return $row ? $row->id : null;
+        }
+
+    public function checkCompletionSingleCourse($email, $courseId)
+    {
+        // 1. Get overall course progress
         $courseProgress = $this->GetUserProgressAssignedCoursesWema($email);
 
-        // Default progress
         $progressValue = 0;
         if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
-            // Remove % sign and convert to integer
             $progressValue = (int) rtrim($courseProgress[0]['Progress'], '%');
         }
 
-        // Get latest quiz scores for all courses
+        // 2. Get all latest quiz scores (one latest per ref_id)
         $quizScores = $this->GetUserLatestQuizScoresWema($email);
 
-        $quizScoreValue = 0;
+        // 3. Calculate AVERAGE quiz score for the chosen course
+        $averageQuizScore = 0;
+
         if (!empty($quizScores)) {
-            // Filter for the chosen course by course title
-            $matchedScores = array_filter($quizScores, function($row) use ($chosenCourse) {
-                return $row['coursetitle'] === $chosenCourse;
+
+            // Filter quizzes belonging to this course by course_id
+            $matchedScores = array_filter($quizScores, function($row) use ($courseId) {
+                return isset($row['course_id']) && (int)$row['course_id'] === (int)$courseId;
             });
 
-            // Take the first matched score if exists
-            $matchedScore = reset($matchedScores);
-            if ($matchedScore && isset($matchedScore['score'])) {
-                $quizScoreValue = (float) $matchedScore['score'];
+            if (!empty($matchedScores)) {
+                $sum = 0;
+                $count = 0;
+
+                foreach ($matchedScores as $quiz) {
+                    if (isset($quiz['score'])) {
+                        $sum += (float)$quiz['score'];
+                        $count++;
+                    }
+                }
+
+                if ($count > 0) {
+                    $averageQuizScore = $sum / $count;
+                }
             }
         }
 
-        // Check if user has >= 80% progress AND latest quiz score >= 80
-        if ($progressValue >= 80 && $quizScoreValue >= 80) {
+        // 4. Check completion rules
+        if ($progressValue >= 80 && $averageQuizScore >= 80) {
             return 1; // Completed
         }
 
         return 0; // Not completed
     }
 
-        public function getStartUpByUid($email)
+    public function getStartUpByUid($email)
     {
         $builder = $this->db->table('wema_course_access');
         $builder->select('*');
