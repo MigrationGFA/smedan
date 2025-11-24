@@ -2747,33 +2747,12 @@ public function group_members_api()
 // Initial $coursetitleArray
  $coursetitleArray = [
        	'Understanding Digital Transformation' => ['2020-01-01'],
-		'Culture' => ['2020-01-01'],
-		'Time Management' => ['2020-01-01'],
-		'Customer Value' => ['2020-01-01'],
-
 		'Digital Tools and Technologies' => ['2020-01-01'],
-        'Business Writing & Communication' => ['2020-01-01'],
-		'Personal Branding & Effectiveness' => ['2020-01-01'],
-
 		'Cybersecurity' => ['2020-01-01'],
-		'Ideas to business' => ['2020-01-01'],
-		'Stakeholder Management' => ['2020-01-01'],
-		
 		'Digital Marketing' => ['2020-01-01'],
-		'Effective Presentation Skills' => ['2020-01-01'],
-        'Emotional Intelligence' => ['2020-01-01'],
-
 		'Digital Finance and Accounting' => ['2020-01-01'],
-		'Sales and Negotiations Skills' => ['2020-01-01'],
-        'Critical Thinking' => ['2020-01-01'],
-
 		'Operations and Supply Chain Digitization' => ['2020-01-01'],
-		'Conflict Management' => ['2020-01-01'],
-		'CV-Workshop' => ['2020-01-01'],
-
 		'Understanding Organization Culture & Change Management' => ['2020-01-01'],
-        'People Management Skills in the Workplace' => ['2020-01-01'],
-        'Work Ethics' =>['2020-01-01']    
     	];
 
 // Update dates dynamically
