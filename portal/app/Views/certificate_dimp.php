@@ -19,7 +19,7 @@
 
       <div class="text-overlay">
         <p><?php echo $certData[0]['prog'] ?></p>
-        <h1><?php 
+        <h1 class="pt-3"><?php 
             echo $certData[0]['name'];
             // $nameArray = explode(" ", $certData[0]['name']);
             // echo strtoupper(trim(($nameArray[0] ?? '') . ' ' . ($nameArray[2] ?? '') . ' ' . ($nameArray[1] ?? ''))); 
