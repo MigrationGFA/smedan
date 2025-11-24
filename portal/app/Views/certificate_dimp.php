@@ -20,10 +20,11 @@
       <div class="text-overlay">
         <p><?php echo $certData[0]['prog'] ?></p>
         <h1><?php 
-            $nameArray = explode(" ", $certData[0]['name']);
-            echo strtoupper(trim(($nameArray[0] ?? '') . ' ' . ($nameArray[2] ?? '') . ' ' . ($nameArray[1] ?? ''))); 
+            echo $certData[0]['name'];
+            // $nameArray = explode(" ", $certData[0]['name']);
+            // echo strtoupper(trim(($nameArray[0] ?? '') . ' ' . ($nameArray[2] ?? '') . ' ' . ($nameArray[1] ?? ''))); 
           ?></h1>
-        <h2><?php //echo ucwords($certData[0]['course']) ?></h2>
+        <h2><?php echo 'SME Digitization Program' ?></h2>
         <h4><?php echo date("F Y", strtotime($certData[0]['time_submit'])); ?></h4>
       </div>
     </div>
