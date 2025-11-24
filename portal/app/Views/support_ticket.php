@@ -18,15 +18,15 @@
                 <form action="#" id="#EventForm" class="form EventForm" enctype="multipart/form-data">
                     <div class="row">
                         
-                    <div class="col-md-6 col-12 my-2">
+                    <!-- <div class="col-md-6 col-12 my-2">
                         <label>Name </label>
                         <input type="text" value="<?=$StartupArray[0]['Primary_Contact_Name']?>" class="form-control" readonly />
                     </div>
-                
+                    
                     <div class="col-md-6 col-12 my-2">
                         <label>Email </label>
                         <input type="text" value="<?=$email?>" class="form-control" readonly />
-                    </div>
+                    </div> -->
                     
                     <div class="col-md-6 col-12 my-2">
                         <label>Subject </label>

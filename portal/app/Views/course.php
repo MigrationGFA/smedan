@@ -91,7 +91,7 @@
                         $lesson_url = str_replace(" ","-",$getActiveLesson['title']);
                 ?>    
               <div class="form-check d-flex align-items-center mb-3">
-                <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= $getActiveLesson['title'];  ?>" class="userActivity">
+                <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= 'l-' . $getActiveLesson['id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-checks ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">
@@ -132,7 +132,7 @@ if ($position !== false) { echo ""; }else{
                         $lesson_url = str_replace(" ","-",$getActiveLesson['title']);
                 ?>
               <div class="form-check d-flex align-items-center mb-3">
-                  <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= $getActiveLesson['title'];  ?>" class="userActivity">
+                  <a href="<?php echo base_url("gfa/lesson/{$getActiveLesson['id']}/{$lesson_url}") ?>" ls="<?= 'l-' . $getActiveLesson['id'];  ?>" class="userActivity">
                 <!--<input class="form-check-input" type="checkbox" id="defaultCheck1" checked="" />-->
                 <i class='ti ti-checks ti-sm me-2 mt-n2'></i>
                 <label for="defaultCheck1" class="form-check-label ms-3">

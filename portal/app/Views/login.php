@@ -26,7 +26,7 @@
                   <h2 class="card-title fw-bold mb-1">Welcome to Kaduna Digital Academy</h2>
   					
                   <p class="card-text mb-2"> <?php if(!empty($message)){ echo $message; }else{ echo "Please sign-in to your account and start the adventure";} ?></p>
-                  <form class="auth-login-form mt-2" action="<?php echo base_url('gfa/signinAction'); ?>" method="POST">
+                  <form class="auth-login-form mt-2" action="<?php echo base_url('gfa/signinActionAdmin'); ?>" method="POST">
                     <div class="mb-1">
                       <label class="form-label" for="login-email">Email</label>
                       <input class="form-control" id="login-email" type="text" name="email" placeholder="name@gmail.com" aria-describedby="login-email" autofocus="" tabindex="1"/>

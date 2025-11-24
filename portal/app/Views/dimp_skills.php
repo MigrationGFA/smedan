@@ -182,9 +182,9 @@
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <?php
-                 if (in_array($courseDetailsPrev['coursetitle'], $coursesArray)) {
-                    echo '<span class="badge bg-danger text-white">Completed</span>';
+                <?php                
+                 if ($this->gfa_model->checkCompletionSingleCourse($email, $courseDetailsPrev['coursetitle'])) {
+                    echo '<span class="badge bg-danger text-white">Passed</span>';
 					        }
                  ?>
                 <!-- <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseDetailsPrev['duration']; ?> mins</ls></span> -->

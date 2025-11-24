@@ -1,7 +1,9 @@
 <?php 
   $this->gfa_model = model('App\Models\GfaModel');
   $totalJobs = is_array($this->gfa_model->getAllJobs()) ? count($this->gfa_model->getAllJobs()) : 0;
-   ?>
+
+$session = session(); 
+?>
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
  
@@ -243,8 +245,9 @@
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block"><?php echo $StartupArray[0]['Primary_Contact_Name']  ?></span>
-                      <small class="text-muted"><?= $StartupArray[0]['Startup_Company_Name']  ?></small>
+                      <span class="fw-semibold d-block"><?= $session->get('first_name') . ' ' . $session->get('last_name'); ?></span>
+                      <!-- <span class="fw-semibold d-block"><?php echo $StartupArray[0]['Primary_Contact_Name']  ?></span> -->
+                      <!-- <small class="text-muted"><?= $StartupArray[0]['Startup_Company_Name']  ?></small> -->
                     </div>
                   </div>
                 </a>
