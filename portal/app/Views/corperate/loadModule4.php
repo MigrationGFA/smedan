@@ -1,6 +1,7 @@
 <?php 
                 $this->gfa_model = model('App\Models\GfaModel');
                 $this->admin_model = model('App\Models\AdminModel');
+				$sqlReg =  $this->gfa_model->TotalRegistrationExt($batch);
       ?>
 <div class="col-lg-6 col-md-6 col-12" >
       <div class="card card-transaction">
@@ -10,8 +11,8 @@
         </div>
         <div class="card-body" style="height: 150px; overflow: scroll;">
     <?php 
-		$sumTotal = $this->gfa_model->countRegistrationTotal();
-		$rowState = $this->gfa_model->getNgStatesLga(); foreach($rowState as $rowStateArray) { ?> 
+		$sumTotal = $sqlReg[0]['TotalRegistration']; //$this->gfa_model->countRegistrationTotal();
+		$rowState = $this->gfa_model->getNgStates(); foreach($rowState as $rowStateArray) { ?> 
           <div class="transaction-item">
             <div class="d-flex">
               <div class="avatar bg-light-primary rounded float-start">
@@ -20,12 +21,12 @@
                 </div>
               </div>
               <div class="transaction-percentage">
-                <h6 class="transaction-title"><?php echo $rowStateArray['lga'] ?> </h6>
-                <small>Male: <?php echo $this->gfa_model->countGenderByStateLga("Male",$rowStateArray['lga']) ?> , Female: <?php echo $this->gfa_model->countGenderByStateLga("Female",$rowStateArray['lga'])  ?> 
+                <h6 class="transaction-title"><?php echo $rowStateArray['states'] ?> </h6>
+                <small>Male: <?php echo $this->gfa_model->countGenderByState("Male",$rowStateArray['states'],$batch) ?> , Female: <?php echo $this->gfa_model->countGenderByState("Female",$rowStateArray['states'],$batch)  ?> 
 				</small>
               </div>
             </div>
-                 <div class="fw-bolder text-success"><?php echo $this->gfa_model->countRegistrationLocationLga($rowStateArray['lga']) ?></div>
+                 <div class="fw-bolder text-success"><?php echo $this->gfa_model->countRegistrationLocation($rowStateArray['states'],$batch) ?></div>
           </div>
       <?php }  ?>   
           
@@ -46,7 +47,7 @@
           <div class="row border-top text-center mx-0">
             <div class="col-6 border-end py-1">
               <p class="card-text text-muted mb-0">Target</p>
-              <h3 class="fw-bolder mb-0">100,000</h3>
+              <h3 class="fw-bolder mb-0">1,000,000</h3>
             </div>
             <div class="col-6 py-1">
               <p class="card-text text-muted mb-0">In Progress</p>
@@ -56,4 +57,4 @@
         </div>
       </div>
     </div>
-<input type="hidden" value="<?php echo round(($sumTotal/100000)*100) ?>" id="data-value" />
+<input type="hidden" value="<?php echo round(($sumTotal/1000000)*100) ?>" id="data-value" />
