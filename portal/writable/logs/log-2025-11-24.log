@@ -1,0 +1,227 @@
+CRITICAL - 2025-11-24 14:21:56 --> Call to undefined method App\Models\GfaModel::getAllSlider
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Gfa.php(399): CodeIgniter\Model->__call('getAllSlider', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->signinActionadmin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 14:24:24 --> Call to undefined method App\Models\GfaModel::getAllSlider
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Gfa.php(399): CodeIgniter\Model->__call('getAllSlider', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->signinActionadmin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 14:32:44 --> Call to undefined method App\Models\GfaModel::getAllSlider
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Gfa.php(420): CodeIgniter\Model->__call('getAllSlider', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->index_admin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-24 14:34:46 --> mysqli_sql_exception: Table 'getfylig_gfa.manage_slider' doesn't exist in C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\smedan\portal\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\smedan\portal\app\Models\GfaModel.php(79): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\smedan\portal\app\Controllers\Gfa.php(420): App\Models\GfaModel->getAllSlider()
+#6 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(934): App\Controllers\Gfa->index_admin()
+#7 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+#8 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\smedan\portal\index.php(70): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-11-24 14:34:46 --> Table 'getfylig_gfa.manage_slider' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `manage_slider`
+ORDER BY `id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `manage_slider`
+ORDER BY `id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `manage_slider`
+ORDER BY `id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `manage_slider`
+ORDER BY `id` DESC', [], false)
+ 5 APPPATH\Models\GfaModel.php(79): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Gfa.php(420): App\Models\GfaModel->getAllSlider()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->index_admin()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 15:31:44 --> Call to undefined method App\Models\GfaModel::insertParticipantsProfile
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Gfa.php(205): CodeIgniter\Model->__call('insertParticipantsProfile', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->signinActionadmin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 15:32:37 --> Call to undefined method App\Models\GfaModel::regAllBatch
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Views\corperate\menu_new.php(7): CodeIgniter\Model->__call('regAllBatch', [])
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\menu_new.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/menu_new', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4382): view('corperate/menu_new', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 15:34:00 --> Call to undefined method App\Models\GfaModel::WemaEkitiAnalytics
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Views\corperate\users_analytics.php(4): CodeIgniter\Model->__call('WemaEkitiAnalytics', [])
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\users_analytics.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/users_analytics', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4383): view('corperate/users_analytics')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-24 15:34:45 --> mysqli_sql_exception: PROCEDURE getfylig_gfa.WemaEkitiAnalytics does not exist in C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php(295): mysqli->query('CALL WemaEkitiA...', 0)
+#1 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL WemaEkitiA...')
+#2 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL WemaEkitiA...')
+#3 C:\xampp\htdocs\smedan\portal\app\Models\GfaModel.php(77): CodeIgniter\Database\BaseConnection->query('CALL WemaEkitiA...')
+#4 C:\xampp\htdocs\smedan\portal\app\Views\corperate\users_analytics.php(4): App\Models\GfaModel->WemaEkitiAnalytics()
+#5 C:\xampp\htdocs\smedan\portal\system\View\View.php(213): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\smedan\portal\system\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\smedan\portal\system\Common.php(1184): CodeIgniter\View\View->render('corperate/users...', Array, true)
+#8 C:\xampp\htdocs\smedan\portal\app\Controllers\Gfa.php(4383): view('corperate/users...')
+#9 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+#10 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+#11 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\smedan\portal\index.php(70): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-11-24 15:34:46 --> PROCEDURE getfylig_gfa.WemaEkitiAnalytics does not exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('CALL WemaEkitiAnalytics()', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL WemaEkitiAnalytics()')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL WemaEkitiAnalytics()')
+ 4 APPPATH\Models\GfaModel.php(77): CodeIgniter\Database\BaseConnection->query('CALL WemaEkitiAnalytics()')
+ 5 APPPATH\Views\corperate\users_analytics.php(4): App\Models\GfaModel->WemaEkitiAnalytics()
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\users_analytics.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/users_analytics', [], true)
+ 9 APPPATH\Controllers\Gfa.php(4383): view('corperate/users_analytics')
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-24 15:36:23 --> mysqli_sql_exception: PROCEDURE getfylig_gfa.WemaEkitiAnalytics does not exist in C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php(295): mysqli->query('CALL WemaEkitiA...', 0)
+#1 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL WemaEkitiA...')
+#2 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL WemaEkitiA...')
+#3 C:\xampp\htdocs\smedan\portal\app\Models\GfaModel.php(77): CodeIgniter\Database\BaseConnection->query('CALL WemaEkitiA...')
+#4 C:\xampp\htdocs\smedan\portal\app\Views\corperate\users_analytics.php(4): App\Models\GfaModel->WemaEkitiAnalytics()
+#5 C:\xampp\htdocs\smedan\portal\system\View\View.php(213): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\smedan\portal\system\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\smedan\portal\system\Common.php(1184): CodeIgniter\View\View->render('corperate/users...', Array, true)
+#8 C:\xampp\htdocs\smedan\portal\app\Controllers\Gfa.php(4383): view('corperate/users...')
+#9 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+#10 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+#11 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\smedan\portal\index.php(70): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-11-24 15:36:23 --> PROCEDURE getfylig_gfa.WemaEkitiAnalytics does not exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('CALL WemaEkitiAnalytics()', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL WemaEkitiAnalytics()')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL WemaEkitiAnalytics()')
+ 4 APPPATH\Models\GfaModel.php(77): CodeIgniter\Database\BaseConnection->query('CALL WemaEkitiAnalytics()')
+ 5 APPPATH\Views\corperate\users_analytics.php(4): App\Models\GfaModel->WemaEkitiAnalytics()
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\users_analytics.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/users_analytics', [], true)
+ 9 APPPATH\Controllers\Gfa.php(4383): view('corperate/users_analytics')
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->users_analytics()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 15:59:14 --> Call to undefined method App\Models\GfaModel::ExportWemaEkitiLoggedIn
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Views\corperate\access_dashboard.php(35): CodeIgniter\Model->__call('ExportWemaEkitiLoggedIn', [])
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\access_dashboard.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/access_dashboard', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4382): view('corperate/access_dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->access_dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 16:00:00 --> Call to undefined method App\Models\GfaModel::ExportWemaEkitiLoggedIn
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Views\corperate\access_dashboard.php(35): CodeIgniter\Model->__call('ExportWemaEkitiLoggedIn', [])
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\access_dashboard.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/access_dashboard', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4382): view('corperate/access_dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->access_dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-24 16:02:35 --> mysqli_sql_exception: PROCEDURE getfylig_gfa.ExportWemaEkitiLoggedIn does not exist in C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\smedan\portal\system\Database\MySQLi\Connection.php(295): mysqli->query('CALL ExportWema...', 0)
+#1 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL ExportWema...')
+#2 C:\xampp\htdocs\smedan\portal\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL ExportWema...')
+#3 C:\xampp\htdocs\smedan\portal\app\Models\GfaModel.php(97): CodeIgniter\Database\BaseConnection->query('CALL ExportWema...')
+#4 C:\xampp\htdocs\smedan\portal\app\Views\corperate\access_dashboard.php(35): App\Models\GfaModel->ExportWemaEkitiLoggedIn()
+#5 C:\xampp\htdocs\smedan\portal\system\View\View.php(213): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\smedan\portal\system\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\smedan\portal\system\Common.php(1184): CodeIgniter\View\View->render('corperate/acces...', Array, true)
+#8 C:\xampp\htdocs\smedan\portal\app\Controllers\Gfa.php(4382): view('corperate/acces...')
+#9 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(934): App\Controllers\Gfa->access_dashboard()
+#10 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+#11 C:\xampp\htdocs\smedan\portal\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\smedan\portal\index.php(70): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-11-24 16:02:35 --> PROCEDURE getfylig_gfa.ExportWemaEkitiLoggedIn does not exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('CALL ExportWemaEkitiLoggedIn()', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CALL ExportWemaEkitiLoggedIn()')
+ 3 SYSTEMPATH\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CALL ExportWemaEkitiLoggedIn()')
+ 4 APPPATH\Models\GfaModel.php(97): CodeIgniter\Database\BaseConnection->query('CALL ExportWemaEkitiLoggedIn()')
+ 5 APPPATH\Views\corperate\access_dashboard.php(35): App\Models\GfaModel->ExportWemaEkitiLoggedIn()
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\access_dashboard.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/access_dashboard', [], true)
+ 9 APPPATH\Controllers\Gfa.php(4382): view('corperate/access_dashboard')
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->access_dashboard()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 16:53:43 --> Too few arguments to function App\Models\GfaModel::ExportWemaEkitiCompletedAtLeastACourse(), 0 passed in C:\xampp\htdocs\smedan\portal\app\Views\corperate\completed_at_least_a_course.php on line 35 and exactly 1 expected
+in APPPATH\Models\GfaModel.php on line 81.
+ 1 APPPATH\Views\corperate\completed_at_least_a_course.php(35): App\Models\GfaModel->ExportWemaEkitiCompletedAtLeastACourse()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\completed_at_least_a_course.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/completed_at_least_a_course', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4424): view('corperate/completed_at_least_a_course')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->completed_at_least_a_course()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 17:01:25 --> Too few arguments to function App\Models\GfaModel::ExportWemaEkitiCompletedCoursePassedQuiz(), 0 passed in C:\xampp\htdocs\smedan\portal\app\Views\corperate\completed_assigned_course.php on line 35 and exactly 1 expected
+in APPPATH\Models\GfaModel.php on line 75.
+ 1 APPPATH\Views\corperate\completed_assigned_course.php(35): App\Models\GfaModel->ExportWemaEkitiCompletedCoursePassedQuiz()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\smedan\\portal\\app\\Views\\corperate\\completed_assigned_course.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('corperate/completed_assigned_course', [], true)
+ 5 APPPATH\Controllers\Gfa.php(4445): view('corperate/completed_assigned_course')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->completed_assigned_course()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-24 17:12:27 --> Call to undefined method App\Models\GfaModel::updateIsOline
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Gfa.php(435): CodeIgniter\Model->__call('updateIsOline', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Gfa->signoutActionAdmin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gfa))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()

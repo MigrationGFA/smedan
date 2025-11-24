@@ -1,6 +1,7 @@
 <?php 
                 $this->gfa_model = model('App\Models\GfaModel');
                 $this->admin_model = model('App\Models\AdminModel');
+				$sql =  $this->gfa_model->applicationByCategory($batch);
       ?>
 <div class="col-lg-3 col-sm-6 col-12">
       <div class="card">
@@ -10,7 +11,7 @@
               <i data-feather="users" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1"><?php echo $this->gfa_model->countRegistration("Business Owner") ?></h2>
+          <h2 class="fw-bolder mt-1"><?php echo $sql[1]['Total']; //$this->gfa_model->countRegistration("Business Owner") ?></h2>
           <p class="card-text">Business Owner</p>
         </div>
         <div class="row border-top text-center mx-0">
@@ -34,7 +35,7 @@
               <i data-feather="users" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1"><?php echo $this->gfa_model->countRegistration("Aspiring Business Owner") ?></h2>
+          <h2 class="fw-bolder mt-1"><?php echo $sql[0]['Total']; //$this->gfa_model->countRegistration("Aspiring Business Owner") ?></h2>
           <p class="card-text">Aspiring Business Owner</p>
         </div>
         <div class="row border-top text-center mx-0">
@@ -58,7 +59,7 @@
               <i data-feather="users" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1"><?php echo $this->gfa_model->countRegistration("Professional") ?></h2>
+          <h2 class="fw-bolder mt-1"><?php echo $sql[3]['Total'];  //$this->gfa_model->countRegistration("Professional") ?></h2>
           <p class="card-text">Working Professional</p>
         </div>
         <div class="row border-top text-center mx-0">
@@ -82,7 +83,7 @@
               <i data-feather="users" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1"><?php echo $this->gfa_model->countRegistration("Jobseeker") ?></h2>
+          <h2 class="fw-bolder mt-1"><?php echo $sql[2]['Total'];  //$this->gfa_model->countRegistration("Jobseeker") ?></h2>
           <p class="card-text">Job Seeker</p>
         </div>
         <div class="row border-top text-center mx-0">

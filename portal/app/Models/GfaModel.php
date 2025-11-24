@@ -71,6 +71,97 @@ class GfaModel extends Model
             return 0;
         }
     }
+
+    public function updateIsOline($email, $data)
+{
+    $this->db->table('startups_inv')
+             ->where('Contact_Email', $email)
+             ->update($data);
+
+    return $this->db->affectedRows();
+}
+
+
+    public function ExportWemaEkitiCompletedCoursePassedQuiz($program_type){
+
+    $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
+   
+   return $query->getResultArray(); 
+   }
+   public function ExportWemaEkitiCompletedAtLeastACourse($program_type) {
+
+    $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
+   
+   return $query->getResultArray(); 
+   
+   }
+   public function ExportWemaEkitiStartedLearning($program_type) {
+
+    $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
+   
+   return $query->getResultArray(); 
+   
+   }
+   public function ExportWemaEkitiLoggedIn($program_type) {
+
+    $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
+   
+   return $query->getResultArray(); 
+   
+   }
+
+    public function WemaEkitiAnalytics($program_type) {
+
+    $query = $this->db->query("CALL WemaEkitiAnalytics(?)", [$program_type]);
+   
+   return $query->getResultArray(); 
+   
+   }
+
+    public function regAllBatch()
+{
+     $builder = $this->db->table('reg_batch');
+    $query = $builder->get();
+
+    $query = $builder->get();
+
+    if ($query->getNumRows() > 0) {
+        return $query->getResultArray();
+    } else {
+        return 0;
+    }
+}
+
+
+    public function insertParticipantsProfile($data)
+{       
+    $query = $this->db->table('user_ext_info')->insert($data);
+    
+    if ($query)
+    {
+        return $this->db->affectedRows();
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+    public function getAllSlider()
+{           
+        $builder = $this->db->table('manage_slider');
+        $builder->orderBy('id', "desc");
+        $query = $builder->get(); 
+        if($query->getNumRows() > 0 )
+        {
+            return $query->getResultArray();
+        }
+        else
+        {
+            return 0;
+        }
+            
+}
         public function saveWemaCourse($email, $data)
     {
         $this->db->table('wema_course_access')
