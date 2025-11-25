@@ -196,9 +196,27 @@ class GfaModel extends Model
         $query = $this->db->query("CALL GetRegisteredWemaCourse(?)", [$email]);
         return $query->getResultArray()[0]['course'];     
     }
-    public function  GetUserProgressAssignedCoursesWema($userEmail){
 
-    $query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?)", [$userEmail]);
+    public function  GetUserProgressAssignedCoursesWema($userEmail, $courseId){
+
+    $query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?, ?)", [$userEmail, $courseId]);
+
+    // Check if the query was successful
+    if ($query) {
+        // Retrieve the result set
+        $result = $query->getResultArray();
+        // Free the result set
+        $query->freeResult();
+        return $result;
+    } else {
+        // Handle the error
+        return null;
+    }
+
+    }
+    public function  CheckCompletionAllCoursesWema($userEmail){
+
+    $query = $this->db->query("CALL CheckCompletionAllCoursesWema(?)", [$userEmail]);
 
     // Check if the query was successful
     if ($query) {
@@ -242,10 +260,22 @@ class GfaModel extends Model
             return $row ? $row->id : null;
         }
 
+        public function getCourseIdByUserEmail($email)
+{
+    $result = $this->db->table('wema_course_access')
+                 ->select('courses.id as course_id')
+                 ->join('courses', 'courses.coursetitle = wema_course_access.course')
+                 ->where('wema_course_access.email', $email)
+                 ->get()
+                 ->getRow();
+
+    return $result ? $result->course_id : null;
+}
+
     public function checkCompletionSingleCourse($email, $courseId)
     {
         // 1. Get overall course progress
-        $courseProgress = $this->GetUserProgressAssignedCoursesWema($email);
+        $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
 
         $progressValue = 0;
         if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
@@ -284,10 +314,21 @@ class GfaModel extends Model
 
         // 4. Check completion rules
         if ($progressValue >= 80 && $averageQuizScore >= 80) {
-            return 1; // Completed
+            return 1;
         }
 
-        return 0; // Not completed
+        return 0; 
+    }
+
+    public function checkOverallCompletion($email)
+    {
+        $result = $this->CheckCompletionAllCoursesWema($email);
+        
+        if (!empty($result) && isset($result[0]['IsCompleted'])) {
+            return (int)$result[0]['IsCompleted'];
+        }
+        
+        return 0; // Default to not completed
     }
 
     public function getStartUpByUid($email)
@@ -801,9 +842,9 @@ if ($query) {
 
 
 
-public function  GetUserProgressNewCurriculum($userEmail){
+public function  GetUserProgressNewCurriculumWema($userEmail){
 
-    $query = $this->db->query("CALL GetUserProgressNewCurriculum(?)", [$userEmail]);
+    $query = $this->db->query("CALL GetUserProgressNewCurriculumWema(?)", [$userEmail]);
     
     // Check if the query was successful
     if ($query) {
@@ -4141,7 +4182,7 @@ public function getStartUpDetailsRegAllLimit()
 public function getCertificateEmailDimp($email){
     $builder = $this->db->table('certificate');
   $builder->where('email',$email);
-  $builder->where('cert_type',"osun-dimp");
+  $builder->where('cert_type',"smedan-dimp");
   $query = $builder->get(); 
   if($query->getNumRows() > 0 )
   {

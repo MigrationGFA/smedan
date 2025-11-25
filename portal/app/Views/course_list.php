@@ -125,7 +125,7 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <?php                
                  if ($this->gfa_model->checkCompletionSingleCourse($email, $courseDetailsRec['id'])) {
-                    echo '<span class="badge bg-danger text-white">Passed</span>';
+                    echo '<span class="badge bg-danger text-white">Completed</span>';
 					        }
                  ?>
                 <!-- <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseDetailsRec['duration']; ?> <?php echo $courseDetailsRec['duration_time']; ?></ls></span> -->

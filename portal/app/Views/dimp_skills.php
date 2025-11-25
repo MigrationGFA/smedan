@@ -84,7 +84,10 @@
     </div>
     <div class="card-body">
     <div class="row mb-4 g-4 loadDimpAnalytics"> </div>
-      <div class="row gy-4 mb-4">
+      <div class="row gy-4 mb-4"><?php 
+      
+
+      ?>
            <?php if(!empty($courseArrayToday)){   ?>
            
     <?php $n =1;  foreach ($courseArrayToday as $courseDetailsToday) { ?>
@@ -172,7 +175,7 @@
 		<!-- <a class="h5" href="#">Previous Courses</a> -->
     <?php $n =1;  foreach ($courseArrayPrev as $courseDetailsPrev) {  ?>
 <?php 
-    	$coursesString = $this->gfa_model->GetUserProgressNewCurriculum($email)[0]['CourseNames'];
+    	$coursesString = $this->gfa_model->GetUserProgressNewCurriculumWema($email)[0]['CourseNames'];
 		$coursesArray = array_map('trim', explode(',', $coursesString));
      ?>
         <div class="col-sm-6 col-lg-4">
@@ -182,9 +185,9 @@
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <?php                
+                <?php 
                  if ($this->gfa_model->checkCompletionSingleCourse($email, $courseDetailsPrev['id'])) {
-                    echo '<span class="badge bg-danger text-white">Passed</span>';
+                    echo '<span class="badge bg-danger text-white">Completed</span>';
 					        }
                  ?>
                 <!-- <span class="badge bg-success">Duration: <ls style="color:#"><?php echo $courseDetailsPrev['duration']; ?> mins</ls></span> -->

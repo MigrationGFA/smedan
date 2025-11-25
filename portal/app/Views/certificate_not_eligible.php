@@ -32,7 +32,7 @@
   <!--/ Alerts with headings GetUserProgressSoftSkills  -->
   <!-- Alert headings with icon -->
   <?php if($course_type == "dimp" ){ ?>
-  <?php $getCerticateData = $this->gfa_model->GetUserProgressNewCurriculum($email); 
+  <?php $getCerticateData = $this->gfa_model->GetUserProgressNewCurriculumWema($email);
   $getCerticateName = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email); ?>
   <div class="col-lg-6 mb-4 mb-md-0">
     <div class="card">
@@ -43,7 +43,7 @@
           <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-check text-heading"></i><span class="fw-medium mx-2 text-heading">St:</span> <span>Active</span></li> -->
           <li class="d-flex align-items-center mb-3"><i class="ti ti-pencil text-heading"></i><span class="fw-medium mx-2 text-heading">Score:</span> <span><?php echo $getCerticateData[0]['Progress'] ?>%</span></li>
           <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-flag text-heading"></i><span class="fw-medium mx-2 text-heading">Country:</span> <span>USA</span></li> -->
-          <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span><?php echo $getCerticateData[0]['CourseNames'] ?></span></li>
+          <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span>SME Digitization courses</span></li>
         </ul>
       </div>
     </div>
@@ -70,8 +70,10 @@
 
   <?php if($course_type == "course" ){ ?>
   <?php $getCerticateData = $this->gfa_model->GetEachUserCourseListWema($email);
+        $course_id = $this->gfa_model->getCourseIdByUserEmail($email);
+
                                       // GetUserProgressAssignedCourses
-       $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
+       $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email, $course_id);
        // $courseTrack = $this->gfa_model->GetUserEndProgress($email);
   ?>
   <div class="col-lg-6 mb-4 mb-md-0">

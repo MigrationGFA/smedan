@@ -21,68 +21,70 @@
                     $learnerDetails = $this->gfa_model->CheckMissingFieldsByWemaUid($email);
                     // var_dump($learnerDetails);
                   ?>
-  <div class="row">
-    <div class="col-md-10 col-12">
-        <center>
-        <img src="<?=base_url('public/assets/images/smedan_logo.jpeg')?>" style="width:220px; height: 80px;">
-        </center>
-        <!-- Welcome Form   -->
-        <div class="card display_1">
-         
-            <div class="card-header">
-                <p></p><h2 class="mb-1 text-center">Welcome <?= ucwords($learnerDetails[0]['first_name']) ?> <?= ucwords($learnerDetails[0]['last_name']) ?>!</h2></p>
-            </div>
-            <div class="card-body">
-                <p class="mb-2 text-center">Please choose the course you want to take</p>
-                
-            </div>
-        </div>
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-12">
 
-        <form class="form form-horizontal submitForm" action="#" enctype="multipart/form-data">
-        
-            <div class="card display_2">
-            
-                <div class="card-body">
-            
-                    <div class="row">
-                    
-                        
-                        
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
+                            <img 
+                                src="<?= base_url('public/assets/images/smedan_logo.jpeg') ?>" 
+                                alt="SMEDAN Logo"
+                                class="corporate-logo"
+                            >
+                        </div>
 
-                        <div class="col-12">
-                        <div class="input-div mb-1">
-                            <label class="form-label" for="contact-info-icon"
-                            >Select your most preferred course</label
-                            >
-                            <div class="input-group input-group-merge">
-                            <select
-                                name="course"
-                                class="form-select"
-                                required=""
-                            >
-                              <option value="DIMP Skill">Yes, Business courses</option>
-                              <option value="CRM Management">CRM Management</option>
-                              <option value="Accounting Software">Accounting Software</option>
-                              <option value="Career Advancement">Career Advancement</option>
-                              <option value="System Analysis">System Analysis</option>
-                              <option value="Technical Writing">Technical Writing</option>
-                              <option value="Cloud Computing">Cloud Computing</option>
-                              <option value="Web Design">Web Design</option>
-                            </select>
+                        <!-- Welcome Card -->
+                        <div class="card shadow-sm border-0 rounded-4 mb-4 display_1 corporate-card">
+                            <div class="card-header bg-white border-0 text-center pt-4">
+                                <h2 class="fw-bold text-dark mb-0">
+                                    Welcome 
+                                    <?= ucwords($learnerDetails[0]['first_name']) ?> 
+                                    <?= ucwords($learnerDetails[0]['last_name']) ?>!
+                                </h2>
+                            </div>
+                            <div class="card-body text-center pb-4">
+                                <p class="text-muted mb-0 fs-6">
+                                    Please choose the course you want to take.
+                                </p>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-9 offset-sm-3 mb-1">
-                        <button type="button" class="btn btn-primary me-1 prev_1">Submit</button><span class="errorTest"></span>
+
+                        <!-- Selection Form -->
+                        <form class="form-horizontal submitForm" action="#" enctype="multipart/form-data">
+
+                            <div class="card shadow-sm border-0 rounded-4 display_2 corporate-card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
+                                        <div class="input-group input-group-merge">
+                                            <select name="course" class="form-select corporate-select" required>
+                                                <option value="DIMP Skill">Yes, Business courses</option>
+                                                <option value="CRM Management">CRM Management</option>
+                                                <option value="Accounting Software">Accounting Software</option>
+                                                <option value="Career Advancement">Career Advancement</option>
+                                                <option value="System Analysis">System Analysis</option>
+                                                <option value="Technical Writing">Technical Writing</option>
+                                                <option value="Cloud Computing">Cloud Computing</option>
+                                                <option value="Web Design">Web Design</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 prev_1">
+                                            Submit
+                                        </button>
+                                        <span class="errorTest text-danger ms-2"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+
                     </div>
                 </div>
-            
-            </div>
-        </form>
-  </div>
-   
-    </div>
     
   </div>
 </section>
@@ -99,6 +101,45 @@
    
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
+
+<style>
+.corporate-logo {
+    width: 220px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.corporate-card {
+    background: #ffffff;
+    border-radius: 14px !important;
+    transition: 0.25s ease;
+}
+
+.corporate-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07) !important;
+}
+
+.corporate-select {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.form-label {
+    font-size: 0.92rem;
+}
+
+</style>
 
 <script>
 $(document).ready(function() {
