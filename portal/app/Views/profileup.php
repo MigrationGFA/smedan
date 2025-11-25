@@ -13,7 +13,7 @@
           <!-- Coming soon page-->
           <div class="misc-wrapper">
 
-            <div class="misc-inner p-2 p-sm-3">
+            <div class="misc-inner p-1 p-sm-3">
                 <section id="basic-horizontal-layouts">
 
                   <?php 
@@ -25,7 +25,7 @@
                     <div class="col-md-10 col-12">
 
                         <!-- Logo -->
-                        <div class="text-center mb-4">
+                        <div class="text-center mb-1">
                             <img 
                                 src="<?= base_url('public/assets/images/smedan_logo.jpeg') ?>" 
                                 alt="SMEDAN Logo"
@@ -34,15 +34,15 @@
                         </div>
 
                         <!-- Welcome Card -->
-                        <div class="card shadow-sm border-0 rounded-4 mb-4 display_1 corporate-card">
-                            <div class="card-header bg-white border-0 text-center pt-4">
+                        <div class="card shadow-sm border-0 rounded-4 mb-2 display_1 corporate-card">
+                            <div class="card-header bg-white border-0 text-center pt-1">
                                 <h2 class="fw-bold text-dark mb-0">
                                     Welcome 
                                     <?= ucwords($learnerDetails[0]['first_name']) ?> 
                                     <?= ucwords($learnerDetails[0]['last_name']) ?>!
                                 </h2>
                             </div>
-                            <div class="card-body text-center pb-4">
+                            <div class="card-body text-center pb-1">
                                 <p class="text-muted mb-0 fs-6">
                                     Please choose the course you want to take.
                                 </p>
@@ -55,7 +55,7 @@
                             <div class="card shadow-sm border-0 rounded-4 display_2 corporate-card">
                                 <div class="card-body">
 
-                                    <div class="mb-3">
+                                    <div class="mb-1">
                                         <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
                                         <div class="input-group input-group-merge">
                                             <select name="course" class="form-select corporate-select" required>
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="text-end">
-                                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 prev_1">
+                                        <button type="button" class="btn btn-primary px-2 py-1 rounded-3 prev_1">
                                             Submit
                                         </button>
                                         <span class="errorTest text-danger ms-2"></span>
@@ -161,7 +161,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response != 'All fields are required!') {
-                    $('.errorTest').html('<span class="text-success">Update successful!</span>');
+                    $('.errorTest').html('<span class="text-success">Successful!</span>');
                     window.location.href = '<?= base_url("gfa/dashboard"); ?>';
                 } else {
                     $('.errorTest').html('<span class="text-danger">Please choose a course!</span>');
