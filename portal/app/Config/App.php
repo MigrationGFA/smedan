@@ -29,8 +29,10 @@ class App extends BaseConfig
      */
     // @var bool
     // public $displayErrorDetails = false;
+
     // public string $baseURL = 'https://smedan-learning.remsana.com/portal/'; 
     public string $baseURL = 'https://smedan-learning.remsana.com/portal/'; //http://localhost/smedan/portal/
+
     // public string $baseURL = 'https://kaduna-digital.dimpified.com/portal/';
 
     /**

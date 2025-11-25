@@ -21,84 +21,70 @@
                     $learnerDetails = $this->gfa_model->CheckMissingFieldsByWemaUid($email);
                     // var_dump($learnerDetails);
                   ?>
-  <div class="row">
-    <div class="col-md-10 col-12">
-        <center>
-        <img src="<?=base_url('public/assets/images/smedan_logo.jpeg')?>" style="width:220px; height: 80px;">
-        </center>
-        <!-- Welcome Form   -->
-        <div class="card display_1">
-         
-            <div class="card-header">
-                <p></p><h2 class="mb-1 text-center">Welcome <?= ucwords($learnerDetails[0]['first_name']) ?> <?= ucwords($learnerDetails[0]['last_name']) ?>!</h2></p>
-            </div>
-            <div class="card-body">
-                <p class="mb-2 text-center">Please choose the course you want to take</p>
-                
-            </div>
-        </div>
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-12">
 
-        <form class="form form-horizontal submitForm" action="#" enctype="multipart/form-data">
-        
-            <div class="card display_2">
-            
-                <div class="card-body">
-            
-                    <div class="row">
-                    
-                        
-                        
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
+                            <img 
+                                src="<?= base_url('public/assets/images/smedan_logo.jpeg') ?>" 
+                                alt="SMEDAN Logo"
+                                class="corporate-logo"
+                            >
+                        </div>
 
-                        <div class="col-12">
-                        <div class="input-div mb-1">
-                            <label class="form-label" for="contact-info-icon"
-                            >Do you want a business or technology course?</label
-                            >
-                            <div class="input-group input-group-merge">
-                            <select
-                                name="course_type"
-                                class="form-select"
-                                id="categorySelect"
-                            required=""
-                            >
-                                <option value="DIMP Skill">Yes, Business courses</option>
-                                <option value="Core Technology Skill">No, I will take core technology course</option>
-                                <option value="Technology Enabled Skill">No, I will take technology enabled course</option>
-                                <option value="Technology Adjacent Skill">No, I will take technology adjacent course</option>
-                                <!-- <option value="Advance Technology Skill">No, I will take advance technology course</option> -->
-                            </select>
+                        <!-- Welcome Card -->
+                        <div class="card shadow-sm border-0 rounded-4 mb-4 display_1 corporate-card">
+                            <div class="card-header bg-white border-0 text-center pt-4">
+                                <h2 class="fw-bold text-dark mb-0">
+                                    Welcome 
+                                    <?= ucwords($learnerDetails[0]['first_name']) ?> 
+                                    <?= ucwords($learnerDetails[0]['last_name']) ?>!
+                                </h2>
+                            </div>
+                            <div class="card-body text-center pb-4">
+                                <p class="text-muted mb-0 fs-6">
+                                    Please choose the course you want to take.
+                                </p>
                             </div>
                         </div>
-                        </div>
 
-                        <div class="col-12" id="courseSection" style="display: none;">
-                        <div class="input-div mb-1">
-                            <label class="form-label" for="contact-info-icon"
-                            >Select your preferred technology skill</label
-                            >
-                            <div class="input-group input-group-merge">
-                            <select
-                                name="course"
-                                class="form-select"
-                                id="courseSelect"
-                            >                            
-                                <option selected value="<?= $learnerDetails[0]['course'] ?? '' ?>"><?= $learnerDetails[0]['course'] ?? '' ?></option>                                
-                            </select>
+                        <!-- Selection Form -->
+                        <form class="form-horizontal submitForm" action="#" enctype="multipart/form-data">
+
+                            <div class="card shadow-sm border-0 rounded-4 display_2 corporate-card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
+                                        <div class="input-group input-group-merge">
+                                            <select name="course" class="form-select corporate-select" required>
+                                                <option value="DIMP Skill">Yes, Business courses</option>
+                                                <option value="CRM Management">CRM Management</option>
+                                                <option value="Accounting Software">Accounting Software</option>
+                                                <option value="Career Advancement">Career Advancement</option>
+                                                <option value="System Analysis">System Analysis</option>
+                                                <option value="Technical Writing">Technical Writing</option>
+                                                <option value="Cloud Computing">Cloud Computing</option>
+                                                <option value="Web Design">Web Design</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 prev_1">
+                                            Submit
+                                        </button>
+                                        <span class="errorTest text-danger ms-2"></span>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                        </div>
-                    
-                    </div>
-                    <div class="col-sm-9 offset-sm-3 mb-1">
-                        <button type="button" class="btn btn-primary me-1 prev_1">Submit</button><span class="errorTest"></span>
+
+                        </form>
+
                     </div>
                 </div>
-            
-            </div>
-        </form>
-  </div>
-   
-    </div>
     
   </div>
 </section>
@@ -113,100 +99,52 @@
     </div>
     <!-- END: Content-->
    
-   
-  
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
+<style>
+.corporate-logo {
+    width: 220px;
+    height: 80px;
+    object-fit: contain;
+}
 
-<script src="<?php echo base_url('public/assets-new/js/select-stage.js'); ?>"></script>
-<script src="<?php echo base_url('public/assets-new/js/jquery.stateLga.js'); ?>"></script>
-<script>
-    const skillList = {
-      "Technology Enabled Skill": [
-        "CRM Management",
-        "Accounting Software",
-        "Career Advancement",
-      ],
-      "Technology Adjacent Skill": [
-        "Technology Community Management",
-        "System Analysis",
-        "Technical Writing",
-      ],
-      "Core Technology Skill": [
-        "Cloud Computing",
-        "Database Management",
-        "Web Design",
-      ],
-    //   "Advance Technology Skill": [
-    //     "Machine Learning and AI",
-    //     "Bioinformatics",
-    //     "Cybersecurity",
-    //     "Blockchain Development",
-    //     "Quantum Computing",
-    //     "Robotics and Automation",
-    //     "Virtual and Augmented Reality Development",
-    //     "Advanced Hardware",
-    //     "DevOps",
-    //     "Internet of Things (IoT)",
-    //   ]
-    };
+.corporate-card {
+    background: #ffffff;
+    border-radius: 14px !important;
+    transition: 0.25s ease;
+}
 
-    const categorySelect = document.getElementById("categorySelect");
-    const courseSection = document.getElementById("courseSection");
-    const courseSelect = document.getElementById("courseSelect");
+.corporate-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07) !important;
+}
 
-    categorySelect.addEventListener("change", function () {
-    const selectedValue = categorySelect.value;
+.corporate-select {
+    border-radius: 10px;
+    padding: 10px;
+}
 
-    // Hide the entire section if "Yes" (DIMP Skill) is selected
-    if (selectedValue === "DIMP Skill") {
-      courseSection.style.display = "none";
- courseSelect.removeAttribute("required");
-      courseSelect.innerHTML = ""; // Clear options
-    } else {
-      courseSection.style.display = "block";
-       courseSelect.setAttribute("required", "required");
-      courseSelect.innerHTML = '<option value="" disabled selected>- Select -</option>';
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    font-weight: 600;
+}
 
-      if (skillList[selectedValue]) {
-        skillList[selectedValue].forEach((skill) => {
-          const option = document.createElement("option");
-          option.value = skill;
-          option.textContent = skill;
-          courseSelect.appendChild(option);
-        });
-      }
-    }
-  });
-</script>
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.form-label {
+    font-size: 0.92rem;
+}
+
+</style>
+
 <script>
 $(document).ready(function() {
     $('.prev_1').on('click', function(e) {
         e.preventDefault();
-
-        // var isValid = true;
-        // var errorMessages = [];
-
-        // // Clear previous error messages
-        // $('.errorTest').html('');
-
-        // // Iterate over each required input, select within the form
-        // $('.submitForm').find('input[required], select[required]').each(function() {
-        //     var $this = $(this);
-        //     if (!$this.val()) {
-        //         isValid = false;
-        //         // var fieldLabel = $("label[for='" + $this.attr('id') + "']").text();
-        //         errorMessages.push('All fields are required except middle name!');
-        //     }
-        // });
-
-        // if (!isValid) {
-        //     // Display error messages
-        //     $(".errorTest").html('<div class="text-danger">' + errorMessages.join('<br>') + '</div>');
-        //     return;
-        // }
-
         var form = $('.submitForm')[0];
         var formData = new FormData(form);
 

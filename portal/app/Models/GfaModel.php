@@ -196,9 +196,27 @@ class GfaModel extends Model
         $query = $this->db->query("CALL GetRegisteredWemaCourse(?)", [$email]);
         return $query->getResultArray()[0]['course'];     
     }
-    public function  GetUserProgressAssignedCoursesWema($userEmail){
 
-    $query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?)", [$userEmail]);
+    public function  GetUserProgressAssignedCoursesWema($userEmail, $courseId){
+
+    $query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?, ?)", [$userEmail, $courseId]);
+
+    // Check if the query was successful
+    if ($query) {
+        // Retrieve the result set
+        $result = $query->getResultArray();
+        // Free the result set
+        $query->freeResult();
+        return $result;
+    } else {
+        // Handle the error
+        return null;
+    }
+
+    }
+    public function  CheckCompletionAllCoursesWema($userEmail){
+
+    $query = $this->db->query("CALL CheckCompletionAllCoursesWema(?)", [$userEmail]);
 
     // Check if the query was successful
     if ($query) {
@@ -231,44 +249,89 @@ class GfaModel extends Model
 
         }
 
-    public function checkCompletionSingleCourse($email, $chosenCourse)
-    { 
-        // Get overall course progress
-        $courseProgress = $this->GetUserProgressAssignedCoursesWema($email);
+        public function getCourseIdByTitle($title)
+        {
+            $builder = $this->db->table('courses');
+            $builder->select('id');
+            $builder->where('coursetitle', $title);
+            
+            $row = $builder->get()->getRow();
 
-        // Default progress
+            return $row ? $row->id : null;
+        }
+
+        public function getCourseIdByUserEmail($email)
+{
+    $result = $this->db->table('wema_course_access')
+                 ->select('courses.id as course_id')
+                 ->join('courses', 'courses.coursetitle = wema_course_access.course')
+                 ->where('wema_course_access.email', $email)
+                 ->get()
+                 ->getRow();
+
+    return $result ? $result->course_id : null;
+}
+
+    public function checkCompletionSingleCourse($email, $courseId)
+    {
+        // 1. Get overall course progress
+        $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
+
         $progressValue = 0;
         if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
-            // Remove % sign and convert to integer
             $progressValue = (int) rtrim($courseProgress[0]['Progress'], '%');
         }
 
-        // Get latest quiz scores for all courses
+        // 2. Get all latest quiz scores (one latest per ref_id)
         $quizScores = $this->GetUserLatestQuizScoresWema($email);
 
-        $quizScoreValue = 0;
+        // 3. Calculate AVERAGE quiz score for the chosen course
+        $averageQuizScore = 0;
+
         if (!empty($quizScores)) {
-            // Filter for the chosen course by course title
-            $matchedScores = array_filter($quizScores, function($row) use ($chosenCourse) {
-                return $row['coursetitle'] === $chosenCourse;
+
+            // Filter quizzes belonging to this course by course_id
+            $matchedScores = array_filter($quizScores, function($row) use ($courseId) {
+                return isset($row['course_id']) && (int)$row['course_id'] === (int)$courseId;
             });
 
-            // Take the first matched score if exists
-            $matchedScore = reset($matchedScores);
-            if ($matchedScore && isset($matchedScore['score'])) {
-                $quizScoreValue = (float) $matchedScore['score'];
+            if (!empty($matchedScores)) {
+                $sum = 0;
+                $count = 0;
+
+                foreach ($matchedScores as $quiz) {
+                    if (isset($quiz['score'])) {
+                        $sum += (float)$quiz['score'];
+                        $count++;
+                    }
+                }
+
+                if ($count > 0) {
+                    $averageQuizScore = $sum / $count;
+                }
             }
         }
 
-        // Check if user has >= 80% progress AND latest quiz score >= 80
-        if ($progressValue >= 80 && $quizScoreValue >= 80) {
-            return 1; // Completed
+        // 4. Check completion rules
+        if ($progressValue >= 80 && $averageQuizScore >= 80) {
+            return 1;
         }
 
-        return 0; // Not completed
+        return 0; 
     }
 
-        public function getStartUpByUid($email)
+    public function checkOverallCompletion($email)
+    {
+        $result = $this->CheckCompletionAllCoursesWema($email);
+        
+        if (!empty($result) && isset($result[0]['IsCompleted'])) {
+            return (int)$result[0]['IsCompleted'];
+        }
+        
+        return 0; // Default to not completed
+    }
+
+    public function getStartUpByUid($email)
     {
         $builder = $this->db->table('wema_course_access');
         $builder->select('*');
@@ -779,9 +842,9 @@ if ($query) {
 
 
 
-public function  GetUserProgressNewCurriculum($userEmail){
+public function  GetUserProgressNewCurriculumWema($userEmail){
 
-    $query = $this->db->query("CALL GetUserProgressNewCurriculum(?)", [$userEmail]);
+    $query = $this->db->query("CALL GetUserProgressNewCurriculumWema(?)", [$userEmail]);
     
     // Check if the query was successful
     if ($query) {
@@ -4119,7 +4182,7 @@ public function getStartUpDetailsRegAllLimit()
 public function getCertificateEmailDimp($email){
     $builder = $this->db->table('certificate');
   $builder->where('email',$email);
-  $builder->where('cert_type',"osun-dimp");
+  $builder->where('cert_type',"smedan-dimp");
   $query = $builder->get(); 
   if($query->getNumRows() > 0 )
   {

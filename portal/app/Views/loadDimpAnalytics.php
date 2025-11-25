@@ -2,12 +2,13 @@
   $this->gfa_model = model('App\Models\GfaModel');
   $email = session()->get('email');
   // $loginkey = $this->gfa_model->getWpCred($email);
-// $cohort = $this->gfa_model->getCohortDetails($email);
-// if($cohort > 2){
-	  $courseTrack = $this->gfa_model->GetUserProgressNewCurriculum($email);
-// } else {
-// 	$courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
-// }
+  // $cohort = $this->gfa_model->getCohortDetails($email);
+  // if($cohort > 2){
+	  $courseTrack = $this->gfa_model->GetUserProgressNewCurriculumWema($email);
+  // } else {
+  // 	$courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
+  // }
+        
 ?>
 <div class="col-sm-6 col-xl-3">
     <div class="card">
@@ -29,7 +30,7 @@
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
-            <h4 class="mb-0"><?php echo $courseTrack[0]['Progress'] ?>%</h4>
+            <h4 class="mb-0"><?php echo $courseTrack[0]['Progress'] ?></h4>
             <small>Course Track</small>
           </div>
           <span class="badge bg-label-success rounded-circle p-2">

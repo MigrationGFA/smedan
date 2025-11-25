@@ -2747,33 +2747,12 @@ public function group_members_api()
 // Initial $coursetitleArray
  $coursetitleArray = [
        	'Understanding Digital Transformation' => ['2020-01-01'],
-		'Culture' => ['2020-01-01'],
-		'Time Management' => ['2020-01-01'],
-		'Customer Value' => ['2020-01-01'],
-
 		'Digital Tools and Technologies' => ['2020-01-01'],
-        'Business Writing & Communication' => ['2020-01-01'],
-		'Personal Branding & Effectiveness' => ['2020-01-01'],
-
 		'Cybersecurity' => ['2020-01-01'],
-		'Ideas to business' => ['2020-01-01'],
-		'Stakeholder Management' => ['2020-01-01'],
-		
 		'Digital Marketing' => ['2020-01-01'],
-		'Effective Presentation Skills' => ['2020-01-01'],
-        'Emotional Intelligence' => ['2020-01-01'],
-
 		'Digital Finance and Accounting' => ['2020-01-01'],
-		'Sales and Negotiations Skills' => ['2020-01-01'],
-        'Critical Thinking' => ['2020-01-01'],
-
 		'Operations and Supply Chain Digitization' => ['2020-01-01'],
-		'Conflict Management' => ['2020-01-01'],
-		'CV-Workshop' => ['2020-01-01'],
-
 		'Understanding Organization Culture & Change Management' => ['2020-01-01'],
-        'People Management Skills in the Workplace' => ['2020-01-01'],
-        'Work Ethics' =>['2020-01-01']    
     	];
 
 // Update dates dynamically
@@ -2857,10 +2836,10 @@ $data['courseArrayUpcoming'] = $courseArrayUpcoming;
         $email  = session()->get('email') ;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         
-         $course_type = $this->request->getPost("course_type");
         $course = $this->request->getPost("course");
-        if ($course_type == "DIMP Skill"){
-            $course = "DIMP Skill";
+        $course_type = $course;
+        if ($course == "DIMP Skill"){
+            $course_type = "DIMP Skill";
         }
         // $course = $this->request->getPost("course");
         // $course_type = $this->request->getPost("course_type");
@@ -6382,8 +6361,10 @@ $data_connection = array(
 
         if(empty($getCertificateCourse)){
         $getCerticateData = $this->gfa_model->GetCertificateEligibleAssignedCourseWema($email);
-        $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
-        $courseTrackProgress = $this->gfa_model->checkCompletionSingleCourse($email, $getCerticateData[0]['Course']);
+        $course_id = $this->gfa_model->getCourseIdByUserEmail($email);
+        $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email, $course_id);
+        $course_id = $this->gfa_model->getCourseIdByTitle($getCerticateData[0]['Course']);
+        $courseTrackProgress = $this->gfa_model->checkCompletionSingleCourse($email, $course_id);
         $courseTrackProgress2  = trim(str_replace("%","",$courseTrack[0]['Progress']));
         if($courseTrackProgress){
             $data = array(
@@ -6483,6 +6464,8 @@ if (trim($getCerticateData1[0]['Score']) >= trim($getCerticateData2[0]['Score'])
     
     public function certificate_gen_dimp(){
         $email  = session()->get('email') ;
+        $first_name  = session()->get('first_name') ;
+        $last_name  = session()->get('last_name') ;
         // $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
         // print_r($getCerticateData);
         // exit;
@@ -6510,8 +6493,10 @@ if (trim($getCerticateData1[0]['Score']) >= trim($getCerticateData2[0]['Score'])
         $getCertificateCourse = $this->gfa_model->getCertificateEmailDimp($email); 
 
         if(empty($getCertificateCourse)){
-        $getCerticateData = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email);
-        if(trim($getCerticateData[0]['Progress']) >=80){
+             $getCerticateData = $this->gfa_model->GetUserProgressNewCurriculumWema($email);
+        // $getCerticateData = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email);
+        $getCerticateDataProgress = $this->gfa_model->checkOverallCompletion($email);
+        if($getCerticateDataProgress){
             $data = array(
                 'email' => $email,
                 'ref' => $random_2,
@@ -6519,9 +6504,9 @@ if (trim($getCerticateData1[0]['Score']) >= trim($getCerticateData2[0]['Score'])
                 'cert_type' => "smedan-dimp",
                 'time_submit' => $time_submit,
                 'status' => "active",
-                'course' => $getCerticateData[0]['courses'],
+                'course' => 'SME Digitization',
                 'score' => $getCerticateData[0]['Progress'],
-                'name'=>$getCerticateData[0]['name']
+                'name'=>$first_name . ' '. $last_name
                 ) ;
             $this->gfa_model->insertCertificate($data); 
             session()->set('cert_course_ref', $random_2); 
