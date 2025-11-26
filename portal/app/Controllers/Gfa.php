@@ -6196,70 +6196,148 @@ $data_connection = array(
 
     }
 
+    public function sendMail($recipient_email, $message,$subject)
+	{	
+	
+
+		$url = 'https://getfundedafrica.com/email/senderjson.php';
+
+		$data = [
+		    "recipient_email" => "{$recipient_email}",
+		    "message" => "{$message}",
+		    "subject" => "{$subject}",
+		    "fromName" => "SMEDAN | Wema"
+		];
+
+		$ch = curl_init($url);
+
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+		$response = curl_exec($ch);
+		$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+		curl_close($ch);
+	
+	}
+
     public function learning_wema($first_name = "", $last_name = "", $email = "", $program_type = "")
-{
-    $email = strtolower(urldecode($email));
-    $platform = $program_type;
-    $ref = $email . time();
+    {
+        $email = strtolower(urldecode($email));
+        $platform = $program_type;
+        $ref = $email . time();
 
-    // Save session data
-    session()->set([
-        'email'        => $email,
-        'account_type' => 'startup',
-        'wema_email'   => $email,
-        'first_name'   => $first_name,
-        'last_name'   => $last_name,
-    ]);
+        // Save session data
+        session()->set([
+            'email'        => $email,
+            'account_type' => 'startup',
+            'wema_email'   => $email,
+            'first_name'   => $first_name,
+            'last_name'   => $last_name,
+        ]);
 
-    // Check if user already exists
-    $existingUser = $this->gfa_model->checkWemaUser($email);
+        // Check if user already exists
+        $existingUser = $this->gfa_model->checkWemaUser($email);
 
-    if (!$existingUser) {
-        // User does NOT exist → insert
-        $data = [
-            'first_name'    => $first_name,
-            'last_name'     => $last_name,
-            'email'         => $email,
-            'program_type'  => $program_type,
-            'platform'      => $platform,
-            'account_type'  => 'startup',
-            'ref'           => $ref
-        ];
+        if (!$existingUser) {
+            // User does NOT exist → insert
+            $data = [
+                'first_name'    => $first_name,
+                'last_name'     => $last_name,
+                'email'         => $email,
+                'program_type'  => $program_type,
+                'platform'      => $platform,
+                'account_type'  => 'startup',
+                'ref'           => $ref
+            ];
 
-        $this->gfa_model->wema_course_access($data);
+            $this->gfa_model->wema_course_access($data);
+
+            $logo_url = "<?=base_url('public/assets/images/smedan_logo.png')?>" ;
+            $subject = "Welcome to Your Learning Platform - 30-Day Access Activated";
+            $message = "
+                <!DOCTYPE html>
+                <html lang='en'>
+                <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Welcome to Lag-Up Skills Program</title>
+                <style>
+                    body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: #ffffff;
+                    }
+                    .container {
+                    width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    }
+                    header {
+                    text-align: center;
+                    padding-bottom: 10px;
+                    }
+                    header img {
+                    width: 150px;
+                    height: auto;
+                    }
+                    .content {
+                    color: #333;
+                    line-height: 1.6;
+                    }
+                    ul, ol {
+                    margin-left: 20px;
+                    }
+                    footer {
+                    text-align: center;
+                    padding: 20px 0;
+                    background-color: #f4f4f4;
+                    font-size: 12px;
+                    }
+                    .social-icons img {
+                    margin: 0 5px;
+                    width: 24px;
+                    height: auto;
+                    }
+                </style>
+                </head>
+                <body>
+                <div class='container'>
+                    <header>
+                    <img src='{$logo_url}' alt='Wema | SMEDAN Logo'>
+                    </header>
+                    <div class='content'>
+                    <p>Dear {$first_name},</p>
+
+                <p>Welcome to our learning platform! Your access is now active, and you have <strong>30 days</strong> to complete your chosen course and download your certificate. Learning is fully flexible, so we encourage you to set personal daily reminders to stay on track.</p>
+
+                <h4 style='margin-top:15px;'>Navigating the Platform</h4>
+                <ul>
+                <li>After login, you will be prompted to <strong>select your preferred course</strong>. Please choose carefully—this will be the only course you can access and the one your certificate will be issued for.</li>
+                <li>Your dashboard includes a <strong>progress tracker</strong> to monitor your learning journey.</li>
+                <li>To earn your certificate, you must achieve at least <strong>80% in all assessments</strong> and <strong>80% overall course completion</strong>.</li>
+                </ul>
+
+                <p>We wish you a successful and enjoyable learning experience.</p>
+
+                <p>Kind regards,<br>
+                The Learning Team</p>
+
+                    </div>
+                </div>
+                </body>
+                </html>
+            ";
+
+            $this->sendMail($email, $message, $subject);
+
+        }
+
+        return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
     }
-
-    return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
-}
-
-    // public function learning_wema($first_name="",$last_name="",$email="",$program_type=""){
-
-    // 			$email = strtolower(urldecode($email));
-    // 			$platform = $program_type;
-    // 			// $state = 'Katsina';
-    // 			$ref = $email.time();
-    // 			session()->set('email', $email);   
-                
-    //             session()->set('account_type', 'startup');
-    //             session()->set('wema_email', $email);
-    //             $data = array(
-
-    //             	'first_name' => $first_name,
-    //             	'last_name' => $last_name,
-    //             	'email' => $email,
-    //             	'program_type' => $program_type,
-    //             	// 'course' => $course,
-    //             	'platform' => $platform,
-    //             	'account_type' => 'startup',
-    //             	'ref' => $ref
-                	
-
-    //             );
-
-    //             $this->gfa_model->wema_course_access($data);
-    //             return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
-
-    // }
 
     public function learning_wema_api()
     {
@@ -9048,7 +9126,7 @@ public function Eventpostpro(){
 }
 
 
-public function sendMail($recipient_email, $message,$subject)
+public function sendMailOld($recipient_email, $message,$subject)
     {   
     
 

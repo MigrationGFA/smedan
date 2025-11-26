@@ -5,12 +5,12 @@
 <footer class="content-footer footer bg-footer-theme">
   <div class="container-xxl">
     <div class="footer-container d-flex align-items-center justify-content-center py-2 flex-md-row flex-column">
-      <div>
+      <!-- <div>
         © <script>
         document.write(new Date().getFullYear())
         </script>
         , All rights resevered. Created with ❤️ by <a href="https://gfa-tech.com" target="_blank" class="fw-semibold">REMSANA Technologies Team</a>
-      </div>
+      </div> -->
       <!-- <div>
         
         <a href="https://getfundedafrica.com/contact-us.php" class="footer-link me-4" target="_blank">Get in touch</a>

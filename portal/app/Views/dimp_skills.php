@@ -119,13 +119,13 @@
                     $getActiveLesson = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
                     $lesson_url = str_replace(" ","-",$getActiveLesson[0]['title']);
              ?>
-                <a class="app-academy-md-50 btn btn-label-success d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php echo base_url("gfa/course/{$courseDetailsToday['id']}/{$cours_url}") ?>"> 
+                <a class="app-academy-md-50 btn btn-label-success d-flex align-items-center userActivity" ls="<?= 'l-' . $getActiveLesson[0]['id'];  ?>" href="<?php echo base_url("gfa/course/{$courseDetailsToday['id']}/{$cours_url}") ?>"> 
                   <span class="me-2">Review</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a> 
 
              <?php if($getActiveLesson[0]['title'] !="") {  ?>  
 
-                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
+                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= 'l-' . $getActiveLesson[0]['id'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
                 <?php }  ?>
@@ -207,11 +207,11 @@
                     $lesson_url = str_replace(" ","-",$getActiveLesson[0]['title']);
              ?>
              <div class="d-flex flex-column flex-md-row gap-2 text-nowrap">
-                <a class="app-academy-md-50 btn btn-label-success me-md-2 d-flex align-items-center" ls="<?= $courseDetailsPrev['coursetitle'];  ?>" href="<?php echo base_url("gfa/course/{$courseDetailsPrev['id']}/{$cours_url}") ?>">
+                <a class="app-academy-md-50 btn btn-label-success me-md-2 d-flex align-items-center" ls="<?= 'c-' . $courseDetailsPrev['id'];  ?>" href="<?php echo base_url("gfa/course/{$courseDetailsPrev['id']}/{$cours_url}") ?>">
                   <i class="ti ti-chevron-right align-middle scaleX-n1-rtl  me-2 mt-n1 ti-sm"></i><span>Review</span>
                 </a>
                  <?php if($getActiveLesson[0]['title'] !="") {  ?>
-                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= $getActiveLesson[0]['title'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
+                <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity" ls="<?= 'l-' . $getActiveLesson[0]['id'];  ?>" href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>"> 
                   <span class="me-2">Start</span><i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                 </a>
                 <?php }  ?>

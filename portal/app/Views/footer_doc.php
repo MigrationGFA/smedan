@@ -134,9 +134,11 @@
 
 
         </div>
-    <footer class="footer footer-static footer-light">rights Reserved</span></span><span class="float-md-end d-non
-      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2024 REMSANA Technologies, All e d-md-block">Powered by GFA</span></p>
-    </footer>
+    <!-- <footer class="footer footer-static footer-light">rights Reserved</span></span><span class="float-md-end d-non
+      <p class="clearfix mb-0">
+        <span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2024 REMSANA Technologies, All e d-md-block">Powered by GFA</span>
+      </p>
+    </footer> -->
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
 

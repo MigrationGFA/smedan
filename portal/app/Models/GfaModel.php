@@ -58,7 +58,7 @@ class GfaModel extends Model
     }
 
     public function getCertificateWemaCourse($email){
-            $builder = $this->db->table('certificate');
+        $builder = $this->db->table('certificate');
         $builder->where('email',$email);
         $builder->where('cert_type',"smedan-course");
         $query = $builder->get(); 

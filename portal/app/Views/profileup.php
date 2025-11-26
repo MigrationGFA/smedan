@@ -27,7 +27,7 @@
                         <!-- Logo -->
                         <div class="text-center mb-1">
                             <img 
-                                src="<?= base_url('public/assets/images/smedan_logo.jpeg') ?>" 
+                                src="<?= base_url('public/assets/images/smedan_logo.png') ?>" 
                                 alt="SMEDAN Logo"
                                 class="corporate-logo"
                             >
