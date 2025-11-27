@@ -48,6 +48,8 @@
                   <th>Last Name</th>
                   
                    <th>First Name</th>
+                   <th>Course</th>
+                   <th>Date</th>
                   
                   
                 </tr>
@@ -90,6 +92,30 @@
                         </div>
                       </div>
                       <span><?php echo $rowArray['last_name'] ?>
+                          </span>
+                    </div>
+                   </td>
+
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
+                          <i data-feather="edit" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['course'] ?>
+                          </span>
+                    </div>
+                   </td>
+
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
+                          <i data-feather="calendar" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['LastTimeAccessed'] ?>
                           </span>
                     </div>
                    </td>

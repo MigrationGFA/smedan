@@ -7086,7 +7086,8 @@ public function export_access_dashboard()
                 $csvHeader = array(
                     "S/No",
                     "Name",
-                    "Course"
+                    "Course",
+                    "Date"
                     
                     
                     
@@ -7102,7 +7103,8 @@ public function export_access_dashboard()
                             $csvRow = array(
                                 $n++,
                                 $row['last_name']." ".$row['first_name'],
-                                $row['course_type']
+                                $row['course_type'],
+                                $row['LastTimeAccessed']
                                 
                                 
                                
@@ -7140,7 +7142,11 @@ public function export_started_learnining()
                 // Define the CSV header row
                 $csvHeader = array(
                     "S/No",
-                    "Email",
+                    "Name",
+                    "Course",
+                    "Progress",
+                    "Passed Quiz",
+                    "Date"
                     
                     
                     
@@ -7155,7 +7161,11 @@ public function export_started_learnining()
                        
                             $csvRow = array(
                                 $n++,
-                                $row['user_email']
+                                $row['last_name']." ".$row['first_name'],
+                                $row['ongoing_course'],
+                                $row['RecentCourseProgress'],
+                                $row['passed_quizzes'],
+                                $row['LastTimeAccessed']
                                 
                                 
                                
@@ -7191,8 +7201,12 @@ public function export_completed_at_least_a_course()
 
                 // Define the CSV header row
                 $csvHeader = array(
-                    "S/No",
-                    "Email",
+                     "S/No",
+                    "Name",
+                    "Course",
+                    "Progress",
+                    "Passed Quiz",
+                    "Date"
                     
                     
                     
@@ -7207,7 +7221,11 @@ public function export_completed_at_least_a_course()
                        
                             $csvRow = array(
                                 $n++,
-                                $row['user_email']
+                                $row['last_name']." ".$row['first_name'],
+                                $row['ongoing_course'],
+                                $row['RecentCourseProgress'],
+                                $row['passed_quizzes'],
+                                $row['LastTimeAccessed']
                                 
                                 
                                
@@ -7243,8 +7261,12 @@ public function export_completed_assigned_course()
 
                 // Define the CSV header row
                 $csvHeader = array(
-                    "S/No",
-                    "Email",
+                     "S/No",
+                    "Name",
+                    "Course",
+                    "Progress",
+                    "Passed Quiz",
+                    "Date"
                     
                     
                     
@@ -7259,7 +7281,11 @@ public function export_completed_assigned_course()
                        
                             $csvRow = array(
                                 $n++,
-                                $row['user_email']
+                                $row['last_name']." ".$row['first_name'],
+                                $row['ongoing_course'],
+                                $row['RecentCourseProgress'],
+                                $row['passed_quizzes'],
+                                $row['LastTimeAccessed']
                                 
                                 
                                

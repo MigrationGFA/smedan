@@ -87,7 +87,7 @@
         <div class="row align-items-center">
 
             <div class="col-6">
-                <img src="https://smedan.remsana.com/public/assets/images/smedan.jpg" 
+                <img src="https://getfundedafrica.com/assets/images/smedan-logo.jpg" 
                      alt="Logo" class="img-fluid" style="max-width:150px;">
             </div>
 

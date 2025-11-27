@@ -42,11 +42,14 @@
           <div class="table-responsive">
             <table class="table" id="table">
               <thead>
-                <tr>
+               <tr>
                     <th></th>
                   <!-- <th>Name</th> -->
-                  <th>Email</th>
-                  
+                  <th>Name</th>
+                  <th>Course</th>
+                  <th>Progress</th>
+                  <th>Passed Quiz</th>
+                  <th>Date</th>
                   
                   
                   
@@ -74,10 +77,55 @@
                    <div class="d-flex align-items-center">
                       <div class="avatar bg-light-primary me-1">
                         <div class="avatar-content">
+                          <i data-feather="user" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['last_name']." ".$rowArray['first_name']  ?> 
+                          </span>
+                    </div>
+                   </td>
+
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
+                          <i data-feather="edit" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['ongoing_course'] ?>
+                          </span>
+                    </div>
+                   </td>
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
                           <i data-feather="box" class="font-medium-3"></i>
                         </div>
                       </div>
-                      <span><?php echo $rowArray['user_email'] ?>
+                      <span><?php echo $rowArray['RecentCourseProgress'] ?>
+                          </span>
+                    </div>
+                   </td>
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
+                          <i data-feather="file" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['passed_quizzes'] ?>
+                          </span>
+                    </div>
+                   </td>
+                   <td>
+                   <div class="d-flex align-items-center">
+                      <div class="avatar bg-light-primary me-1">
+                        <div class="avatar-content">
+                          <i data-feather="calendar" class="font-medium-3"></i>
+                        </div>
+                      </div>
+                      <span><?php echo $rowArray['LastTimeAccessed'] ?>
                           </span>
                     </div>
                    </td>
