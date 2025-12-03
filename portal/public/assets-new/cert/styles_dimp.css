@@ -23,7 +23,7 @@ body {
 
 .text-overlay h1 {
   position: absolute;
-  top: 45%;
+  top: 38%;
   left: 53%;
   font-family: "Urbanist", sans-serif;
   font-weight: 700;
@@ -36,7 +36,7 @@ body {
 
 .text-overlay h2 {
   position: absolute;
-  top: 60%;
+  top: 43%;
   left: 55%;
   font-family: "Urbanist", sans-serif;
   font-weight: 600;
@@ -61,7 +61,7 @@ body {
 }
 .text-overlay h4 {
   position: absolute;
-  top: 68.4%;
+  top: 55%;
   left: 49.5%;
   font-family: "Urbanist", sans-serif;
   font-weight: 500;
