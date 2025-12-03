@@ -1,36 +1,4 @@
-@font-face {
-  font-family: "Marcellus";
-  font-style: normal;
-  font-weight: 400;
-  src: url("https://fonts.gstatic.com/s/marcellus/v8/7A7MEp__e6Fc4MmzGMMbR3A7DikP.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 100 700;
-  src: url("https://fonts.gstatic.com/s/robotomono/v15/4iKz51D6fdsp8wG_7EBp_4iRWo7j9u1J7Kx9tB7X8dmr3kOs1iZsX5PjA.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-family: "Sofia";
-  font-style: normal;
-  font-weight: 400;
-  src: url("https://fonts.gstatic.com/s/sofia/v9/1w28N8tWf7Xht_pN6_3zXb58RpaYr.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("https://fonts.gstatic.com/s/urbanist/v10/2h0EE2q1lN5V_i7sWb0A9B0HGCfsZv5iPQ9n7U7PbOq_TqU.woff2")
-    format("woff2");
-}
-
-
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Marcellus&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sofia&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -55,33 +23,33 @@ body {
 
 .text-overlay h1 {
   position: absolute;
-  top: 40%;
-  left: 28%;
-  font-family: "Dancing Script", cursive;
+  top: 45%;
+  left: 53%;
+  font-family: "Urbanist", sans-serif;
   font-weight: 700;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-size: 2rem; /* Adjust as needed */
+  font-size: 1.2rem; /* Adjust as needed */
   color: #2a2828; /* Change as needed */
-  margin-bottom: 25px; /* Adjust as needed */
+  margin-bottom: 18px; /* Adjust as needed */
 }
 
 .text-overlay h2 {
   position: absolute;
-  top: 59%;
-  left: 26%;
+  top: 60%;
+  left: 55%;
   font-family: "Urbanist", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-size: 1.5rem; /* Adjust as needed */
-  color: #2a2828;; /* Change as needed */
+  font-size: 0.9rem; /* Adjust as needed */
+  color: #2a2828; /* Change as needed */
   margin-bottom: 20px; /* Adjust as needed */
 }
 
 .text-overlay h3 {
   position: absolute;
-  top: 59%;
+  top: 60%;
   left: 40.3%;
   font-family: "Urbanist", sans-serif;
   font-weight: 600;
@@ -93,13 +61,13 @@ body {
 }
 .text-overlay h4 {
   position: absolute;
-  top: 65%;
-  left: 21%;
+  top: 68.4%;
+  left: 49.5%;
   font-family: "Urbanist", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   transform: translate(-50%, -50%);
   text-align: left;
-  font-size: 14px; /* Adjust as needed */
+  font-size: 16px; /* Adjust as needed */
   color: #2a2828; /* Change as needed */
   margin-bottom: 20px; /* Adjust as needed */
 }
@@ -118,11 +86,11 @@ body {
 
 .text-overlay p {
   position: absolute;
-  top: 2%;
+  top: 3%;
   left: 83%;
   font-family: "Urbanist", sans-serif;
   font-weight: 600;
 
   font-size: 8px; /* Adjust as needed */
-  color: #ffffff; /* Change as needed */
+  color: #000; /* Change as needed */
 }
