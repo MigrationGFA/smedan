@@ -55,6 +55,6 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'smedan-learning'
-          slot-name: 'Production'
+          slot-name: 'test'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_60EDC6D768514151B905BFFDB8729A8C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8DED796615D24C2A828536C46870FD9E }}
