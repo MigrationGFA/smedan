@@ -23,7 +23,7 @@ body {
 
 .text-overlay h1 {
   position: absolute;
-  top: 38%;
+  top: 30%;
   left: 53%;
   font-family: "Urbanist", sans-serif;
   font-weight: 700;
@@ -36,7 +36,7 @@ body {
 
 .text-overlay h2 {
   position: absolute;
-  top: 43%;
+  top: 48%;
   left: 55%;
   font-family: "Urbanist", sans-serif;
   font-weight: 600;
@@ -61,8 +61,8 @@ body {
 }
 .text-overlay h4 {
   position: absolute;
-  top: 55%;
-  left: 49.5%;
+  top: 52%;
+  left: 40%;
   font-family: "Urbanist", sans-serif;
   font-weight: 500;
   transform: translate(-50%, -50%);
