@@ -2752,7 +2752,7 @@ public function group_members_api()
 		'Digital Marketing' => ['2020-01-01'],
 		'Digital Finance and Accounting' => ['2020-01-01'],
 		'Operations and Supply Chain Digitization' => ['2020-01-01'],
-		'Understanding Organization Culture & Change Management' => ['2020-01-01'],
+		'Understanding Organization Culture &amp; Change Management' => ['2020-01-01'],
     	];
 
 // Update dates dynamically
