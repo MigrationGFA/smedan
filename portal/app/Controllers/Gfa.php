@@ -349,7 +349,7 @@ $getCertificateSoft = $this->gfa_model->getCertificateEmailSoft($email);
                         $user_detail = [
                             'email' => $this->request->getPost("email"),
                             'password' => $this->request->getPost("password"),
-                            'username'=> $profileUsername,
+                            'username'=> $email,
                             'firstname'=> $cor_detail[0]['Name'],
                             'lastname'=> $cor_detail[0]['Name'],
                         ];
@@ -2603,7 +2603,7 @@ public function group_members_api()
         $data['email'] =  $email;
         $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
     	$learnerDetails = $this->gfa_model->getStartUpByUid($email);
-        // $learnerExtInfo = $this->gfa_model->getUserAccountExt($email);
+        $learnerExtInfo = $this->gfa_model->getUserAccountExt($email);
     	// $getSubCatViaCourse = $this->gfa_model->getSubCatViaCourse($learnerExtInfo[0]['profile_extra']);
         // $skillSubCatArray = $this->gfa_model->skillsBySubCat($getSubCatViaCourse[0]['category']);
     	$chosenCourse = $this->gfa_model->GetRegisteredWemaCourse($email);
