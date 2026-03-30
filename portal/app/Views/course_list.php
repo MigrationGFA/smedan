@@ -63,7 +63,7 @@
           <div class="card p-2 h-100 shadow-none border"> 
            <a href="#" class="h5">Your Course for this Month</a> 
             <div class="rounded-2 text-center mb-3">
-              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseArrayToday[0]['img']?>" alt="soft skill" /></a>
+              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseArrayToday[0]['img']?>" alt="course image" /></a>
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -106,9 +106,9 @@
         <?php } ?>
         
         <?php if (empty($courseArrayRec)) {?>
-          <a class="h5" href="<?=base_url('gfa/profilestartup')?>">
-            <div class="alert alert alert-danger my-5"  role="alert">
-            	Please Click Here to Choose A Technical Course Under The Course Details Section
+          <a class="h5" href="<?=base_url('gfa/profileup')?>">
+            <div class="alert alert alert-danger my-5 text-decoration-underline"  role="alert">
+            	Please Click Here to Choose A Course
             </div>
           </a>
           
@@ -119,7 +119,7 @@
         <div class="col-sm-6 col-lg-4">
           <div class="card p-2 h-100 shadow-none border">
             <div class="rounded-2 text-center mb-3">
-              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseDetailsRec['img']?>" alt="soft skill" /></a>
+              <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseDetailsRec['img']?>" alt="course image" /></a>
             </div>
             <div class="card-body p-3 pt-2">
               <div class="d-flex justify-content-between align-items-center mb-3">
