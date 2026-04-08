@@ -59,7 +59,7 @@
                                         <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
                                         <div class="input-group input-group-merge">
                                             <select name="course" class="form-select corporate-select" required>
-                                                <option value="DIMP Skill">Yes, Business courses</option>
+                                                <option value="DIMP Skill">SME courses</option>
                                                 <option value="CRM Management">CRM Management</option>
                                                 <option value="Accounting Software">Accounting Software</option>
                                                 <option value="Career Advancement">Career Advancement</option>
