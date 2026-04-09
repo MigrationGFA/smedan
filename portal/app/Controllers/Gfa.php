@@ -6225,37 +6225,39 @@ $data_connection = array(
 
     public function learning_wema($first_name = "", $last_name = "", $email = "", $program_type = "")
     {
-        $email = strtolower(urldecode($email));
+        $email    = strtolower(urldecode($email));
         $platform = $program_type;
-        $ref = $email . time();
+        $ref      = $email . time();
 
-        // Save session data
+        // 1. Check user first BEFORE setting session/cookie
+        $existingUser = $this->gfa_model->checkWemaUser($email);
+
+        if ($existingUser) {
+            $created    = strtotime($existingUser['date']);
+            $daysPassed = (time() - $created) / 86400;
+
+            if ($daysPassed > 30) {
+                // Expired — clear everything and redirect
+                session()->destroy();
+                delete_cookie('wema_email');
+                delete_cookie('first_name');
+                delete_cookie('last_name');
+                return redirect()->to('https://smedan.remsana.com');
+            }
+        }
+
+        // 2. Access valid — now set session and cookie
         session()->set([
             'email'        => $email,
             'account_type' => 'startup',
             'wema_email'   => $email,
             'first_name'   => $first_name,
-            'last_name'   => $last_name,
+            'last_name'    => $last_name,
         ]);
 
-        // CI4 - persist login across browser sessions
-        set_cookie('wema_email', $email, 2592000);      // 30 days
-        set_cookie('first_name', $first_name, 2592000); // 30 days
-        set_cookie('last_name', $last_name, 2592000);
-
-        // Check if user already exists
-        $existingUser = $this->gfa_model->checkWemaUser($email);
-
-        if ($existingUser) {
-            // Check if 30 days have passed since created_at
-            $created = strtotime($existingUser['date']);
-            $now = time();
-            $daysPassed = ($now - $created) / 86400;
-
-            if ($daysPassed > 30) {
-                return redirect()->to(base_url('https://smedan-learning.remsana.com'));
-            }
-        }
+        set_cookie('wema_email', $email, 2592000);
+        set_cookie('first_name', $first_name, 2592000);
+        set_cookie('last_name',  $last_name,  2592000);
 
         if (!$existingUser) {
             // User does NOT exist → insert
@@ -8288,7 +8290,7 @@ public function signoutAction()
         }
     }
     session()->destroy();
-    
+
     // Clear cookies
     delete_cookie('wema_email');
     delete_cookie('first_name');
