@@ -6238,6 +6238,11 @@ $data_connection = array(
             'last_name'   => $last_name,
         ]);
 
+        // CI4 - persist login across browser sessions
+        set_cookie('wema_email', $email, 2592000);      // 30 days
+        set_cookie('first_name', $first_name, 2592000); // 30 days
+        set_cookie('last_name', $last_name, 2592000);
+
         // Check if user already exists
         $existingUser = $this->gfa_model->checkWemaUser($email);
 
@@ -6309,21 +6314,21 @@ $data_connection = array(
                         <img src='https://smedan-learning.remsana.com/portal/public/assets/images/smedan_logo.png' alt='Wema | SMEDAN Logo' width='300' style='height:auto;'>
                     </header>
                     <div class='content'>
-                    <p>Dear {$first_name},</p>
+                        <p>Dear {$first_name},</p>
 
-                <p>Welcome to our learning platform! Your access is now active, and you have <strong>30 days</strong> to complete your chosen course and download your certificate. Learning is fully flexible, so we encourage you to set personal daily reminders to stay on track.</p>
+                        <p>Welcome to our learning platform! Your access is now active, and you have <strong>30 days</strong> to complete your chosen course and download your certificate. Learning is fully flexible, so we encourage you to set personal daily reminders to stay on track.</p>
 
-                <h4 style='margin-top:15px;'>Navigating the Platform</h4>
-                <ul>
-                <li>After login, you will be prompted to <strong>select your preferred course</strong>. Please choose carefully—this will be the only course you can access and the one your certificate will be issued for.</li>
-                <li>Your dashboard includes a <strong>progress tracker</strong> to monitor your learning journey.</li>
-                <li>To earn your certificate, you must achieve at least <strong>80% in all assessments</strong> and <strong>80% overall course completion</strong>.</li>
-                </ul>
+                        <h4 style='margin-top:15px;'>Navigating the Platform</h4>
+                        <ul>
+                        <li>After login, you will be prompted to <strong>select your preferred course</strong>. Please choose carefully—this will be the only course you can access and the one your certificate will be issued for.</li>
+                        <li>Your dashboard includes a <strong>progress tracker</strong> to monitor your learning journey.</li>
+                        <li>To earn your certificate, you must achieve at least <strong>80% in all assessments</strong> and <strong>80% overall course completion</strong>.</li>
+                        </ul>
 
-                <p>We wish you a successful and enjoyable learning experience.</p>
+                        <p>We wish you a successful and enjoyable learning experience.</p>
 
-                <p>Kind regards,<br>
-                The Learning Team</p>
+                        <p>Kind regards,<br>
+                        The Learning Team</p>
 
                     </div>
                 </div>
@@ -6361,7 +6366,6 @@ $data_connection = array(
                     'message' => 'Login successful',
                     'url' => $url
                 ])->setStatusCode(Response::HTTP_OK);
-                //return redirect()->to('https://nora.cipme.ci/portal/gfa/learning');
             } else {
                 // Validation failed, return error response as JSON
                 return $this->response->setJSON([
@@ -6381,32 +6385,34 @@ $data_connection = array(
 
     public function dashboard()
     {
-        $emailVerifySession  = session()->get('email') ;
-// var_dump($emailVerifySession);
-        //$checkRegisteredAccount = $this->gfa_model->getStartUpDetails($emailVerifySession) ;
-        // $cohort = $this->gfa_model->getCohortDetails($emailVerifySession);
-        $category = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
-        // $courseTrack = $this->gfa_model->GetUserProgressSoftSkills($emailVerifySession);
-        
-        // $checkValidBVNandNIN =  [['val' => 1]];
-        // $checkValidBVNandNIN = $this->gfa_model->CheckUserBVNandNIN($emailVerifySession);
-        $checkMiss = $this->gfa_model->CheckMissingFieldsByWemaUid($emailVerifySession);
-// var_dump($checkMiss);
+        // If session expired, restore from cookie
+        if (!session()->get('email') && get_cookie('wema_email')) {
+            session()->set([
+                'email'        => get_cookie('wema_email'),
+                'first_name'   => get_cookie('first_name'),
+                'account_type' => 'startup',
+                'wema_email'   => get_cookie('wema_email'),
+                'last_name'    => get_cookie('last_name'),
+            ]);
+        }
 
-       if(!empty($emailVerifySession)){
-        if(count($checkMiss) > 0){
-        		return redirect()->to(base_url('gfa/profileup')); 
-        	} else {
+        $emailVerifySession = session()->get('email');
+        $category           = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
+        $checkMiss          = $this->gfa_model->CheckMissingFieldsByWemaUid($emailVerifySession);
+
+        if (!empty($emailVerifySession)) {
+            if (count($checkMiss) > 0) {
+                return redirect()->to(base_url('gfa/profileup'));
+            } else {
                 if ($category === 'DIMP Skill' || $category === '' || is_null($category)) {
-         		    return redirect()->to(base_url('gfa/dimp_skills')); 
+                    return redirect()->to(base_url('gfa/dimp_skills'));
                 } else {
                     return redirect()->to(base_url('gfa/learning_path'));
                 }
             }
-        } else{
+        } else {
             return redirect()->to(base_url('gfa/login'));
         }
-        
     }
 
 
@@ -6505,11 +6511,11 @@ $data_connection = array(
         $getCerticateData1 = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
         $getCerticateData2 = $this->gfa_model->GetQuizCertificateEligibleSoftSkills($email);
         
-if (trim($getCerticateData1[0]['Score']) >= trim($getCerticateData2[0]['Score'])) {
-	$getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
-} else {
-	$getCerticateData = $this->gfa_model->GetQuizCertificateEligibleSoftSkills($email);
-}
+        if (trim($getCerticateData1[0]['Score']) >= trim($getCerticateData2[0]['Score'])) {
+            $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
+        } else {
+            $getCerticateData = $this->gfa_model->GetQuizCertificateEligibleSoftSkills($email);
+        }
         if(trim($getCerticateData[0]['Score']) >=80){
 
             
