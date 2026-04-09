@@ -6246,6 +6246,17 @@ $data_connection = array(
         // Check if user already exists
         $existingUser = $this->gfa_model->checkWemaUser($email);
 
+        if ($existingUser) {
+            // Check if 30 days have passed since created_at
+            $created = strtotime($existingUser['date']);
+            $now = time();
+            $daysPassed = ($now - $created) / 86400;
+
+            if ($daysPassed > 30) {
+                return redirect()->to(base_url('https://smedan-learning.remsana.com'));
+            }
+        }
+
         if (!$existingUser) {
             // User does NOT exist → insert
             $data = [
@@ -8276,7 +8287,12 @@ public function signoutAction()
              session()->remove($key);
         }
     }
-    session()->destroy(); 
+    session()->destroy();
+    
+    // Clear cookies
+    delete_cookie('wema_email');
+    delete_cookie('first_name');
+    delete_cookie('last_name');
 
     return redirect()->to("https://smedan.remsana.com/");
 }
