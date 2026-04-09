@@ -390,104 +390,104 @@
             </div>
 <?php            
             
-            	public function startupProfilepro()
+  //           	public function startupProfilepro()
 
-	{
+	// {
 		
 		
 		
-		$name = $this->input->post("firstName")." ".$this->input->post("lastName");
-		$organization = $this->input->post("organization");
-		$phoneNumber = $this->input->post("phoneNumber");
-		$address = $this->input->post("address");
-		$website = $this->input->post("website");
-		$startup_country = $this->input->post("startup_country");
-		$industryArray = $this->input->post("industry");
-		$current_stage = $this->input->post("current_stage");
-		$Implementation_stage = $this->input->post("Implementation_stage");
-		$fund_to_raise = $this->input->post("fund_to_raise");
-		$about = $this->input->post("about");
-		$facebook = $this->input->post("facebook");
-		$linkedIn = $this->input->post("linkedIn");
-		$country = $this->input->post("country");
-		$state = $this->input->post("state");
-		$zipCode = $this->input->post("zipCode");
-		$year_founded = $this->input->post("year_founded");
-		$Revenue = $this->input->post("revenue");
-		$NoOfEmployees = $this->input->post("NoOfEmployees");
-		$Hear_Us = $this->input->post("Hear_Us");
-		$OperatingRegions = $this->input->post("OperatingRegions");
-		$time = date("Y-m-d h:i:s A",time());
-		$mentorshipArray = $this->input->post("mentorship");
-        $mentorship = implode(",",$mentorshipArray);
-        $industry = implode(",", $industryArray);
+	// 	$name = $this->input->post("firstName")." ".$this->input->post("lastName");
+	// 	$organization = $this->input->post("organization");
+	// 	$phoneNumber = $this->input->post("phoneNumber");
+	// 	$address = $this->input->post("address");
+	// 	$website = $this->input->post("website");
+	// 	$startup_country = $this->input->post("startup_country");
+	// 	$industryArray = $this->input->post("industry");
+	// 	$current_stage = $this->input->post("current_stage");
+	// 	$Implementation_stage = $this->input->post("Implementation_stage");
+	// 	$fund_to_raise = $this->input->post("fund_to_raise");
+	// 	$about = $this->input->post("about");
+	// 	$facebook = $this->input->post("facebook");
+	// 	$linkedIn = $this->input->post("linkedIn");
+	// 	$country = $this->input->post("country");
+	// 	$state = $this->input->post("state");
+	// 	$zipCode = $this->input->post("zipCode");
+	// 	$year_founded = $this->input->post("year_founded");
+	// 	$Revenue = $this->input->post("revenue");
+	// 	$NoOfEmployees = $this->input->post("NoOfEmployees");
+	// 	$Hear_Us = $this->input->post("Hear_Us");
+	// 	$OperatingRegions = $this->input->post("OperatingRegions");
+	// 	$time = date("Y-m-d h:i:s A",time());
+	// 	$mentorshipArray = $this->input->post("mentorship");
+  //       $mentorship = implode(",",$mentorshipArray);
+  //       $industry = implode(",", $industryArray);
 		
-		        $data_startup	= 	array(
+	// 	        $data_startup	= 	array(
 
-					'Startup_Company_Name' 	=> $organization,
-					'Primary_Contact_Name' 	=> $name,
-					'Contact_Email' 	=> $email,
-					'Phones' 	=> $phoneNumber,
-					'Website' 	=> $website,
-					'Address' 	=> $address,
-					'CountryHQ' 	=> $startup_country,
-					'PrimaryBusinessIndustry' 	=> $industry,
-					'CurrentInvestmentStage' 	=> $current_stage,
-					'Startup_Implementation_Stage' 	=> $Implementation_stage,
-					'Next_Funding_Round_Target_Sought' 	=> $fund_to_raise,
-					'Investment_History' 	=> $about,
-					'Facebook' 	=> $facebook,
-					'LinkedIn' 	=> $linkedIn,
-					'Country' 	=> $country,
-					'State' 	=> $state,
-					'ZipCode' 	=> $zipCode,
-					'Date_Founded' 	=> $year_founded,
-					'NoOfEmployees' 	=> $NoOfEmployees,
-					'OperatingRegions' 	=> $OperatingRegions,
-					'Revenue' 	=> $Revenue,
-					'Hear_Us' 	=> $Hear_Us,
-					'mentorship' 	=> $mentorship
+	// 				'Startup_Company_Name' 	=> $organization,
+	// 				'Primary_Contact_Name' 	=> $name,
+	// 				'Contact_Email' 	=> $email,
+	// 				'Phones' 	=> $phoneNumber,
+	// 				'Website' 	=> $website,
+	// 				'Address' 	=> $address,
+	// 				'CountryHQ' 	=> $startup_country,
+	// 				'PrimaryBusinessIndustry' 	=> $industry,
+	// 				'CurrentInvestmentStage' 	=> $current_stage,
+	// 				'Startup_Implementation_Stage' 	=> $Implementation_stage,
+	// 				'Next_Funding_Round_Target_Sought' 	=> $fund_to_raise,
+	// 				'Investment_History' 	=> $about,
+	// 				'Facebook' 	=> $facebook,
+	// 				'LinkedIn' 	=> $linkedIn,
+	// 				'Country' 	=> $country,
+	// 				'State' 	=> $state,
+	// 				'ZipCode' 	=> $zipCode,
+	// 				'Date_Founded' 	=> $year_founded,
+	// 				'NoOfEmployees' 	=> $NoOfEmployees,
+	// 				'OperatingRegions' 	=> $OperatingRegions,
+	// 				'Revenue' 	=> $Revenue,
+	// 				'Hear_Us' 	=> $Hear_Us,
+	// 				'mentorship' 	=> $mentorship
 					
 				
-					);
-				$data_startup_update	= 	array(
+	// 				);
+	// 			$data_startup_update	= 	array(
 
-					'Startup_Company_Name' 	=> $organization,
-					'Primary_Contact_Name' 	=> $name,
-					'Phones' 	=> $phoneNumber,
-					'Website' 	=> $website,
-					'Address' 	=> $address,
-					'CountryHQ' 	=> $startup_country,
-					'PrimaryBusinessIndustry' 	=> $industry,
-					'CurrentInvestmentStage' 	=> $current_stage,
-					'Startup_Implementation_Stage' 	=> $Implementation_stage,
-					'Next_Funding_Round_Target_Sought' 	=> $fund_to_raise,
-					'Investment_History' 	=> $about,
-					'Facebook' 	=> $facebook,
-					'LinkedIn' 	=> $linkedIn,
-					'Country' 	=> $country,
-					'State' 	=> $state,
-					'ZipCode' 	=> $zipCode,
-					'Date_Founded' 	=> $year_founded,
-					'NoOfEmployees' 	=> $NoOfEmployees,
-					'OperatingRegions' 	=> $OperatingRegions,
-					'Revenue' 	=> $Revenue,
-					'Hear_Us' 	=> $Hear_Us,
-					'mentorship' 	=> $mentorship
+	// 				'Startup_Company_Name' 	=> $organization,
+	// 				'Primary_Contact_Name' 	=> $name,
+	// 				'Phones' 	=> $phoneNumber,
+	// 				'Website' 	=> $website,
+	// 				'Address' 	=> $address,
+	// 				'CountryHQ' 	=> $startup_country,
+	// 				'PrimaryBusinessIndustry' 	=> $industry,
+	// 				'CurrentInvestmentStage' 	=> $current_stage,
+	// 				'Startup_Implementation_Stage' 	=> $Implementation_stage,
+	// 				'Next_Funding_Round_Target_Sought' 	=> $fund_to_raise,
+	// 				'Investment_History' 	=> $about,
+	// 				'Facebook' 	=> $facebook,
+	// 				'LinkedIn' 	=> $linkedIn,
+	// 				'Country' 	=> $country,
+	// 				'State' 	=> $state,
+	// 				'ZipCode' 	=> $zipCode,
+	// 				'Date_Founded' 	=> $year_founded,
+	// 				'NoOfEmployees' 	=> $NoOfEmployees,
+	// 				'OperatingRegions' 	=> $OperatingRegions,
+	// 				'Revenue' 	=> $Revenue,
+	// 				'Hear_Us' 	=> $Hear_Us,
+	// 				'mentorship' 	=> $mentorship
 				
-					);
+	// 				);
 				
-				if($this->gfa_model->getStartUpDetails($email)[0]['Contact_Email']==""){
-				   $this->gfa_model->insertStartupProfile($data_startup); 
-				}else{
-				   $this->gfa_model->saveStartupProfile($email,$data_startup_update); 
-				}
+	// 			if($this->gfa_model->getStartUpDetails($email)[0]['Contact_Email']==""){
+	// 			   $this->gfa_model->insertStartupProfile($data_startup); 
+	// 			}else{
+	// 			   $this->gfa_model->saveStartupProfile($email,$data_startup_update); 
+	// 			}
 				
 				
 				
 			
   
 	
-	}
+	// }
 	
 	?>

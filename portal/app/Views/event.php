@@ -95,8 +95,7 @@
           
                   <?php
                   if($email== $checkYourStory[0]['email'] ){ echo ''; }else{
-
-                   = (!empty($this->gfa_model->getWpEvent($email,$checkYourStory[0]['event_id'])[0]['status']))?$this->gfa_model->getWpEvent($email,$checkYourStory[0]['event_id'])[0]['status'] : "";
+                     (!empty($this->gfa_model->getWpEvent($email,$checkYourStory[0]['event_id'])[0]['status']))?$this->gfa_model->getWpEvent($email,$checkYourStory[0]['event_id'])[0]['status'] : "";
                   if($checkAttendanceStatus=='active'){  ?>
                   <div class="avatar-content avatar  p-50 m-0 bg-light-primary" style="float:right;">
                       <i data-feather="user-check" class="font-large-2"  style="color:#7A6FF1;"></i>
