@@ -63,7 +63,7 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
             <h4 class="mb-0"><?php echo $courseTrack[0]['PassedQuizzes'] ?></h4>
-            <a href="<?php echo base_url("gfa/quiz_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #5c5460;">
+            <a href="<?php echo base_url("gfa/quiz_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #1731c3;">
              <small>Passed Quiz</small>
             </a>
           </div>
