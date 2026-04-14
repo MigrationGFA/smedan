@@ -1564,6 +1564,25 @@ public function lesson_progress($course="")
         echo view('footer-assets-new',$data); 
 
     }
+public function quiz_progress($course="")
+
+    {
+        
+        $email  = session()->get('email') ;
+        if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+        $title['page_title'] = "Quiz Progress smedan";
+        $data['email'] =  $email;
+        $data['login_type'] = session()->get('login_type') ;
+        $data['account_type'] = session()->get('account_type') ;
+        
+        $data['course'] = urldecode($course);
+        echo view('header-assets-new',$title);
+        echo view('menu-assets-new',$data);
+        echo view('navbar-assets-new',$data);
+        echo view('quiz_progress', $data);
+        echo view('footer-assets-new',$data); 
+
+    }
 
 
 
