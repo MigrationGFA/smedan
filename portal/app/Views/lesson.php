@@ -1,3 +1,6 @@
+<!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YcnS/1HiOGxmFkaQKntCbLRAeCAug9GJhYNu" crossorigin="anonymous">
+
 <?php 
   $this->gfa_model = model('App\Models\GfaModel');
   $this->admin_model = model('App\Models\AdminModel');
@@ -72,14 +75,30 @@ if ($position !== false) {
                
               
         <div class="card-body">
-            <h5>Lesson Details</h5>
+            <!-- <h5>Lesson Details</h5>
           <div class="me-2" style="text-align: justify; height: 100%; overflow: auto;">
             <?php
-              $searchData = array('<div class="ql-editor" data-gramm="false" contenteditable="true">', '<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL">','<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL" placeholder="Embed URL">');
-              $replaceData = array("<div>", "<br/>");
-              echo html_entity_decode(str_replace($searchData,$replaceData,stripslashes($this->gfa_model->getCourseDataByRef($getLessonData[0]['ref_id'])[0]['data'])), ENT_QUOTES); 
-            ?>
-          </div>
+              // $searchData = array('<div class="ql-editor" data-gramm="false" contenteditable="true">', '<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL">','<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL" placeholder="Embed URL">');
+              // $replaceData = array("<div>", "<br/>");
+              // echo html_entity_decode(str_replace($searchData,$replaceData,stripslashes($this->gfa_model->getCourseDataByRef($getLessonData[0]['ref_id'])[0]['data'])), ENT_QUOTES); 
+            ?> -->
+            <h5>Lesson Details</h5>
+<div class="me-2 w-100 h-auto overflow-visible lesson-content">
+    <?php
+        $searchData = array(
+            '<div class="ql-editor" data-gramm="false" contenteditable="true">',
+            '<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL">',
+            '<input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL" placeholder="Embed URL">'
+        );
+        $replaceData = array("<div>", "<br/>", "");
+        echo html_entity_decode(
+            str_replace($searchData, $replaceData,
+            stripslashes($this->gfa_model->getCourseDataByRef($getLessonData[0]['ref_id'])[0]['data'])),
+            ENT_QUOTES
+        );
+    ?>
+</div>
+          <!-- </div> -->
           <div class="gap-6 col-lg-6 " style="margin-top: 30px;">
             <!--<div class="demo-inline-spacing mb-2 gap-6">-->
             <?php
@@ -293,6 +312,17 @@ if ($position !== false) {
 <style>
   /* Target Vimeo iframes and make them responsive */
 /* Responsive Vimeo Wrapper */
+/* Only CSS needed */
+.lesson-content {
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+.lesson-content img {
+    max-width: 100%;
+    height: auto;
+}
+
 .vimeo-responsive-wrapper {
     position: relative;
     width: 100%;
@@ -452,3 +482,7 @@ $(function() {
 </script>
 
 </div>
+
+
+<!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
