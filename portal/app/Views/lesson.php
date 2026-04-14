@@ -291,6 +291,29 @@ if ($position !== false) {
 </div>
 
 <style>
+  /* Target Vimeo iframes and make them responsive */
+iframe[src*="player.vimeo"] {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 500px; /* Set a minimum height */
+}
+
+/* Responsive wrapper approach (better) */
+.me-2 .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.me-2 .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
   /* .toggle-container {
     display: flex;
     justify-content: space-between;
@@ -314,6 +337,33 @@ if ($position !== false) {
 
 <script>
 $(function() {
+
+// document.addEventListener('DOMContentLoaded', function() {
+    // Find all Vimeo iframes
+    const vimeoIframes = document.querySelectorAll('iframe[src*="player.vimeo"]');
+    
+    vimeoIframes.forEach(function(iframe) {
+        // Set iframe to 100% width and height
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        
+        // Wrap in responsive container
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.style.paddingBottom = '56.25%'; // 16:9 ratio
+        wrapper.style.height = '0';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.width = '100%';
+        
+        iframe.parentNode.insertBefore(wrapper, iframe);
+        wrapper.appendChild(iframe);
+        
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+    });
+// });
+
   const commentsToggle = document.getElementById('comments-toggle');
     const repliesToggle = document.getElementById('replies-toggle');
     const commentsSection = document.querySelector('.comments-section');

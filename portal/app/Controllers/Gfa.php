@@ -22,6 +22,8 @@ class Gfa extends BaseController {
         $this->admin_model = model('App\Models\AdminModel');
         $this->chat_model = model('App\Models\ChatModel');
         $this->encrypt = \Config\Services::encrypter();
+
+        helper('cookie');
         // $emailVerifySession  = session()->get('email') ;
 
         // if (!empty($emailVerifySession)) {
