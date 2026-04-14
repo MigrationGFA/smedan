@@ -292,28 +292,35 @@ if ($position !== false) {
 
 <style>
   /* Target Vimeo iframes and make them responsive */
-iframe[src*="player.vimeo"] {
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 500px; /* Set a minimum height */
-}
-
-/* Responsive wrapper approach (better) */
-.me-2 .video-wrapper {
+/* Responsive Vimeo Wrapper */
+.vimeo-responsive-wrapper {
     position: relative;
+    width: 100%;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    width: 100%;
+    background: #000;
+    margin: 10px 0;
+    border-radius: 8px;
 }
 
-.me-2 .video-wrapper iframe {
+.vimeo-responsive-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
 }
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .vimeo-responsive-wrapper {
+        padding-bottom: 56.25%;
+        width: 100%;
+    }
+}
+
   /* .toggle-container {
     display: flex;
     justify-content: space-between;
@@ -340,29 +347,32 @@ $(function() {
 
 // document.addEventListener('DOMContentLoaded', function() {
     // Find all Vimeo iframes
-    const vimeoIframes = document.querySelectorAll('iframe[src*="player.vimeo"]');
-    
-    vimeoIframes.forEach(function(iframe) {
-        // Set iframe to 100% width and height
+     const vimeoIframes = document.querySelectorAll('iframe[src*="player.vimeo"]');
+
+    vimeoIframes.forEach(function (iframe) {
+
+        // Remove any inline width/height that Quill may have added
+        iframe.removeAttribute('width');
+        iframe.removeAttribute('height');
         iframe.style.width = '100%';
         iframe.style.height = '100%';
-        
-        // Wrap in responsive container
-        const wrapper = document.createElement('div');
-        wrapper.style.position = 'relative';
-        wrapper.style.paddingBottom = '56.25%'; // 16:9 ratio
-        wrapper.style.height = '0';
-        wrapper.style.overflow = 'hidden';
-        wrapper.style.width = '100%';
-        
-        iframe.parentNode.insertBefore(wrapper, iframe);
-        wrapper.appendChild(iframe);
-        
         iframe.style.position = 'absolute';
         iframe.style.top = '0';
         iframe.style.left = '0';
+        iframe.style.border = '0';
+
+        // Only wrap if not already wrapped
+        if (!iframe.parentNode.classList.contains('vimeo-responsive-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('vimeo-responsive-wrapper');
+
+            iframe.parentNode.insertBefore(wrapper, iframe);
+            wrapper.appendChild(iframe);
+        }
     });
 // });
+
+
 
   const commentsToggle = document.getElementById('comments-toggle');
     const repliesToggle = document.getElementById('replies-toggle');
