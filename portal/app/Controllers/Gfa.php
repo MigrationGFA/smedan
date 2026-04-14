@@ -6354,7 +6354,7 @@ $data_connection = array(
             $this->sendMail($email, $message, $subject);
 
         }
-
+        $this->saveUserActivity('signinAction', $email);
         return redirect()->to('https://smedan-learning.remsana.com/portal/gfa/dashboard');
     }
 
