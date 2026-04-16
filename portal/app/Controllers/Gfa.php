@@ -2860,6 +2860,7 @@ $data['courseArrayUpcoming'] = $courseArrayUpcoming;
         $course = $this->request->getPost("course");
         $course_type = $course;
         if ($course == "DIMP Skill"){
+            $course = "SME Courses";
             $course_type = "DIMP Skill";
         }
         // $course = $this->request->getPost("course");
@@ -7142,7 +7143,7 @@ public function export_access_dashboard()
                             $csvRow = array(
                                 $n++,
                                 $row['last_name']." ".$row['first_name'],
-                                $row['course_type'],
+                                $row['course'],
                                 $row['LastTimeAccessed']
                                 
                                 

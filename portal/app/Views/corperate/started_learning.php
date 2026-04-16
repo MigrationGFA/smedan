@@ -46,7 +46,7 @@
                     <th></th>
                   <!-- <th>Name</th> -->
                   <th>Name</th>
-                  <th>Course</th>
+                  <th>Current Course</th>
                   <th>Progress</th>
                   <th>Passed Quiz</th>
                   <th>Date</th>

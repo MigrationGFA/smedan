@@ -28,121 +28,15 @@
         <!--<a href="" class="btn btn-primary btn-next" style="float:auto;">Panel Request</a>-->
         </div>
 <div class="card card-company-table">
-  <div class="card-body p-0">
-    <?php         
-       $row = $this->gfa_model->ExportWemaEkitiLoggedIn('SMEDAN ALAT');
-    
-       if(!empty($row)){ 
-    ?>
-      <div class="table-responsive">
-        <table class="table" id="table">
-          <thead>
-            <tr>
-                <th>#</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Course</th>
-                <th>Sign-In Date</th>
-                <th>Last Time Accessed</th>
-                <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-                $n     = 1;
-                $count = 0;
-                foreach($row as $rowArray){ 
-                    $count++;
-                    $isLatest = ($rowArray['id'] == $rowArray['LatestEntryId']);
-            ?>
-            <tr class="data <?php echo $isLatest ? 'table-success' : ''; ?>">
-                
-                <td><?php echo $n++; ?></td>
-
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-light-primary me-1">
-                            <div class="avatar-content">
-                                <i data-feather="user" class="font-medium-3"></i>
-                            </div>
-                        </div>
-                        <span><?php echo $rowArray['last_name']; ?></span>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-light-primary me-1">
-                            <div class="avatar-content">
-                                <i data-feather="user" class="font-medium-3"></i>
-                            </div>
-                        </div>
-                        <span><?php echo $rowArray['first_name']; ?></span>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-light-primary me-1">
-                            <div class="avatar-content">
-                                <i data-feather="edit" class="font-medium-3"></i>
-                            </div>
-                        </div>
-                        <span><?php echo $rowArray['course']; ?></span>
-                    </div>
-                </td>
-
-                <!-- Each row's own sign-in date from wema_course_access -->
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-light-info me-1">
-                            <div class="avatar-content">
-                                <i data-feather="log-in" class="font-medium-3"></i>
-                            </div>
-                        </div>
-                        <span><?php echo $rowArray['DateCreated']; ?></span>
-                    </div>
-                </td>
-
-                <!-- Last time the user accessed the platform (from user_activity) -->
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="avatar bg-light-warning me-1">
-                            <div class="avatar-content">
-                                <i data-feather="calendar" class="font-medium-3"></i>
-                            </div>
-                        </div>
-                        <span><?php echo $rowArray['LastTimeAccessed']; ?></span>
-                    </div>
-                </td>
-
-                <!-- Badge: highlight if this row is the user's latest sign-in -->
-                <td>
-                    <?php if($isLatest): ?>
-                        <span class="badge badge-light-success">Latest</span>
-                    <?php else: ?>
-                        <span class="badge badge-light-secondary">Previous</span>
-                    <?php endif; ?>
-                </td>
-
-            </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-        <div class="paging-container" id="tablePaging"></div>
-      </div>
-      
-    <?php }else{ echo '<h5 class="card-title">No record found</h5>'; } ?>
-</div>
-        <!-- <div class="card-body p-0">
+        <div class="card-body p-0">
         <?php         
                  
                 
-      //      $row  = $this->gfa_model->ExportWemaEkitiLoggedIn('SMEDAN ALAT');
+           $row  = $this->gfa_model->ExportWemaEkitiLoggedIn('SMEDAN ALAT');
                    
            
            
-    	// if(!empty($row)){     
+    	if(!empty($row)){     
     	    
     	    ?>
           <div class="table-responsive">
@@ -150,6 +44,7 @@
               <thead>
                 <tr>
                     <th></th>
+                  <!-- <th>Name</th> -->
                   <th>Last Name</th>
                   
                    <th>First Name</th>
@@ -161,17 +56,17 @@
               </thead>
               <tbody>
                 <?php
-        //         $n = 1;
-        //         $s = 1;	
-        //         $count = 0;
-				// foreach($row as $rowArray){   $count += $n; 
+                $n = 1;
+                $s = 1;	
+                $count = 0;
+				foreach($row as $rowArray){   $count += $n; 
                 
                 ?> 
                 <tr class="data">
                     
                     <td>
                     
-                     <?php // echo $n++;  ?>
+                     <?php echo $n++;  ?>
                      
                   </td>
                 
@@ -184,7 +79,7 @@
                           <i data-feather="box" class="font-medium-3"></i>
                         </div>
                       </div>
-                      <span><?php // echo $rowArray['first_name'] ?>
+                      <span><?php echo $rowArray['last_name'] ?>
                           </span>
                     </div>
                    </td>
@@ -196,7 +91,7 @@
                           <i data-feather="box" class="font-medium-3"></i>
                         </div>
                       </div>
-                      <span><?php // echo $rowArray['last_name'] ?>
+                      <span><?php echo $rowArray['first_name'] ?>
                           </span>
                     </div>
                    </td>
@@ -208,7 +103,7 @@
                           <i data-feather="edit" class="font-medium-3"></i>
                         </div>
                       </div>
-                      <span><?php // echo $rowArray['course'] ?>
+                      <span><?php echo $rowArray['course'] ?>
                           </span>
                     </div>
                    </td>
@@ -220,14 +115,14 @@
                           <i data-feather="calendar" class="font-medium-3"></i>
                         </div>
                       </div>
-                      <span><?php // echo $rowArray['LastTimeAccessed'] ?>
+                      <span><?php echo $rowArray['LastTimeAccessed'] ?>
                           </span>
                     </div>
                    </td>
 
                 </tr>
                 
-                <?php // }  ?>
+                <?php }  ?>
           
                 
               </tbody>
@@ -235,8 +130,8 @@
             <div class="paging-container" id="tablePaging"> </div>
           </div>
           
-          <?php // }else{ echo '<h5 class="card-title">No record found</h5>'; } ?>
-        </div> -->
+          <?php }else{ echo '<h5 class="card-title">No record found</h5>'; } ?>
+        </div>
       </div>
     </div>
     <!--/ Company Table Card -->
