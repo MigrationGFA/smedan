@@ -82,8 +82,9 @@ if ($position !== false) {
               // $replaceData = array("<div>", "<br/>");
               // echo html_entity_decode(str_replace($searchData,$replaceData,stripslashes($this->gfa_model->getCourseDataByRef($getLessonData[0]['ref_id'])[0]['data'])), ENT_QUOTES); 
             ?> -->
-            <h5>Lesson Details</h5>
-<div class="me-2 w-100 h-auto overflow-visible lesson-content">
+            
+<h5>Lesson Details</h5>
+<div class="me-2 w-100 overflow-auto lesson-content" style="max-height: 80vh;">
     <?php
         $searchData = array(
             '<div class="ql-editor" data-gramm="false" contenteditable="true">',
