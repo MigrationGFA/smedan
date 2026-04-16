@@ -9602,7 +9602,7 @@ $data['eventResp'] = json_decode($resp,true);
 			'UserIp' => $ip_address,
 			'UserId' => '',
 			'UserEmail' => $email,
-			'AppType' => "Fgnalat App",
+			'AppType' => "SMEDAN Wema",
 			'DateCreated' => $final_date_time
 		];
 
