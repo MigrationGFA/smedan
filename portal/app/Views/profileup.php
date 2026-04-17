@@ -116,90 +116,143 @@
     </iframe>
 </div>
 
+<!-- Info Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Welcome</h5>
+        <button type="button" class="btn-close closeModal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Welcome to your learning dashboard</strong></p>
+
+        <p>Your access is now active. You have <strong>30 days</strong> to complete your course and download your certificate.</p>
+
+        <p>Please note: You will be required to <strong>select your preferred course</strong>. This will be the only course you can access and the one your certificate will be issued for.</p>
+
+        <ul>
+          <li>Track your progress from your dashboard</li>
+          <li>Learning is flexible - set daily reminders to stay on track</li>
+          <li>Minimum <strong>80% score</strong> and <strong>80% completion</strong> required</li>
+        </ul>
+
+        <p>We wish you a successful learning experience.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary closeModal w-100">Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <style>
-.floating-video {
-    position: fixed;
-    bottom: 20px;
-    left: 20px; /* LEFT side */
-    width: 300px;
-    height: 170px;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-    z-index: 99999;
-    cursor: grab;
-}
+    /* .modal-open .floating-video {
+        pointer-events: none;
+    } */
 
-.floating-video iframe {
-    border-radius: 0 0 12px 12px;
-}
+    .floating-video {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* LEFT side */
+        width: 300px;
+        height: 170px;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+        z-index: 1020;
+        cursor: grab;
+    }
 
-.video-header {
-    width: 100%;
-    height: 25px;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 5px;
-    cursor: grab;
-}
+    .floating-video iframe {
+        border-radius: 0 0 12px 12px;
+    }
 
-.close-btn {
-    background: #ff4d4d;
-    border: none;
-    width: 22px;
-    height: 22px;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 22px;
-    text-align: center;
-}
-.close-btn:hover {
-    background: #ff1a1a;
-}
+    .video-header {
+        width: 100%;
+        height: 25px;
+        background: rgba(0,0,0,0.4);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 5px;
+        cursor: grab;
+    }
 
-.corporate-logo {
-    width: 220px;
-    height: 80px;
-    object-fit: contain;
-}
+    .close-btn {
+        background: #ff4d4d;
+        border: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 22px;
+        text-align: center;
+    }
+    .close-btn:hover {
+        background: #ff1a1a;
+    }
 
-.corporate-card {
-    background: #ffffff;
-    border-radius: 14px !important;
-    transition: 0.25s ease;
-}
+    .corporate-logo {
+        width: 220px;
+        height: 80px;
+        object-fit: contain;
+    }
 
-.corporate-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.07) !important;
-}
+    .corporate-card {
+        background: #ffffff;
+        border-radius: 14px !important;
+        transition: 0.25s ease;
+    }
 
-.corporate-select {
-    border-radius: 10px;
-    padding: 10px;
-}
+    .corporate-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.07) !important;
+    }
 
-.btn-primary {
-    background-color: #0d6efd;
-    border: none;
-    font-weight: 600;
-}
+    .corporate-select {
+        border-radius: 10px;
+        padding: 10px;
+    }
 
-.btn-primary:hover {
-    background-color: #0b5ed7;
-}
+    .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        font-weight: 600;
+    }
 
-.form-label {
-    font-size: 0.92rem;
-}
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+    }
+
+    .form-label {
+        font-size: 0.92rem;
+    }
 
 </style>
+
+<script>
+  $(document).ready(function () {
+    var modalEl = document.getElementById('infoModal');
+    var modal = new bootstrap.Modal(modalEl);
+
+    modal.show();
+
+    // Both X and Continue use same class
+    $('.closeModal').on('click', function () {
+      modal.hide();
+    });
+  });
+</script>
 
 <script>
 // ---------- DRAGGABLE VIDEO ----------
