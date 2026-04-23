@@ -17,7 +17,7 @@
           <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and attempt all quiz.</p>
           <?php }  ?>
          <?php if($course_type == "soft" ){ ?>
-          <p class="mb-0">You are not eligible to view your certificate as you have not reached the passing mark of 80% for the soft skills course progress.</p><p class="mb-0">To increase your score to 80% and generate your certificate, please continue with the assigned courses and pass the quiz.</p>
+          <p class="mb-0">You are not eligible to view your certificate as you have not reached the passing mark of 80% for the course progress.</p><p class="mb-0">To increase your score to 80% and generate your certificate, please continue with the assigned courses and pass the quiz.</p>
           <?php }  ?>
           <?php if($course_type == "course" ){ ?>
           <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and attempt all quiz.</p>

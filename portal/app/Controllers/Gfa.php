@@ -6452,7 +6452,7 @@ $data_connection = array(
                         <ul>
                         <li>After login, you will be prompted to <strong>select your preferred course</strong>. Please choose carefully—this will be the only course you can access and the one your certificate will be issued for.</li>
                         <li>Your dashboard includes a <strong>progress tracker</strong> to monitor your learning journey.</li>
-                        <li>To earn your certificate, you must achieve at least <strong>80% in all assessments</strong> and <strong>80% overall course completion</strong>.</li>
+                        <li>To earn your certificate, you must achieve at least <strong>80% overall course completion and attempt all quiz</strong>.</li>
                         </ul>
 
                         <p>We wish you a successful and enjoyable learning experience.</p>

@@ -137,7 +137,7 @@
         <ul>
           <li>Track your progress from your dashboard</li>
           <li>Learning is flexible - set daily reminders to stay on track</li>
-          <li>Minimum <strong>80% score</strong> and <strong>80% completion</strong> required</li>
+          <li>Minimum <strong>80% completion</strong> required</li>
         </ul>
 
         <p>We wish you a successful learning experience.</p>
