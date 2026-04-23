@@ -195,7 +195,7 @@ class GfaModel extends Model
         
         if ($query->getNumRows() > 0) 
         {
-            return $query->getResultArray()[0]['course_type'];
+            return $query->getResultArray()[0]['course'];
         } 
         else 
         {

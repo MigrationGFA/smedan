@@ -6765,7 +6765,7 @@ $data_connection = array(
         $getCertificateCourse = $this->gfa_model->getCertificateEmailDimp($email); 
 
         if(empty($getCertificateCourse)){
-             $getCerticateData = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
+             $getCerticateData = $this->gfa_model->GetUserProgressNewCurriculumWema($email);
         // $getCerticateData = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email);
         $getCerticateDataProgress = $this->gfa_model->checkOverallCompletion($email);
         if($getCerticateDataProgress){
