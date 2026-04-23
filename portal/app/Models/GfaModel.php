@@ -334,8 +334,7 @@ class GfaModel extends Model
 
     public function checkOverallCompletion($email)
     {
-        $result = $this->CheckCompletionSoftAllCoursesWema($email);
-        // $result = $this->CheckCompletionAllCoursesWema($email);
+        $result = $this->CheckCompletionAllCoursesWema($email);
         
         if (!empty($result) && isset($result[0]['IsCompleted'])) {
             return (int)$result[0]['IsCompleted'];
