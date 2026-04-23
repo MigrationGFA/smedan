@@ -43,17 +43,17 @@
   <div class="col-sm-6 col-xl-3">
     <div class="card">
       <div class="card-body">
-<a href="<?php echo base_url("gfa/lesson_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #5c5460;">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="content-left">
-            <h6 class="mb-0"><?php echo $courseTrack[0]['OngoingCourse'] ?></h6>
-            <small style="color: green;">Current Course</small>
+        <a href="<?php echo base_url("gfa/lesson_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #5c5460;">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="content-left">
+              <h6 class="mb-0"><?php echo $courseTrack[0]['OngoingCourse'] ?></h6>
+              <small style="color: green;">Current Course</small>
+            </div>
+            <span class="badge bg-label-danger rounded-circle p-2">
+              <i class="ti ti-user ti-md"></i>
+            </span>
           </div>
-          <span class="badge bg-label-danger rounded-circle p-2">
-            <i class="ti ti-user ti-md"></i>
-          </span>
-        </div>
-</a>
+        </a>
       </div>
     </div>
   </div>
@@ -94,5 +94,4 @@
       </div>
     </div>
   </div>
-  
   

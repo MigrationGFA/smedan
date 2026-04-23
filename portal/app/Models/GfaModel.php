@@ -31,6 +31,13 @@ class GfaModel extends Model
         return $query->getResultArray(); 
    
    }
+    public function GetCertificateEligibleSoftCurriculumWema($email) {
+
+        $query = $this->db->query("CALL GetCertificateEligibleSoftCurriculumWema(?)", [$email]);
+        
+        return $query->getResultArray(); 
+   
+   }
 
     public function GetEachUserCourseListWema($email) {
 
@@ -84,27 +91,31 @@ class GfaModel extends Model
 
     public function ExportWemaEkitiCompletedCoursePassedQuiz($program_type){
 
-    $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
+    $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedCoursePassedQuiz(?)", [$program_type]);
+    // $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
    
    return $query->getResultArray(); 
    }
    public function ExportWemaEkitiCompletedAtLeastACourse($program_type) {
 
-    $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
+    $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedAtLeastACourse(?)", [$program_type]);
+    // $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
    
    return $query->getResultArray(); 
    
    }
    public function ExportWemaEkitiStartedLearning($program_type) {
 
-    $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
+    $query = $this->db->query("CALL ExportWemaEkitiSoftStartedLearning(?)", [$program_type]);
+    // $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
    
    return $query->getResultArray(); 
    
    }
    public function ExportWemaEkitiLoggedIn($program_type) {
 
-    $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
+    $query = $this->db->query("CALL ExportWemaEkitiSoftLoggedIn(?)", [$program_type]);
+    // $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
    
    return $query->getResultArray(); 
    
@@ -178,7 +189,7 @@ class GfaModel extends Model
         public function getWemaCategoryDetails($email)
     {           
         $builder = $this->db->table('wema_course_access');
-        $builder->select('course_type');
+        $builder->select('course');
         $builder->where('email', $email);
         $query = $builder->get(); 
         
@@ -216,7 +227,8 @@ class GfaModel extends Model
     }
     public function  CheckCompletionAllCoursesWema($userEmail){
 
-    $query = $this->db->query("CALL CheckCompletionAllCoursesWema(?)", [$userEmail]);
+    $query = $this->db->query("CALL CheckCompletionSoftAllCoursesWema(?)", [$userEmail]);
+    // $query = $this->db->query("CALL CheckCompletionAllCoursesWema(?)", [$userEmail]);
 
     // Check if the query was successful
     if ($query) {
@@ -322,7 +334,8 @@ class GfaModel extends Model
 
     public function checkOverallCompletion($email)
     {
-        $result = $this->CheckCompletionAllCoursesWema($email);
+        $result = $this->CheckCompletionSoftAllCoursesWema($email);
+        // $result = $this->CheckCompletionAllCoursesWema($email);
         
         if (!empty($result) && isset($result[0]['IsCompleted'])) {
             return (int)$result[0]['IsCompleted'];
@@ -879,6 +892,23 @@ if ($query) {
 public function  GetUserProgressNewCurriculumWema($userEmail){
 
     $query = $this->db->query("CALL GetUserProgressNewCurriculumWema(?)", [$userEmail]);
+    
+    // Check if the query was successful
+    if ($query) {
+        // Retrieve the result set
+        $result = $query->getResultArray();
+        // Free the result set
+        $query->freeResult();
+        return $result;
+    } else {
+        // Handle the error
+        return null;
+    }
+    
+}
+public function  GetUserProgressSoftCurriculumWema($userEmail){
+
+    $query = $this->db->query("CALL GetUserProgressSoftCurriculumWema(?)", [$userEmail]);
     
     // Check if the query was successful
     if ($query) {

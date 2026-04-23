@@ -62,14 +62,11 @@
                                         <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
                                         <div class="input-group input-group-merge">
                                             <select name="course" class="form-select corporate-select" required>
-                                                <option value="DIMP Skill">SME courses</option>
-                                                <option value="CRM Management">CRM Management</option>
-                                                <option value="Accounting Software">Accounting Software</option>
-                                                <option value="Career Advancement">Career Advancement</option>
-                                                <option value="System Analysis">System Analysis</option>
-                                                <option value="Technical Writing">Technical Writing</option>
-                                                <option value="Cloud Computing">Cloud Computing</option>
-                                                <option value="Web Design">Web Design</option>
+                                                <option value="PERSONAL EFFECTIVENESS & SELF-LEADERSHIP">PERSONAL EFFECTIVENESS & SELF-LEADERSHIP</option>
+                                                <option value="COMMUNICATION & PROFESSIONAL EXPRESSION">COMMUNICATION & PROFESSIONAL EXPRESSION</option>
+                                                <option value="RELATIONSHIP & PEOPLE MANAGEMENT">RELATIONSHIP & PEOPLE MANAGEMENT</option>
+                                                <option value="BUSINESS THINKING & VALUE CREATION">BUSINESS THINKING & VALUE CREATION</option>
+                                                <option value="ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT">ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT</option>
                                             </select>
                                         </div>
                                     </div>

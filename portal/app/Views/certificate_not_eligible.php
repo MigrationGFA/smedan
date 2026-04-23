@@ -14,13 +14,13 @@
         <div class="alert alert-danger alert-dismissible" role="alert">
           <h5 class="alert-heading mb-2">x Oops</h5>
           <?php if($course_type == "dimp" ){ ?>
-          <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and pass all quiz.</p>
+          <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and attempt all quiz.</p>
           <?php }  ?>
          <?php if($course_type == "soft" ){ ?>
           <p class="mb-0">You are not eligible to view your certificate as you have not reached the passing mark of 80% for the soft skills course progress.</p><p class="mb-0">To increase your score to 80% and generate your certificate, please continue with the assigned courses and pass the quiz.</p>
           <?php }  ?>
           <?php if($course_type == "course" ){ ?>
-          <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and pass all quiz.</p>
+          <p class="mb-0">You are not eligible to view your certificate.</p><p class="mb-0">To view or generate your certificate, please continue with the assigned courses and attempt all quiz.</p>
           <?php }  ?>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
           </button>
@@ -51,21 +51,37 @@
   <?php }  ?>
 
   <?php if($course_type == "soft" ){ ?>
-  <?php $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email); ?>
+  <?php $getCerticateData = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
+  $getCerticateName = $this->gfa_model->GetCertificateEligibleSoftCurriculumWema($email); ?>
+  <div class="col-lg-6 mb-4 mb-md-0">
+    <div class="card">
+      <h5 class="card-header">Course Analysis</h5>
+      <div class="card-body">
+      <ul class="list-unstyled mb-4 mt-3">
+          <li class="d-flex align-items-center mb-3"><i class="ti ti-user text-heading"></i><span class="fw-medium mx-2 text-heading">Full Name:</span> <span><?php echo $first_name . ' '. $last_name ?></span></li>
+          <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-check text-heading"></i><span class="fw-medium mx-2 text-heading">St:</span> <span>Active</span></li> -->
+          <li class="d-flex align-items-center mb-3"><i class="ti ti-pencil text-heading"></i><span class="fw-medium mx-2 text-heading">Score:</span> <span><?php echo $getCerticateData[0]['Progress'] ?></span></li>
+          <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-flag text-heading"></i><span class="fw-medium mx-2 text-heading">Country:</span> <span>USA</span></li> -->
+          <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span>SME Digitization courses</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- <?php // $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email); ?>
   <div class="col-lg-6 mb-4 mb-md-0">
     <div class="card">
       <h5 class="card-header">Soft Skills Course Analysis</h5>
       <div class="card-body">
       <ul class="list-unstyled mb-4 mt-3">
           <li class="d-flex align-items-center mb-3"><i class="ti ti-user text-heading"></i><span class="fw-medium mx-2 text-heading">Full Name:</span> <span><?php echo $getCerticateData[0]['FullName'] ?></span></li>
-          <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-check text-heading"></i><span class="fw-medium mx-2 text-heading">St:</span> <span>Active</span></li> -->
+          
           <li class="d-flex align-items-center mb-3"><i class="ti ti-pencil text-heading"></i><span class="fw-medium mx-2 text-heading">Score:</span> <span><?php echo $getCerticateData[0]['Score'] ?>%</span></li>
-          <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-flag text-heading"></i><span class="fw-medium mx-2 text-heading">Country:</span> <span>USA</span></li> -->
+          
           <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span><?php echo $getCerticateData[0]['courses'] ?></span></li>
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
   <?php }  ?>
 
   <?php if($course_type == "course" ){ ?>

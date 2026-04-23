@@ -2765,8 +2765,8 @@ public function group_members_api()
             }
 
 
-// Initial $coursetitleArray
- $coursetitleArray = [
+        // Initial $coursetitleArray
+        $coursetitleArray = [
        	'Understanding Digital Transformation' => ['2020-01-01'],
 		'Digital Tools and Technologies' => ['2020-01-01'],
 		'Cybersecurity' => ['2020-01-01'],
@@ -2776,21 +2776,21 @@ public function group_members_api()
 		'Understanding Organization Culture & Change Management' => ['2020-01-01'],
     	];
 
-// Update dates dynamically
-$coursetitleArray = updateCourseDates($coursetitleArray);
+        // Update dates dynamically
+        $coursetitleArray = updateCourseDates($coursetitleArray);
 
-// Your existing logic
-$main_cat = ["DIMP skills", "soft skill"];
-$courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcomingdimp($main_cat, $coursetitleArray);
+        // Your existing logic
+        $main_cat = ["DIMP skills", "soft skill"];
+        $courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcomingdimp($main_cat, $coursetitleArray);
 
-// usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
-//     $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2025-12-12';
-//     $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2025-12-12';
+        // usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
+        //     $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2025-12-12';
+        //     $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2025-12-12';
 
-//     return strtotime($dateA) - strtotime($dateB);
-// });
+        //     return strtotime($dateA) - strtotime($dateB);
+        // });
 
-$data['courseArrayUpcoming'] = $courseArrayUpcoming;
+        $data['courseArrayUpcoming'] = $courseArrayUpcoming;
        
     	$data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryTodaydimp($main_cat, $coursetitleArray);
     	$data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDaydimp($main_cat, $coursetitleArray);
@@ -2858,13 +2858,7 @@ $data['courseArrayUpcoming'] = $courseArrayUpcoming;
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         
         $course = $this->request->getPost("course");
-        $course_type = $course;
-        if ($course == "DIMP Skill"){
-            $course = "SME Courses";
-            $course_type = "DIMP Skill";
-        }
-        // $course = $this->request->getPost("course");
-        // $course_type = $this->request->getPost("course_type");
+        $course_type = "soft skill";
 
         if (
             !empty($course) &&
@@ -3402,56 +3396,157 @@ public function profileup()
 
 
     
+    // public function soft_skills()
+    // {
+        
+    //     $email  = session()->get('email') ;
+    //     if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+    //     $title['page_title'] = "GFA TECH Soft Skills Learning";
+    //     $data['email'] =  $email;
+    //     $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
+        
+    //     $coursetitleArray = [
+    //     'Time Management' => ['2026-05-01'],
+    //     'Business Writing & Communication' => ['2026-05-01'],
+    //     'Critical Thinking' => ['2026-05-01'],
+    //     'People Management Skills in the Workplace' =>['2026-05-01'],
+    //     'Work Ethics' =>['2026-05-01'],        
+    //     'Emotional Intelligence' => ['2026-05-01'],
+	// 	'Sales and Negotiations Skills' => ['2026-05-01'],
+	// 	'Ideas to business' => ['2026-05-01'],
+	// 	'Customer Value' => ['2026-05-01'],
+	// 	'Stakeholder Management' => ['2026-05-01'],
+	// 	'Culture' => ['2026-05-01'],
+	// 	'Personal Branding & Effectiveness' => ['2026-05-01'],
+	// 	'Effective Presentation Skills' => ['2026-05-01'],
+	// 	'Conflict Management' => ['2026-05-01'],
+	// 	'CV-Workshop' => ['2026-05-01']        
+    // 	];
+    // 	$main_cat = "soft skill";
+    // 	$courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat, $coursetitleArray);
+    //     if (is_array($courseArrayUpcoming)) {
+    //         usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
+    //             $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2024-12-07';
+    //             $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2024-12-07';
+        
+    //             return strtotime($dateA) - strtotime($dateB);
+    //         });
+    //     }
+	//     $data['courseArrayUpcoming'] = $courseArrayUpcoming;
+    // 	$data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryToday($main_cat, $coursetitleArray);
+    // 	$data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDay($main_cat, $coursetitleArray);
+    // 	$data['courseArrayPrev'] =$this->gfa_model->getCoursesByMainCategoryPrevious($main_cat, $coursetitleArray);
+    // 	$data['StartupArray'] = $this->gfa_model->getStartUpDetails($email);
+    // 	$data['skillArray'] = $this->gfa_model->getUserAccountExt($email);
+    // 	$data['login_type'] = session()->get('login_type');
+    // 	$data['coursetitleArray'] = $coursetitleArray;
+    // 	$data['account_type'] = session()->get('account_type');
+    //     echo view('header-assets-new',$title);
+    //     echo view('menu-assets-new',$data);
+    //     echo view('navbar-assets-new',$data);
+    //     echo view('soft_skills', $data);
+    //     echo view('footer-assets-new',$data);  
+ 
+    // }
+
     public function soft_skills()
     {
-        
-        $email  = session()->get('email') ;
-        if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
-        $title['page_title'] = "GFA TECH Soft Skills Learning";
-        $data['email'] =  $email;
-        $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
-        $coursetitleArray = [
-        'Time Management' => ['2024-10-21'],
-        'Business Writing & Communication' => ['2024-10-22'],
-        'Critical Thinking' => ['2024-10-23'],
-        'People Management Skills in the Workplace' =>['2024-10-24'],
-        'Work Ethics' =>['2024-10-25'],        
-        'Emotional Intelligence' => ['2024-10-26'],
-		'Sales and Negotiations Skills' => ['2024-10-27'],
-		'Ideas to business' => ['2024-10-28'],
-		'Customer Value' => ['2024-10-28'],
-		'Stakeholder Management' => ['2024-10-29'],
-		'Culture' => ['2024-10-30'],
-		'Personal Branding & Effectiveness' => ['2024-10-31'],
-		'Effective Presentation Skills' => ['2024-11-01'],
-		'Conflict Management' => ['2024-11-02'],
-		'CV-Workshop' => ['2024-11-03']        
-    	];
-    	$main_cat = "soft skill";
-    	$courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat, $coursetitleArray);
-if (is_array($courseArrayUpcoming)) {
-		usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
-    		$dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2024-12-07';
-    		$dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2024-12-07';
-    
-    		return strtotime($dateA) - strtotime($dateB);
-		});
-}
-	$data['courseArrayUpcoming'] = $courseArrayUpcoming;
-    	$data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryToday($main_cat, $coursetitleArray);
-    	$data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDay($main_cat, $coursetitleArray);
-    	$data['courseArrayPrev'] =$this->gfa_model->getCoursesByMainCategoryPrevious($main_cat, $coursetitleArray);
-    	$data['StartupArray'] = $this->gfa_model->getStartUpDetails($email);
-    	$data['skillArray'] = $this->gfa_model->getUserAccountExt($email);
-    	$data['login_type'] = session()->get('login_type');
-    	$data['coursetitleArray'] = $coursetitleArray;
-    	$data['account_type'] = session()->get('account_type');
-        echo view('header-assets-new',$title);
-        echo view('menu-assets-new',$data);
-        echo view('navbar-assets-new',$data);
+        $email = session()->get('email');
+        if ($email == '') {
+            return redirect()->to(base_url('gfa/login'));
+        }
+
+        $title['page_title'] = "Learning Portal";
+        $data['email'] = $email;
+
+        // Get user category from DB
+        $emailVerifySession = $email;
+        $category = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
+        $category = trim($category); // clean extra spaces
+
+        // Category → Courses Mapping
+        $categoryCourses = [
+
+            'PERSONAL EFFECTIVENESS & SELF-LEADERSHIP' => [
+                'Emotional Intelligence',
+                'Time Management',
+                'Personal Branding &amp; Effectiveness',
+                'Critical Thinking'
+            ],
+
+            'COMMUNICATION & PROFESSIONAL EXPRESSION' => [
+                'Business Writing &amp; Communication',
+                'Effective Presentation Skills',
+                'CV-Workshop'
+            ],
+
+            'RELATIONSHIP & PEOPLE MANAGEMENT' => [
+                'Stakeholder Management',
+                'People Management Skills in the Workplace',
+                'Conflict Management',
+                'Sales and Negotiations Skills'
+            ],
+
+            'BUSINESS THINKING & VALUE CREATION' => [
+                'Ideas to business',
+                'Customer Value'
+            ],
+
+            'ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT' => [
+                'Culture',
+                'Work Ethics'
+            ]
+        ];
+
+        // Fallback if category is invalid
+        if (!isset($categoryCourses[$category])) {
+            $category = 'PERSONAL EFFECTIVENESS & SELF-LEADERSHIP';
+        }
+
+        // Build course title array dynamically
+        $coursetitleArray = [];
+        foreach ($categoryCourses[$category] as $course) {
+            $coursetitleArray[$course] = ['2026-05-01'];
+        }
+
+        $main_cat = "soft skill";
+
+        // Upcoming courses
+        $courseArrayUpcoming = $this->gfa_model
+            ->getCoursesByMainCategoryUpcoming($main_cat, $coursetitleArray);
+
+        if (is_array($courseArrayUpcoming)) {
+            usort($courseArrayUpcoming, function ($a, $b) use ($coursetitleArray) {
+                $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2024-12-07';
+                $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2024-12-07';
+                return strtotime($dateA) - strtotime($dateB);
+            });
+        }
+
+        $data['courseArrayUpcoming'] = $courseArrayUpcoming;
+
+        // Other course groupings
+        $data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryToday($main_cat, $coursetitleArray);
+
+        $data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDay($main_cat, $coursetitleArray);
+
+        $data['courseArrayPrev'] = $this->gfa_model->getCoursesByMainCategoryPrevious($main_cat, $coursetitleArray);
+
+        // Other data
+        $data['StartupArray'] = $this->gfa_model->getStartUpDetails($email);
+        $data['skillArray'] = $this->gfa_model->getUserAccountExt($email);
+        $data['login_type'] = session()->get('login_type');
+        $data['account_type'] = session()->get('account_type');
+
+        $data['coursetitleArray'] = $coursetitleArray;
+        $data['selectedCategory'] = $category;
+
+        // Views
+        echo view('header-assets-new', $title);
+        echo view('menu-assets-new', $data);
+        echo view('navbar-assets-new', $data);
         echo view('soft_skills', $data);
-        echo view('footer-assets-new',$data);  
- 
+        echo view('footer-assets-new', $data);
     }
 
 
@@ -6432,18 +6527,18 @@ $data_connection = array(
         }
 
         $emailVerifySession = session()->get('email');
-        $category           = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
+        // $category           = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
         $checkMiss          = $this->gfa_model->CheckMissingFieldsByWemaUid($emailVerifySession);
 
         if (!empty($emailVerifySession)) {
             if (count($checkMiss) > 0) {
                 return redirect()->to(base_url('gfa/profileup'));
             } else {
-                if ($category === 'DIMP Skill' || $category === '' || is_null($category)) {
-                    return redirect()->to(base_url('gfa/dimp_skills'));
-                } else {
-                    return redirect()->to(base_url('gfa/learning_path'));
-                }
+                // if ($category === 'DIMP Skill' || $category === '' || is_null($category)) {
+                //     return redirect()->to(base_url('gfa/dimp_skills'));
+                // } else {
+                    return redirect()->to(base_url('gfa/soft_skills'));
+                // }
             }
         } else {
             return redirect()->to(base_url('gfa/login'));
@@ -6611,7 +6706,7 @@ $data_connection = array(
         $getCertificateCourse = $this->gfa_model->getCertificateEmailDimp($email); 
 
         if(empty($getCertificateCourse)){
-             $getCerticateData = $this->gfa_model->GetUserProgressNewCurriculumWema($email);
+             $getCerticateData = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
         // $getCerticateData = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email);
         $getCerticateDataProgress = $this->gfa_model->checkOverallCompletion($email);
         if($getCerticateDataProgress){

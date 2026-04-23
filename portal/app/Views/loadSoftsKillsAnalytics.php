@@ -2,13 +2,14 @@
   $this->gfa_model = model('App\Models\GfaModel');
   $email = session()->get('email');
   // $loginkey = $this->gfa_model->getWpCred($email);
-  $courseTrack = $this->gfa_model->GetUserProgressSoftSkills($email);
-$courseTrack2 = $this->gfa_model->GetUserQuizProgressSoftSkill($email);
-if ($courseTrack[0]['NumberOfCourses'] >= $courseTrack2[0]['NumberOfCourses']) {
-	$courseTrack = $this->gfa_model->GetUserProgressSoftSkills($email);
-} else {
-	$courseTrack = $this->gfa_model->GetUserQuizProgressSoftSkill($email);
-}
+  $courseTrack = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
+  // $courseTrack = $this->gfa_model->GetUserProgressSoftSkills($email);
+// $courseTrack2 = $this->gfa_model->GetUserQuizProgressSoftSkill($email);
+// if ($courseTrack[0]['NumberOfCourses'] >= $courseTrack2[0]['NumberOfCourses']) {
+// 	$courseTrack = $this->gfa_model->GetUserProgressSoftSkills($email);
+// } else {
+// 	$courseTrack = $this->gfa_model->GetUserQuizProgressSoftSkill($email);
+// }
 #print_r($courseTrack);
 ?>
 <div class="col-sm-6 col-xl-3">
@@ -31,7 +32,7 @@ if ($courseTrack[0]['NumberOfCourses'] >= $courseTrack2[0]['NumberOfCourses']) {
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
-            <h4 class="mb-0"><?php echo $courseTrack[0]['Progress'] ?>%</h4>
+            <h4 class="mb-0"><?php echo $courseTrack[0]['Progress'] ?></h4>
             <small>Course Track</small>
           </div>
           <span class="badge bg-label-success rounded-circle p-2">
@@ -64,7 +65,9 @@ if ($courseTrack[0]['NumberOfCourses'] >= $courseTrack2[0]['NumberOfCourses']) {
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
             <h4 class="mb-0"><?php echo $courseTrack[0]['NumberOfPassedQuizzes'] ?></h4>
-            <small>Passed Quiz</small>
+            <a href="<?php echo base_url("gfa/quiz_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #1731c3;">
+             <small>Passed Quiz</small>
+            </a>
           </div>
           <span class="badge bg-label-info rounded-circle p-2">
             <i class="ti ti-check ti-md"></i>
