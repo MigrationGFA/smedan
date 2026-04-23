@@ -8,7 +8,7 @@
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y" id="mContent">
 
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="<?php echo $nonce_value; ?>"></script>
 
   <div class="col-lg-12 mb-4">
@@ -24,7 +24,7 @@
       <a href="https://twitter.com/intent/tweet?url=<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">Share on Twitter</a>
       <a href="<?php echo base_url('gfa/referral'); ?>" class="btn btn-dark">Details</a>
     </div>
-  </div>
+  </div> -->
 
   <h4 class="py-3 mb-4"><span class="text-muted fw-light">My</span> Courses</h4>
 
@@ -204,7 +204,7 @@
 <!-- / Content -->
 
 <?php
-  if (!$this->gfa_model->CheckUserCategory($email)) {
-    include("update_category.php");
-  }
+  // if (!$this->gfa_model->CheckUserCategory($email)) {
+  //   include("update_category.php");
+  // }
 ?>

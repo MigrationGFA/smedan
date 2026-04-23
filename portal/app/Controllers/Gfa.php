@@ -3506,7 +3506,7 @@ public function profileup()
         // Build course title array dynamically
         $coursetitleArray = [];
         foreach ($categoryCourses[$category] as $course) {
-            $coursetitleArray[$course] = ['2026-05-01'];
+            $coursetitleArray[$course] = ['2026-01-01'];
         }
 
         $main_cat = "soft skill";
