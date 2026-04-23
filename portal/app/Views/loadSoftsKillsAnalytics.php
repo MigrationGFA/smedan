@@ -74,19 +74,19 @@
       </div>
     </div>
   </div>
-  
+
   <div class="col-sm-6 col-xl-3">
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
             <h4 class="mb-0">Certificate</h4>
-            <small>Access Your Technical Skill Certificate</small>
+            <small>Access Your Certificate</small>
           </div>
-          <?php $cert_course_ref  = session()->get('cert_course_ref') ; if(!empty($cert_course_ref)){ ?>
-          <a href="<?php echo base_url("gfa/certificate_dimp_skills/{$cert_course_ref}"); ?>" class="btn bg-label-danger">
+          <?php $cert_soft_ref  = session()->get('cert_soft_ref') ; if(!empty($cert_soft_ref)){ ?>
+          <a href="<?php echo base_url("gfa/certificate_soft_skills/{$cert_soft_ref}"); ?>" class="btn bg-label-danger">
           <?php }else{  ?>
-            <a href="<?php echo base_url("gfa/certificate_gen_dimp/"); ?>" class="btn bg-label-danger"> 
+            <a href="<?php echo base_url("gfa/certificate_gen/"); ?>" class="btn bg-label-danger"> 
             <?php }  ?> 
           <i class="ti ti-link ti-md"></i>
           </a>
@@ -94,4 +94,3 @@
       </div>
     </div>
   </div>
-  

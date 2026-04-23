@@ -83,7 +83,7 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
             <h4 class="mb-0">Certificate</h4>
-            <small>Access Your Soft Skills Certificate</small>
+            <small>Access Your Certificate</small>
           </div>
           <?php $cert_soft_ref  = session()->get('cert_soft_ref') ; if(!empty($cert_soft_ref)){ ?>
           <a href="<?php echo base_url("gfa/certificate_soft_skills/{$cert_soft_ref}"); ?>" class="btn bg-label-danger">
