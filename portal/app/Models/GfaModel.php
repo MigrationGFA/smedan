@@ -3307,7 +3307,7 @@ public function getCertificateEmailCourseRef($ref){
 public function getCertificateEmailSoft($email){
     $builder = $this->db->table('certificate');
   $builder->where('email',$email);
-  $builder->where('cert_type',"kaduna-soft");
+  $builder->where('cert_type',"smedan-soft");
   $query = $builder->get(); 
   if($query->getNumRows() > 0 )
   {

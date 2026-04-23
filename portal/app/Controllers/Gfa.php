@@ -6608,8 +6608,67 @@ $data_connection = array(
 
     }
 
-
     public function certificate_gen(){
+        $email  = session()->get('email') ;
+        $first_name  = session()->get('first_name') ;
+        $last_name  = session()->get('last_name') ;
+        // $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
+        // print_r($getCerticateData);
+        // exit;
+        // Generate a random number between 1000 and 10000
+        $random_1 = time();
+        $random_2 = time() . rand(1000, 9999);
+
+        // Extract first 3 digits of random_1
+        $first_34_digits = substr($random_1, 0, 4);
+
+        // Extract last 4 digits of random_2
+        $last_4_digits = substr($random_2, -4);
+
+        // Combine both to generate $random
+        $randomNumber = $first_34_digits . $last_4_digits;
+
+        // Get the current year, month, and day
+        $currentYear = date('Y');
+        $currentMonth = date('m');
+        $currentDay = date('d');
+        $time_submit = date("Y-m-d H:i:s", time());
+        
+        // Combine the parts to form the reference code
+        $refCodeSMEDAN = "SMEDAN/{$currentYear}/{$currentMonth}/{$currentDay}/{$randomNumber}";
+        $getCertificateCourse = $this->gfa_model->getCertificateEmailSoft($email); 
+
+        if(empty($getCertificateCourse)){
+             $getCerticateData = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
+        // $getCerticateData = $this->gfa_model->GetCertificateEligibleNewCurriculumWema($email);
+        $getCerticateDataProgress = $this->gfa_model->checkOverallCompletion($email);
+        if($getCerticateDataProgress){
+            $data = array(
+                'email' => $email,
+                'ref' => $random_2,
+                'prog' => $refCodeSMEDAN,
+                'cert_type' => "smedan-soft",
+                'time_submit' => $time_submit,
+                'status' => "active",
+                'course' => 'SME Digitization',
+                'score' => $getCerticateData[0]['Progress'],
+                'name'=>$first_name . ' '. $last_name
+                ) ;
+            $this->gfa_model->insertCertificate($data); 
+            session()->set('cert_soft_ref', $random_2); 
+            return redirect()->to(base_url("gfa/certificate_soft_skills/{$random_2}"));
+        }else{
+            return redirect()->to(base_url("gfa/certificate_not_eligible/soft"));
+        }
+        
+        }else{
+            $cert_ref = $getCertificateCourse[0]['ref']; 
+            return redirect()->to(base_url("gfa/certificate_soft_skills/{$cert_ref}"));
+        }
+
+    }
+
+    public function certificate_genold(){
         $email  = session()->get('email') ;
         // $getCerticateData = $this->gfa_model->GetCertificateEligibleSoftSkills($email);
         // print_r($getCerticateData);
