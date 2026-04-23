@@ -87,9 +87,9 @@
               </div>
             
               <div class="transaction-percentage">
-                <h6 class="transaction-title">Completed And Passed Quiz</h6>
+                <h6 class="transaction-title">Completed And Attempted All Quiz</h6>
                 <small>
-                    Total number of people that have completed and passed quiz.  
+                    Total number of people that have completed and attempted all quiz.  
 				</small>
               </div>
             </div>
