@@ -870,9 +870,9 @@ if ($query) {
 
 }
 
-public function  GetPendingLessons($userEmail,$course){
+public function  GetPendingSoftLessons($userEmail,$course){
 
-$query = $this->db->query("CALL GetPendingLessons(?,?)", [$userEmail,$course]);
+$query = $this->db->query("CALL GetPendingSoftLessons(?,?)", [$userEmail,$course]);
 
 // Check if the query was successful
 if ($query) {
