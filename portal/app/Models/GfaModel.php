@@ -852,9 +852,9 @@ public function GetUsersHaveStartedLearningCourses($email) {
    return $query->getResultArray(); 
    
    }
-public function  GetCompletedLessons($userEmail,$course){
+public function  GetCompletedSoftLessons($userEmail,$course){
 
-$query = $this->db->query("CALL GetCompletedLessons(?,?)", [$userEmail,$course]);
+$query = $this->db->query("CALL GetCompletedSoftLessons(?,?)", [$userEmail,$course]);
 
 // Check if the query was successful
 if ($query) {
