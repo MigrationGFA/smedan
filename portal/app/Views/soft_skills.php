@@ -105,6 +105,12 @@
                   </div>
 
                   <div class="card-body p-3 pt-2">
+                    <?php 
+                 if ($this->gfa_model->checkCompletionSingleCourse($email, $courseDetailsPrev['id'])) {
+                    echo '<span class="badge bg-danger text-white">Completed</span>';
+					        }
+                 ?>
+                 <?php var_dump($cate);?>
                     <a class="h5" href="#"><?= $course['coursetitle']; ?></a>
                     <p class="mt-2"><?= $course['description']; ?></p>
 
