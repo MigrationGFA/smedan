@@ -1556,7 +1556,7 @@ public function lesson_progress($course="")
         $data['login_type'] = session()->get('login_type') ;
         $data['account_type'] = session()->get('account_type') ;
         
-        $data['course'] = urldecode($course);
+        // $data['course'] = urldecode($course);
         echo view('header-assets-new',$title);
         echo view('menu-assets-new',$data);
         echo view('navbar-assets-new',$data);
@@ -1575,7 +1575,7 @@ public function quiz_progress($course="")
         $data['login_type'] = session()->get('login_type') ;
         $data['account_type'] = session()->get('account_type') ;
         
-        $data['course'] = urldecode($course);
+        // $data['course'] = urldecode($course);
         echo view('header-assets-new',$title);
         echo view('menu-assets-new',$data);
         echo view('navbar-assets-new',$data);
@@ -3440,8 +3440,6 @@ public function profileup()
         if (!isset($categoryCourses[$category])) {
             $category = 'PERSONAL EFFECTIVENESS & SELF-LEADERSHIP';
         }
-
-        $data['cate'] = $categoryCourses[$category];
 
         // Build course title array dynamically
         $coursetitleArray = [];

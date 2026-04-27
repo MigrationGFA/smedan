@@ -110,7 +110,6 @@
                     echo '<span class="badge bg-danger text-white">Completed</span>';
 					        }
                  ?>
-                 <?php var_dump($cate);?>
                     <a class="h5" href="#"><?= $course['coursetitle']; ?></a>
                     <p class="mt-2"><?= $course['description']; ?></p>
 

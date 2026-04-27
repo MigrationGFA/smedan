@@ -1,6 +1,7 @@
 <?php 
   $this->gfa_model = model('App\Models\GfaModel');
   $email = session()->get('email');
+  $course = $this->gfa_model->getWemaCategoryDetails($emailVerifySession);
  ?>
 <div class="container-xxl flex-grow-1 container-p-y">
             
