@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="col-sm-6 col-xl-3">
+  <div class="col-sm-6 col-xl-3">
     <div class="card">
       <div class="card-body">
         <a href="<?php echo base_url("gfa/lesson_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #5c5460;">
@@ -56,16 +56,16 @@
         </a>
       </div>
     </div>
-  </div> -->
+  </div>
   <div class="col-sm-6 col-xl-3">
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
           <div class="content-left">
             <h4 class="mb-0"><?php echo $courseTrack[0]['PassedQuizzes'] ?></h4>
-            <!-- <a href="<?php // echo base_url("gfa/quiz_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #1731c3;"> -->
+            <a href="<?php echo base_url("gfa/quiz_progress/{$courseTrack[0]['OngoingCourse']}"); ?>" class="stretched-link" style="font-weight: bold; color: #1731c3;">
              <small>Passed Quiz</small>
-            <!-- </a> -->
+            </a>
           </div>
           <span class="badge bg-label-info rounded-circle p-2">
             <i class="ti ti-check ti-md"></i>

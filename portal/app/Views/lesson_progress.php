@@ -4,7 +4,7 @@
  ?>
 <div class="container-xxl flex-grow-1 container-p-y">
             
-            
+
 <h4 class="py-3 mb-4">
   <span class="text-muted fw-light"><?php echo $course ?></span>
 </h4>
@@ -17,7 +17,7 @@
         <span class="badge bg-label-primary">Lessons Completed</span>
         <div class="info-container">
             <ul class="ps-3 g-2 my-3">
-           <?php $CompletedLessonsData = $this->gfa_model->GetCompletedLessons($email,$course); foreach($CompletedLessonsData as $CompletedLessons){ ?>
+           <?php $CompletedLessonsData = $this->gfa_model->GetCompletedSoftLessons($email,$course); foreach($CompletedLessonsData as $CompletedLessons){ ?>
           <li class="mb-2"><a href="<?php echo base_url("gfa/lesson/{$CompletedLessons['id']}/{$CompletedLessons['lesson']}"); ?>"><?php echo $CompletedLessons['lesson'] ?></a></li>
          <?php  }  ?>
         </ul>
@@ -34,8 +34,8 @@
           </div>
         </div>
          <ul class="ps-3 g-2 my-3">
-            <?php $PendingLessonsData = $this->gfa_model->GetPendingLessons($email,$course); foreach($PendingLessonsData as $GetPendingLessons){ ?>
-          <li class="mb-2 userActivity" ls="<?= 'l-' . $GetPendingLessons['id'] ?>"><a href="<?php echo base_url("gfa/lesson/{$GetPendingLessons['id']}/{$GetPendingLessons['lessons']}"); ?>"><?php echo $GetPendingLessons['lessons'] ?></a></li>
+            <?php $PendingLessonsData = $this->gfa_model->GetPendingSoftLessons($email,$course); foreach($PendingLessonsData as $GetPendingSoftLessons){ ?>
+          <li class="mb-2 userActivity" ls="<?= 'l-' . $GetPendingSoftLessons['id'] ?>"><a href="<?php echo base_url("gfa/lesson/{$GetPendingSoftLessons['id']}/{$GetPendingSoftLessons['lessons']}"); ?>"><?php echo $GetPendingSoftLessons['lessons'] ?></a></li>
          <?php  }  ?>
         </ul>
         </ul>

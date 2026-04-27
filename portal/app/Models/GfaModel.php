@@ -887,9 +887,9 @@ if ($query) {
 }
 
 }
-public function  GetPassedQuizzes($userEmail,$course){
+public function  GetPassedSoftQuizzes($userEmail,$course){
 
-$query = $this->db->query("CALL GetPassedQuizzes(?,?)", [$userEmail,$course]);
+$query = $this->db->query("CALL GetPassedSoftQuizzes(?,?)", [$userEmail,$course]);
 
 // Check if the query was successful
 if ($query) {
@@ -904,9 +904,9 @@ if ($query) {
 }
 
 }
-public function  GetUnpassedQuizzes($userEmail,$course){
+public function  GetUnpassedSoftQuizzes($userEmail,$course){
 
-$query = $this->db->query("CALL GetUnpassedQuizzes(?,?)", [$userEmail,$course]);
+$query = $this->db->query("CALL GetUnpassedSoftQuizzes(?,?)", [$userEmail,$course]);
 
 // Check if the query was successful
 if ($query) {
