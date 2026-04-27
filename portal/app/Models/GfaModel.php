@@ -284,53 +284,89 @@ class GfaModel extends Model
     return $result ? $result->course_id : null;
 }
 
-    public function checkCompletionSingleCourse($email, $courseId)
-    {
-        // 1. Get overall course progress
-        $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
+public function hasUserStartedCourse($email, $courseId)
+{
+    $query = $this->db->query("
+        SELECT 1
+        FROM user_activity ua
+        JOIN lesson l
+            ON  ua.UserAction LIKE 'l-%'
+            AND CAST(SUBSTRING(ua.UserAction, 3) AS UNSIGNED) = l.id
+        WHERE ua.UserEmail = ?
+          AND l.course_id  = ?
+        LIMIT 1
+    ", [$email, $courseId]);
 
-        $progressValue = 0;
-        if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
-            $progressValue = (int) rtrim($courseProgress[0]['Progress'], '%');
-        }
+    return $query->getNumRows() > 0;
+}
 
-        // 2. Get all latest quiz scores (one latest per ref_id)
-        $quizScores = $this->GetUserLatestQuizScoresWema($email);
+public function checkCompletionSingleCourse($email, $courseId)
+{
+    $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
 
-        // 3. Calculate AVERAGE quiz score for the chosen course
-        $averageQuizScore = 0;
-
-        if (!empty($quizScores)) {
-
-            // Filter quizzes belonging to this course by course_id
-            $matchedScores = array_filter($quizScores, function($row) use ($courseId) {
-                return isset($row['course_id']) && (int)$row['course_id'] === (int)$courseId;
-            });
-
-            if (!empty($matchedScores)) {
-                $sum = 0;
-                $count = 0;
-
-                foreach ($matchedScores as $quiz) {
-                    if (isset($quiz['score'])) {
-                        $sum += (float)$quiz['score'];
-                        $count++;
-                    }
-                }
-
-                if ($count > 0) {
-                    $averageQuizScore = $sum / $count;
-                }
-            }
-        }
-
-        // 4. Check completion rules
-        if ($progressValue >= 80 && $averageQuizScore >= 80) {
-            return 1;
-        }
-
-        return 0; 
+    $progressValue = 0;
+    if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
+        $progressValue = (int) rtrim($courseProgress[0]['Progress'], '%');
     }
+
+    // Quiz attempted check (any score)
+    $quizAttempted = $this->db->query("SELECT 1
+        FROM quiz_attempted qa
+        JOIN quiz_title qt ON qa.ref_id = qt.ref_id
+        WHERE qa.email     = ?
+          AND qt.course_id = ?
+        LIMIT 1", [$email, $courseId])->getNumRows() > 0;
+
+    return ($progressValue >= 80 && $quizAttempted) ? 1 : 0;
+}
+
+    // public function checkCompletionSingleCourse($email, $courseId)
+    // {
+    //     // 1. Get overall course progress
+    //     $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
+
+    //     $progressValue = 0;
+    //     if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
+    //         $progressValue = (int) rtrim($courseProgress[0]['Progress'], '%');
+    //     }
+
+    //     // 2. Get all latest quiz scores (one latest per ref_id)
+    //     $quizScores = $this->GetUserLatestQuizScoresWema($email);
+
+    //     // 3. Calculate AVERAGE quiz score for the chosen course
+    //     $averageQuizScore = 0;
+
+    //     if (!empty($quizScores)) {
+
+    //         // Filter quizzes belonging to this course by course_id
+    //         $matchedScores = array_filter($quizScores, function($row) use ($courseId) {
+    //             return isset($row['course_id']) && (int)$row['course_id'] === (int)$courseId;
+    //         });
+
+    //         if (!empty($matchedScores)) {
+    //             $sum = 0;
+    //             $count = 0;
+
+    //             foreach ($matchedScores as $quiz) {
+    //                 if (isset($quiz['score'])) {
+    //                     $sum += (float)$quiz['score'];
+    //                     $count++;
+    //                 }
+    //             }
+
+    //             if ($count > 0) {
+    //                 $averageQuizScore = $sum / $count;
+    //             }
+    //         }
+    //     }
+
+    //     // 4. Check completion rules
+    //     if ($progressValue >= 80 && $averageQuizScore >= 80) {
+    //         return 1;
+    //     }
+
+    //     return 0; 
+    // }
 
     public function checkOverallCompletion($email)
     {

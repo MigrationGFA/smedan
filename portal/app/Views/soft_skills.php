@@ -120,6 +120,10 @@
                         <?php
                           $cours_url        = str_replace(" ", "-", $course['coursetitle']);
                           $getActiveSection = $this->gfa_model->getSectionByCourseIdActive($course['id']);
+
+                          $hasStarted      = $this->gfa_model->hasUserStartedCourse($email, $course['id']);
+                          $startLabel      = $hasStarted ? 'Continue' : 'Start';
+
                           $getActiveLesson  = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
                           $lesson_url       = str_replace(" ", "-", $getActiveLesson[0]['title']);
                         ?>
@@ -133,7 +137,7 @@
                           <a class="app-academy-md-50 btn btn-label-primary d-flex align-items-center userActivity"
                              ls="<?= 'l-' . $getActiveLesson[0]['id']; ?>"
                              href="<?php echo base_url("gfa/lesson/{$getActiveLesson[0]['id']}/{$lesson_url}") ?>">
-                            <span class="me-2">Start</span>
+                            <span class="me-2"><?=$startLabel?></span>
                             <i class="ti ti-chevron-right scaleX-n1-rtl ti-sm"></i>
                           </a>
                         <?php endif; ?>
