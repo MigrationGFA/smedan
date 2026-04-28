@@ -48,7 +48,7 @@
             <div class="content-left">
               <h6 class="mb-0">Lesson Progress</h6>
               <!-- <h6 class="mb-0"><?php // echo $courseTrack[0]['OngoingCourse'] ?></h6> -->
-              <small style="color: green;">Continue Learning</small>
+              <small style="color: green;">View your completed and ongoing lessons</small>
             </div>
             <span class="badge bg-label-danger rounded-circle p-2">
               <i class="ti ti-user ti-md"></i>
