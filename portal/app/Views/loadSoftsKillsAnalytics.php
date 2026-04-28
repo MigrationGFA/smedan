@@ -6,7 +6,7 @@
   // if($cohort > 2){
 	  $courseTrack = $this->gfa_model->GetUserProgressSoftCurriculumWema($email);
   // } else {
-  // 	$courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email);
+  // 	$courseTrack = $this->gfa_model->GetUserSoftProgressAssignedCoursesWema($email);
   // }
         
 ?>

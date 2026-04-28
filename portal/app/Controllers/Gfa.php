@@ -6513,7 +6513,7 @@ $data_connection = array(
         if(empty($getCertificateCourse)){
         $getCerticateData = $this->gfa_model->GetCertificateEligibleAssignedCourseWema($email);
         $course_id = $this->gfa_model->getCourseIdByUserEmail($email);
-        $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email, $course_id);
+        $courseTrack = $this->gfa_model->GetUserSoftProgressAssignedCoursesWema($email, $course_id);
         $course_id = $this->gfa_model->getCourseIdByTitle($getCerticateData[0]['Course']);
         $courseTrackProgress = $this->gfa_model->checkCompletionSingleCourse($email, $course_id);
         $courseTrackProgress2  = trim(str_replace("%","",$courseTrack[0]['Progress']));
