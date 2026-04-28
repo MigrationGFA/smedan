@@ -102,8 +102,7 @@
                           $getActiveSection = $this->gfa_model->getSectionByCourseIdActive($course['id']);
 
                           $hasStarted      = $this->gfa_model->hasUserStartedCourse($email, $course['id']);
-                          $startLabel = $hasStarted ? 'Continue'
-                                          : ($this->gfa_model->checkCompletionSingleCourse($email, $course['id']) ? 'Revisit' : 'Start');
+                          $startLabel = $this->gfa_model->checkCompletionSingleCourse($email, $course['id']) ? 'Revisit' : ($hasStarted ? 'Continue' : 'Start');
 
                           $getActiveLesson  = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
                           $lesson_url       = str_replace(" ", "-", $getActiveLesson[0]['title']);
