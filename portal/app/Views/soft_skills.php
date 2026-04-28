@@ -87,11 +87,11 @@
 
                   <div class="card-body p-3 pt-2">
                     <?php 
-                 if ($this->gfa_model->checkCompletionSingleCourse($email, $course['id'])) {
-                    echo '<span class="badge bg-danger text-white">Completed</span>';
-					        }
-                 ?>
-                    <a class="h5" href="#"><?= $course['coursetitle']; ?></a>
+                    if ($this->gfa_model->checkCompletionSingleCourse($email, $course['id'])) {
+                        echo '<span class="badge bg-danger text-white">Completed</span>';
+                      }
+                    ?>
+                    <h5><?= $course['coursetitle']; ?></h5>
                     <p class="mt-2"><?= $course['description']; ?></p>
 
                     <div class="d-flex flex-column flex-md-row gap-2 text-nowrap">
@@ -102,7 +102,8 @@
                           $getActiveSection = $this->gfa_model->getSectionByCourseIdActive($course['id']);
 
                           $hasStarted      = $this->gfa_model->hasUserStartedCourse($email, $course['id']);
-                          $startLabel      = $hasStarted ? 'Continue' : 'Start';
+                          $startLabel = $hasStarted ? 'Continue'
+                                          : ($this->gfa_model->checkCompletionSingleCourse($email, $course['id']) ? 'Revisit' : 'Start');
 
                           $getActiveLesson  = $this->gfa_model->getLessonBySectionId($getActiveSection[0]['id']);
                           $lesson_url       = str_replace(" ", "-", $getActiveLesson[0]['title']);
