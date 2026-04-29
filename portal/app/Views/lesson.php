@@ -121,7 +121,7 @@ if ($position !== false) {
               $getActiveQuizData = $this->gfa_model->getQuizBySectionId($getActiveLessonData[0]['section_id']);
         			// foreach($getActiveQuizData as $getActiveQuiz){     
             ?>
-            <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuizData[0]['ref_id'];  ?>" class="btn rounded-pill btn-secondary userActivity">Quiz</a>
+            <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuizData[0]['ref_id'];  ?>" class="btn rounded-pill btn-danger userActivity">Next</a>
 
           </div>
           <hr class="my-4">
