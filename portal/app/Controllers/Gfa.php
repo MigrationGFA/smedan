@@ -1564,8 +1564,8 @@ public function lesson_progress($course="")
         echo view('footer-assets-new',$data); 
 
     }
-public function quiz_progress($course="")
 
+    public function quiz_progress($course="")
     {
         
         $email  = session()->get('email') ;
