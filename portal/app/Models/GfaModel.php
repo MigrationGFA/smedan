@@ -922,7 +922,77 @@ if ($query) {
 
 }
 
+//=======
+public function  GetCompletedLessons($userEmail,$course){
 
+$query = $this->db->query("CALL GetCompletedLessons(?,?)", [$userEmail,$course]);
+
+// Check if the query was successful
+if ($query) {
+    // Retrieve the result set
+    $result = $query->getResultArray();
+    // Free the result set
+    $query->freeResult();
+    return $result;
+} else {
+    // Handle the error
+    return null;
+}
+
+}
+
+public function  GetPendingLessons($userEmail,$course){
+
+$query = $this->db->query("CALL GetPendingLessons(?,?)", [$userEmail,$course]);
+
+// Check if the query was successful
+if ($query) {
+    // Retrieve the result set
+    $result = $query->getResultArray();
+    // Free the result set
+    $query->freeResult();
+    return $result;
+} else {
+    // Handle the error
+    return null;
+}
+
+}
+public function  GetPassedQuizzes($userEmail,$course){
+
+$query = $this->db->query("CALL GetPassedQuizzes(?,?)", [$userEmail,$course]);
+
+// Check if the query was successful
+if ($query) {
+    // Retrieve the result set
+    $result = $query->getResultArray();
+    // Free the result set
+    $query->freeResult();
+    return $result;
+} else {
+    // Handle the error
+    return null;
+}
+
+}
+public function  GetUnpassedQuizzes($userEmail,$course){
+
+$query = $this->db->query("CALL GetUnpassedQuizzes(?,?)", [$userEmail,$course]);
+
+// Check if the query was successful
+if ($query) {
+    // Retrieve the result set
+    $result = $query->getResultArray();
+    // Free the result set
+    $query->freeResult();
+    return $result;
+} else {
+    // Handle the error
+    return null;
+}
+
+}
+//===========
 
 public function  GetUserProgressNewCurriculumWema($userEmail){
 
