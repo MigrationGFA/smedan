@@ -35,7 +35,7 @@
           </div>
         </div>
          <ul class="ps-3 g-2 my-3">
-            <?php $PendingLessonsData = $this->gfa_model->GetPendingLessons($email,$course); foreach($PendingLessonsData as $GetPendingLessons){ ?>
+            <?php $PendingLessonsData = $this->gfa_model->GetPendingLessons($email,$course); var_dump($PendingLessonsData); foreach($PendingLessonsData as $GetPendingLessons){ ?>
           <li class="mb-2 userActivity" ls="<?= 'l-' . $GetPendingLessons['id'] ?>"><a href="<?php echo base_url("gfa/lesson/{$GetPendingLessons['id']}/{$GetPendingLessons['lessons']}"); ?>"><?php echo $GetPendingLessons['lessons'] ?></a></li>
          <?php  }  ?>
         </ul>
