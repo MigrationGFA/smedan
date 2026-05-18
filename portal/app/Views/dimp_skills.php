@@ -59,9 +59,9 @@
 </div>     
 
   <div class="card mb-4">
-    <div class="alert alert-danger" role="alert">
+    <!-- <div class="alert alert-danger" role="alert">
       Note that you have <strong>30 days</strong> to complete your chosen course and download your certificate.
-    </div>
+    </div> -->
     <div class="card-header d-flex flex-wrap justify-content-between gap-3">
       <div class="card-title mb-0 me-1">
         <!-- <h5 class="mb-1">DIMP Skill</h5> -->
@@ -171,7 +171,8 @@
        <?php } } ?>
         <br>
         <?php if(!empty($courseArrayPrev)){  ?>
-		<a class="h5" href="#">You are to complete the courses below</a>
+		<a class="h5" href="#">Explore more business courses below</a>
+		<!-- <a class="h5" href="#">You are to complete the courses below</a> -->
 		<!-- <a class="h5" href="#">Previous Courses</a> -->
     <?php $n =1;  foreach ($courseArrayPrev as $courseDetailsPrev) {  ?>
 <?php 
