@@ -119,7 +119,7 @@ if ($position !== false) {
             <?php } 
             
               $getActiveQuizData = $this->gfa_model->getQuizBySectionId($getActiveLessonData[0]['section_id']);
-              if (count($getActiveQuizData) == 1) {
+              if ($getActiveQuizData == 1 || (is_array($getActiveQuizData) && count($getActiveQuizData) == 1)) {
         			// foreach($getActiveQuizData as $getActiveQuiz){     
             ?>
             <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuizData[0]['ref_id'];  ?>" class="btn rounded-pill btn-danger userActivity">Assessment</a>
