@@ -1582,9 +1582,7 @@ public function quiz_progress($course="")
         echo view('quiz_progress', $data);
         echo view('footer-assets-new',$data); 
 
-    }
-
-public function lesson_progres($course="")
+    }public function lesson_progres($course="")
 
     {
         
@@ -1622,6 +1620,8 @@ public function quiz_progres($course="")
         echo view('footer-assets-new',$data); 
 
     }
+
+
 
 
 
