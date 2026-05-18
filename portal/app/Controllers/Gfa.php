@@ -1584,6 +1584,45 @@ public function quiz_progress($course="")
 
     }
 
+public function lesson_progres($course="")
+
+    {
+        
+        $email  = session()->get('email') ;
+        if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+        $title['page_title'] = "Lesson Progress smedan";
+        $data['email'] =  $email;
+        $data['login_type'] = session()->get('login_type') ;
+        $data['account_type'] = session()->get('account_type') ;
+        
+        // $data['course'] = urldecode($course);
+        echo view('header-assets-new',$title);
+        echo view('menu-assets-new',$data);
+        echo view('navbar-assets-new',$data);
+        echo view('lesson_progres', $data);
+        echo view('footer-assets-new',$data); 
+
+    }
+public function quiz_progres($course="")
+
+    {
+        
+        $email  = session()->get('email') ;
+        if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+        $title['page_title'] = "Quiz Progress smedan";
+        $data['email'] =  $email;
+        $data['login_type'] = session()->get('login_type') ;
+        $data['account_type'] = session()->get('account_type') ;
+        
+        // $data['course'] = urldecode($course);
+        echo view('header-assets-new',$title);
+        echo view('menu-assets-new',$data);
+        echo view('navbar-assets-new',$data);
+        echo view('quiz_progres', $data);
+        echo view('footer-assets-new',$data); 
+
+    }
+
 
 
 public function edit_lessonpostpro_ext(){
