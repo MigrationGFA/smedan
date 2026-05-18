@@ -112,17 +112,18 @@ if ($position !== false) {
             <a href="<?php echo base_url("gfa/lesson/{$prevId}/{$lesson_url_prev}") ?>" class="btn rounded-pill btn-primary">Previous</a>
             <?php }  ?>
             <?php if(!empty($getNextData)){  $lesson_url_next = str_replace(" ","-", $getNextData['title']); $nextId = $getNextData['id']; ?>
-            <!-- <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark userActivity" ls="<?= 'l-' . $getNextData['id'];  ?>">Next</a> -->
+            <a href="<?php echo base_url("gfa/lesson/{$nextId}/{$lesson_url_next}") ?>" class="btn rounded-pill btn-dark userActivity" ls="<?= 'l-' . $getNextData['id'];  ?>">Next</a>
             <?php }  ?>
             <?php if($getQuizByLessonIdData[0]['lesson_id'] ==''){  echo ''; }else{ ?>
-            <!-- <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" class="btn rounded-pill btn-secondary">Quiz</a> -->
+            <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" class="btn rounded-pill btn-secondary">Quiz</a>
             <?php } 
             
               $getActiveQuizData = $this->gfa_model->getQuizBySectionId($getActiveLessonData[0]['section_id']);
+              if (count($getActiveQuizData) == 1) {
         			// foreach($getActiveQuizData as $getActiveQuiz){     
             ?>
-            <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuizData[0]['ref_id'];  ?>" class="btn rounded-pill btn-danger userActivity">Next</a>
-
+            <a href="<?php echo base_url("gfa/quiz/{$getActiveQuizData[0]['ref_id']}") ?>" ls="<?= 'q-' . $getActiveQuizData[0]['ref_id'];  ?>" class="btn rounded-pill btn-danger userActivity">Assessment</a>
+          <?php } ?>
           </div>
           <hr class="my-4">
           <h5 class="mb-2">About this lesson</h5>

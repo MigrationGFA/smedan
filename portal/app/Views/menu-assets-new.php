@@ -1,8 +1,9 @@
 <body>
 <?php 
-  $this->gfa_model = model('App\Models\GfaModel');
+$this->gfa_model = model('App\Models\GfaModel');
 $cohort = $this->gfa_model->getCohortDetails($email);
-   ?>
+$currentPage = service('uri')->getSegment(service('uri')->getTotalSegments());
+?>
   
   <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
@@ -161,10 +162,16 @@ $cohort = $this->gfa_model->getCohortDetails($email);
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text" data-i18n="Apps & Pages">Apps &amp; Pages</span>
     </li>
-    <li class="menu-item active">
+    <li class="menu-item <?= ($currentPage == 'soft_skills') ? 'active' : ''; ?>">
       <a href="<?php echo base_url("gfa/dashboard") ?>" class="menu-link">
         <i class="menu-icon tf-icons ti ti-smart-home"></i>
         <div data-i18n="Dashboard">Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-item <?= ($currentPage == 'dimp_skills') ? 'active' : ''; ?>">
+      <a href="<?php echo base_url('gfa/dimp_skills'); ?>" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-user"></i>
+        <div data-i18n="DIMP Skills">Explore Courses </div>
       </a>
     </li>
     <!-- <li class="menu-item <?php echo ($cohort == '4') ? '' : 'd-none'; ?>">

@@ -87,16 +87,13 @@
     </div>
     <div class="card-body">
     <div class="row mb-4 g-4 loadDimpAnalytics"> </div>
-      <div class="row gy-4 mb-4"><?php 
-      
-
-      ?>
-           <?php if(!empty($courseArrayToday)){   ?>
+      <div class="row gy-4 mb-4">
+        <?php if(!empty($courseArrayToday)){   ?>
            
-    <?php $n =1;  foreach ($courseArrayToday as $courseDetailsToday) { ?>
+        <?php $n =1;  foreach ($courseArrayToday as $courseDetailsToday) { ?>
            <div class="col-sm-6 col-lg-4">
           <div class="card p-2 h-100 shadow-none border"> 
-    <a href="#" class="h5"><?= "Today's Course"?></a> 
+        <a href="#" class="h5"><?= "Today's Course"?></a> 
             <div class="rounded-2 text-center mb-3">
               <a href="#"><img class="img-fluid" src="https://gfa-tech.com/portal/uploads/files/<?=$courseDetailsToday['img']?>" alt="course image" /></a>
             </div>
