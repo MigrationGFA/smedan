@@ -23,7 +23,8 @@
             // $nameArray = explode(" ", $certData[0]['name']);
             echo strtoupper($certData[0]['name']); 
           ?></h1>
-        <h2><?php echo ucwords($certData[0]['course']) ?></h2>
+        <h2><?php echo 'SME Digitization Program' ?></h2>
+        <!-- <h2><?php // echo ucwords($certData[0]['course']) ?></h2> -->
         <h4><?php echo date("F Y", strtotime($certData[0]['time_submit'])); ?></h4>
       </div>
     </div>
