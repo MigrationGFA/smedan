@@ -62,11 +62,18 @@
                                         <label class="form-label fw-semibold text-dark">Select your most preferred course</label>
                                         <div class="input-group input-group-merge">
                                             <select name="course" class="form-select corporate-select" required>
-                                                <option value="PERSONAL EFFECTIVENESS & SELF-LEADERSHIP">PERSONAL EFFECTIVENESS & SELF-LEADERSHIP</option>
+                                                <option value="Cybersecurity">Cybersecurity</option>
+                                                <option value="Digital Marketing">Digital Marketing</option>
+                                                <option value="Digital Finance and Accounting">Digital Finance and Accounting</option>
+                                                <option value="Digital Tools and Technologies">Digital Tools and Technologies</option>
+                                                <option value="Operations and Supply Chain Digitization">Operations and Supply Chain Digitization</option>
+                                                <option value="Understanding Organization Culture & Change Management">Understanding Organization Culture & Change Management</option>
+                                                <option value="Understanding Digital Transformation">Understanding Digital Transformation</option>
+                                                <!-- <option value="PERSONAL EFFECTIVENESS & SELF-LEADERSHIP">PERSONAL EFFECTIVENESS & SELF-LEADERSHIP</option>
                                                 <option value="COMMUNICATION & PROFESSIONAL EXPRESSION">COMMUNICATION & PROFESSIONAL EXPRESSION</option>
                                                 <option value="RELATIONSHIP & PEOPLE MANAGEMENT">RELATIONSHIP & PEOPLE MANAGEMENT</option>
                                                 <option value="BUSINESS THINKING & VALUE CREATION">BUSINESS THINKING & VALUE CREATION</option>
-                                                <option value="ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT">ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT</option>
+                                                <option value="ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT">ORGANIZATIONAL CULTURE & PROFESSIONAL CONDUCT</option> -->
                                             </select>
                                         </div>
                                     </div>
