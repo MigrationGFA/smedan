@@ -2647,11 +2647,125 @@ public function group_members_api()
         echo view('soft_skills_test', $data);
         echo view('footer-assets-new',$data);  
 
-        
-
     }
 
-    
+	// public function learning_path()
+    // {
+    //     $email  = session()->get('email') ;
+    //     if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+    //     $title['page_title'] = "smedan Learning Skills";
+    //     $data['email'] =  $email;
+    //     $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
+    // 	$learnerDetails = $this->gfa_model->getStartUpByUid($email);
+    //     $learnerExtInfo = $this->gfa_model->getUserAccountExt($email);
+    // 	// $getSubCatViaCourse = $this->gfa_model->getSubCatViaCourse($learnerExtInfo[0]['profile_extra']);
+    //     // $skillSubCatArray = $this->gfa_model->skillsBySubCat($getSubCatViaCourse[0]['category']);
+    // 	$chosenCourse = $this->gfa_model->GetRegisteredWemaCourse($email);
+    //     // var_dump($chosenCourse);
+   	// 	$getCertificateCourse = $this->gfa_model->getCertificateWemaCourse($email);
+    //     $coursetitleArray = [$chosenCourse];
+   		 
+    //     if($learnerDetails[0]["Interest_Fund_Raise"]=="Business Owner" || $learnerDetails[0]["Interest_Fund_Raise"]=="Aspiring Business Owner"){
+    //        //if($getSubCatViaCourse[0]['category'] == "Development"){
+    //        	$main_cat = "sme technical skill training";
+    //        $coursetitle ="";
+
+
+    //         if(empty($getCertificateCourse)){
+    //             $coursetitleArray = [$chosenCourse];
+    //         } else {
+    //             $coursetitleArray = [$chosenCourse
+    //                 // 'Design Thinking',
+    //                 // 'Business Model Plan',
+    //                 // 'Product Development Cycle',
+    //                 // 'Pitch Deck Structuring',
+    //                 // 'Financial Modelling in Decision-Making &amp; Business Planning',
+    //                 // 'Understanding Product Management',
+    //                 // 'Customer Experience Mgt',
+    //                 // 'Website &amp; Apps',
+    //                 // 'Business Valuation',
+    //                 // 'Functional Accountability Chart',
+    //                 // 'SWOT/PESTLE',
+    //                 // 'Building Rapport'
+    //             ];
+    //         }
+       
+    //     }
+       
+
+    //     if($learnerDetails[0]["Interest_Fund_Raise"]=="Professional" || $learnerDetails[0]["Interest_Fund_Raise"]=="professional" || $learnerDetails[0]["Interest_Fund_Raise"]=="jobseeker" || $learnerDetails[0]["Interest_Fund_Raise"]=="Jobseeker"){
+    //        //if($getSubCatViaCourse[0]['category'] == "Technology Enabled"){
+    //        	$main_cat = "technology enabled skills";
+    //        $coursetitle ="";
+
+    //        if(empty($getCertificateCourse)){
+    //             $coursetitleArray = [$chosenCourse];
+    //         } else {
+    //             $coursetitleArray = [$chosenCourse
+    //                 // 'Digital Marketing',
+    //                 // 'CRM Management',
+    //                 // 'Cloud Platform Navigation',
+    //                 // 'Accounting Software',
+    //                 // 'Technology Community Management',
+    //                 // 'Infrastructure Management',
+    //                 // 'System Analysis',
+    //                 // 'Technical Support and Troubleshooting',
+    //                 // 'Quality Assurance',
+    //                 // 'Hardware Assembly',
+    //                 // 'Technical Writing',
+    //                 // 'Database Management',
+    //                 // 'Cloud Computing',
+    //                 // 'Frontend Development',
+    //                 // 'Network Administration',
+    //                 // 'Firmware Development',
+    //                 // 'Animation',
+    //                 // 'Embedded System',
+    //                 // 'Mobile App Development',
+    //                 // 'Hardware Component Engineering',
+    //                 // 'Web Design',
+    //                 // 'Full Stack Software Development',
+    //                 // 'Cybersecurity',
+    //                 // 'Machine Learning and AI',
+    //                 // 'Bioinformatics',
+    //                 // 'Robotics and Automation',
+    //                 // 'Virtual and Augmented Reality Development',
+    //                 // 'Internet of Things (IoT)'
+    //             ];
+    //         }
+            
+    //        }
+        	
+    //    // }
+    // 	// print_r($getSubCatViaCourse[0]['category']);
+    // 	// exit;
+    //    //$coursetitleArray = array("Understanding Product Management","Design Thinking");
+    //     //$coursetitleList =  implode(",",$coursetitleArray);
+    //     // $data['courseArrayUpcoming'] = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat);
+    //     $data['courseArrayToday'] = $this->gfa_model->getFgnAlatSkills($main_cat,$coursetitle);
+    //     $data['courseArrayRec'] = $this->gfa_model->getRecFgnAlatSkills($coursetitleArray);
+        
+    // 	// print_r($getSubCatViaCourse[0]['category']);
+    // 	// exit;
+    //    	$main_cat_prev = "soft skill";
+    //     // $data['courseArrayUpcoming'] = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat);
+    //     //$data['courseArrayToday'] = $this->gfa_model->getFgnAlatSkills($main_cat);
+    //     // $data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDay($main_cat);
+    // 	$main_cat_prev = "soft skill";
+    //     $data['courseArrayPrev'] = $this->gfa_model->getCoursesByMainCategoryPreviouss($main_cat_prev);
+    //     $data['StartupArray'] = $learnerDetails; 
+    //     $data['skillArray'] = $learnerExtInfo; 
+    //     $data['login_type'] = session()->get('login_type');
+    //     $data['account_type'] = session()->get('account_type');
+    //     echo view('header-assets-new',$title);
+    //     echo view('menu-assets-new',$data);
+    //     echo view('navbar-assets-new',$data);
+    //     echo view('course_list', $data);
+    //     echo view('footer-assets-new',$data);  
+
+        
+
+    // }
+
         
 	public function learning_path()
     {
@@ -2659,105 +2773,22 @@ public function group_members_api()
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         $title['page_title'] = "smedan Learning Skills";
         $data['email'] =  $email;
-        $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
-    	$learnerDetails = $this->gfa_model->getStartUpByUid($email);
-        $learnerExtInfo = $this->gfa_model->getUserAccountExt($email);
-    	// $getSubCatViaCourse = $this->gfa_model->getSubCatViaCourse($learnerExtInfo[0]['profile_extra']);
-        // $skillSubCatArray = $this->gfa_model->skillsBySubCat($getSubCatViaCourse[0]['category']);
+        
     	$chosenCourse = $this->gfa_model->GetRegisteredWemaCourse($email);
-        // var_dump($chosenCourse);
-   		$getCertificateCourse = $this->gfa_model->getCertificateWemaCourse($email);
+   		// $getCertificateCourse = $this->gfa_model->getCertificateWemaCourse($email);
         $coursetitleArray = [$chosenCourse];
-   		 
-        if($learnerDetails[0]["Interest_Fund_Raise"]=="Business Owner" || $learnerDetails[0]["Interest_Fund_Raise"]=="Aspiring Business Owner"){
-           //if($getSubCatViaCourse[0]['category'] == "Development"){
-           	$main_cat = "sme technical skill training";
-           $coursetitle ="";
-
-
-            if(empty($getCertificateCourse)){
-                $coursetitleArray = [$chosenCourse];
-            } else {
-                $coursetitleArray = [$chosenCourse
-                    // 'Design Thinking',
-                    // 'Business Model Plan',
-                    // 'Product Development Cycle',
-                    // 'Pitch Deck Structuring',
-                    // 'Financial Modelling in Decision-Making &amp; Business Planning',
-                    // 'Understanding Product Management',
-                    // 'Customer Experience Mgt',
-                    // 'Website &amp; Apps',
-                    // 'Business Valuation',
-                    // 'Functional Accountability Chart',
-                    // 'SWOT/PESTLE',
-                    // 'Building Rapport'
-                ];
-            }
+        // $coursetitle = "";
+        // $main_cat = "sme technical skill training";
+        // $main_cat = ["DIMP skills", "soft skill"];
        
-        }
-       
-
-        if($learnerDetails[0]["Interest_Fund_Raise"]=="Professional" || $learnerDetails[0]["Interest_Fund_Raise"]=="professional" || $learnerDetails[0]["Interest_Fund_Raise"]=="jobseeker" || $learnerDetails[0]["Interest_Fund_Raise"]=="Jobseeker"){
-           //if($getSubCatViaCourse[0]['category'] == "Technology Enabled"){
-           	$main_cat = "technology enabled skills";
-           $coursetitle ="";
-
-           if(empty($getCertificateCourse)){
-                $coursetitleArray = [$chosenCourse];
-            } else {
-                $coursetitleArray = [$chosenCourse
-                    // 'Digital Marketing',
-                    // 'CRM Management',
-                    // 'Cloud Platform Navigation',
-                    // 'Accounting Software',
-                    // 'Technology Community Management',
-                    // 'Infrastructure Management',
-                    // 'System Analysis',
-                    // 'Technical Support and Troubleshooting',
-                    // 'Quality Assurance',
-                    // 'Hardware Assembly',
-                    // 'Technical Writing',
-                    // 'Database Management',
-                    // 'Cloud Computing',
-                    // 'Frontend Development',
-                    // 'Network Administration',
-                    // 'Firmware Development',
-                    // 'Animation',
-                    // 'Embedded System',
-                    // 'Mobile App Development',
-                    // 'Hardware Component Engineering',
-                    // 'Web Design',
-                    // 'Full Stack Software Development',
-                    // 'Cybersecurity',
-                    // 'Machine Learning and AI',
-                    // 'Bioinformatics',
-                    // 'Robotics and Automation',
-                    // 'Virtual and Augmented Reality Development',
-                    // 'Internet of Things (IoT)'
-                ];
-            }
-            
-           }
-        	
-       // }
-    	// print_r($getSubCatViaCourse[0]['category']);
-    	// exit;
-       //$coursetitleArray = array("Understanding Product Management","Design Thinking");
-        //$coursetitleList =  implode(",",$coursetitleArray);
-        // $data['courseArrayUpcoming'] = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat);
-        $data['courseArrayToday'] = $this->gfa_model->getFgnAlatSkills($main_cat,$coursetitle);
+        // $data['courseArrayToday'] = $this->gfa_model->getFgnAlatSkills($main_cat,$coursetitle);
         $data['courseArrayRec'] = $this->gfa_model->getRecFgnAlatSkills($coursetitleArray);
         
-    	// print_r($getSubCatViaCourse[0]['category']);
-    	// exit;
-       	$main_cat_prev = "soft skill";
-        // $data['courseArrayUpcoming'] = $this->gfa_model->getCoursesByMainCategoryUpcoming($main_cat);
-        //$data['courseArrayToday'] = $this->gfa_model->getFgnAlatSkills($main_cat);
-        // $data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDay($main_cat);
-    	$main_cat_prev = "soft skill";
-        $data['courseArrayPrev'] = $this->gfa_model->getCoursesByMainCategoryPreviouss($main_cat_prev);
-        $data['StartupArray'] = $learnerDetails; 
-        $data['skillArray'] = $learnerExtInfo; 
+        
+    	// $main_cat_prev = "soft skill";
+        // $data['courseArrayPrev'] = $this->gfa_model->getCoursesByMainCategoryPreviouss($main_cat_prev);
+        
+        
         $data['login_type'] = session()->get('login_type');
         $data['account_type'] = session()->get('account_type');
         echo view('header-assets-new',$title);
@@ -2766,88 +2797,85 @@ public function group_members_api()
         echo view('course_list', $data);
         echo view('footer-assets-new',$data);  
 
+    }
+
+    // public function dimp_skills()
+    // {
+    //     $email  = session()->get('email') ;
+    //     if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
+    //     $title['page_title'] = "SMEDAN UpSkills Learning";
+    //     $data['email'] =  $email;
+    //     // $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
+    
+    //     // Function to dynamically update dates
+    //     function updateCourseDates($coursetitleArray) {
+    //         $previousDate = null;
         
-
-    }
-
-    public function dimp_skills()
-    {
-        $email  = session()->get('email') ;
-        if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
-        $title['page_title'] = "SMEDAN UpSkills Learning";
-        $data['email'] =  $email;
-        // $data['getPhoto']  =  $this->gfa_model->getPhotoUploaded($email);
-    
-    		// Function to dynamically update dates
-            function updateCourseDates($coursetitleArray) {
-                $previousDate = null;
-            
-                foreach ($coursetitleArray as $title => $dates) {
-                    $currentDate = new \DateTime($dates[0]);
-            
-                    // If there is a previous date and the current date is not sequential
-                    if ($previousDate && $currentDate <= $previousDate) {
-                        // Set the current date to be the previous date + 1 day if they overlap
-                        $currentDate = (clone $previousDate)->modify('+1 day');
-                    }
-            
-                    // Update the date in the array with the adjusted date (if necessary)
-                    $coursetitleArray[$title][0] = $currentDate->format('Y-m-d');
-            
-                    // Set the current date as the new previous date
-                    $previousDate = $currentDate;
-                }
-            
-                return $coursetitleArray;
-            }
+    //         foreach ($coursetitleArray as $title => $dates) {
+    //             $currentDate = new \DateTime($dates[0]);
+        
+    //             // If there is a previous date and the current date is not sequential
+    //             if ($previousDate && $currentDate <= $previousDate) {
+    //                 // Set the current date to be the previous date + 1 day if they overlap
+    //                 $currentDate = (clone $previousDate)->modify('+1 day');
+    //             }
+        
+    //             // Update the date in the array with the adjusted date (if necessary)
+    //             $coursetitleArray[$title][0] = $currentDate->format('Y-m-d');
+        
+    //             // Set the current date as the new previous date
+    //             $previousDate = $currentDate;
+    //         }
+        
+    //         return $coursetitleArray;
+    //     }
 
 
-        // Initial $coursetitleArray
-        $coursetitleArray = [
-       	'Understanding Digital Transformation' => ['2020-01-01'],
-		'Digital Tools and Technologies' => ['2020-01-01'],
-		'Cybersecurity' => ['2020-01-01'],
-		'Digital Marketing' => ['2020-01-01'],
-		'Digital Finance and Accounting' => ['2020-01-01'],
-		'Operations and Supply Chain Digitization' => ['2020-01-01'],
-		'Understanding Organization Culture & Change Management' => ['2020-01-01'],
-    	];
+    //     // Initial $coursetitleArray
+    //     $coursetitleArray = [
+    //         'Understanding Digital Transformation' => ['2020-01-01'],
+    //         'Digital Tools and Technologies' => ['2020-01-01'],
+    //         'Cybersecurity' => ['2020-01-01'],
+    //         'Digital Marketing' => ['2020-01-01'],
+    //         'Digital Finance and Accounting' => ['2020-01-01'],
+    //         'Operations and Supply Chain Digitization' => ['2020-01-01'],
+    //         'Understanding Organization Culture & Change Management' => ['2020-01-01'],
+    // 	];
 
-        // Update dates dynamically
-        $coursetitleArray = updateCourseDates($coursetitleArray);
+    //     // Update dates dynamically
+    //     $coursetitleArray = updateCourseDates($coursetitleArray);
 
-        // Your existing logic
-        $main_cat = ["DIMP skills", "soft skill"];
-        $courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcomingdimp($main_cat, $coursetitleArray);
+    //     // Your existing logic
+    //     $main_cat = ["DIMP skills", "soft skill"];
+    //     $courseArrayUpcoming = $this->gfa_model->getCoursesByMainCategoryUpcomingdimp($main_cat, $coursetitleArray);
 
-        // usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
-        //     $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2025-12-12';
-        //     $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2025-12-12';
+    //     // usort($courseArrayUpcoming, function($a, $b) use ($coursetitleArray) {
+    //     //     $dateA = $coursetitleArray[$a['coursetitle']][0] ?? '2025-12-12';
+    //     //     $dateB = $coursetitleArray[$b['coursetitle']][0] ?? '2025-12-12';
 
-        //     return strtotime($dateA) - strtotime($dateB);
-        // });
+    //     //     return strtotime($dateA) - strtotime($dateB);
+    //     // });
 
-        $data['courseArrayUpcoming'] = $courseArrayUpcoming;
+    //     $data['courseArrayUpcoming'] = $courseArrayUpcoming;
        
-    	$data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryTodaydimp($main_cat, $coursetitleArray);
-    	$data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDaydimp($main_cat, $coursetitleArray);
-    	$data['courseArrayPrev'] =$this->gfa_model->getCoursesByMainCategoryPreviousdimp($main_cat, $coursetitleArray);
-    	$data['StartupArray'] = $this->gfa_model->getStartUpDetails($email);
-    	$data['skillArray'] = $this->gfa_model->getUserAccountExt($email);
-    	$data['login_type'] = session()->get('login_type');
-    	$data['coursetitleArray'] = $coursetitleArray;
-    	$data['account_type'] = session()->get('account_type');
+    // 	$data['courseArrayToday'] = $this->gfa_model->getCoursesByMainCategoryTodaydimp($main_cat, $coursetitleArray);
+    // 	$data['courseArrayNext'] = $this->gfa_model->getCoursesByMainCategoryNextDaydimp($main_cat, $coursetitleArray);
+    // 	$data['courseArrayPrev'] =$this->gfa_model->getCoursesByMainCategoryPreviousdimp($main_cat, $coursetitleArray);
+    // 	$data['StartupArray'] = $this->gfa_model->getStartUpDetails($email);
+    // 	$data['skillArray'] = $this->gfa_model->getUserAccountExt($email);
+    // 	$data['login_type'] = session()->get('login_type');
+    // 	$data['coursetitleArray'] = $coursetitleArray;
+    // 	$data['account_type'] = session()->get('account_type');
     
-        echo view('header-assets-new',$title);
-        echo view('menu-assets-new',$data);
-        echo view('navbar-assets-new',$data);
-        echo view('dimp_skills', $data);
-        echo view('footer-assets-new',$data);  
+    //     echo view('header-assets-new',$title);
+    //     echo view('menu-assets-new',$data);
+    //     echo view('navbar-assets-new',$data);
+    //     echo view('dimp_skills', $data);
+    //     echo view('footer-assets-new',$data);  
 
-    }
+    // }
 
-        public function pre_courses()
-
+    public function pre_courses()
     {
         
         $email  = session()->get('email') ;
@@ -2895,7 +2923,7 @@ public function group_members_api()
         if(($email == '')){ return redirect()->to(base_url('gfa/login')); }
         
         $course = $this->request->getPost("course");
-        $course_type = "soft skill";
+        $course_type = "course";
 
         if (
             !empty($course) &&
@@ -6509,11 +6537,7 @@ $data_connection = array(
             if (count($checkMiss) > 0) {
                 return redirect()->to(base_url('gfa/profileup'));
             } else {
-                // if ($category === 'DIMP Skill' || $category === '' || is_null($category)) {
-                //     return redirect()->to(base_url('gfa/dimp_skills'));
-                // } else {
-                    return redirect()->to(base_url('gfa/soft_skills'));
-                // }
+                return redirect()->to(base_url('gfa/learning_path'));
             }
         } else {
             return redirect()->to(base_url('gfa/login'));

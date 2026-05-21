@@ -7,22 +7,6 @@
    <!-- Content -->
         
 <div class="container-xxl flex-grow-1 container-p-y" id="mContent">
-  
-<!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="<?php echo $nonce_value; ?>"></script>
-  <div class="col-lg-12 mb-4">
-    <div class="input-group">
-        <input type="text" class="form-control" value="<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>"  readonly="readonly" id="inputField" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-primary" type="button" id="copyButton">Copy Referral Link</button>
-        </div>
-    </div>
-    <div id="revenueGenerated" class="mb-2 mt-2"><a class="btn btn-outline-primary" href="whatsapp://send?text=<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" data-action="share/whatsapp/share">Share via WhatsApp</a> 
-   <div class="fb-share-button btn btn-outline-primary" data-href="<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" data-layout="button"></div>
-   <a href="https://twitter.com/intent/tweet?url=<?php echo 'https://kaduna-digital.dimpified.com/register/?ref='.$skillArray[0]['ref']; ?>" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">Share on Twitter</a>
-   <a href="<?php echo base_url('gfa/referral'); ?>" class="btn btn-dark">Details</a>
-   </div>
-  </div>       -->
 
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">My</span> Courses</h4>
 

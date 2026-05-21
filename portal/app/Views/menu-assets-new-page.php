@@ -166,12 +166,12 @@
         <div data-i18n="Dashboard">Dashboard</div>
       </a>
     </li>
-    <li class="menu-item">
+    <!-- <li class="menu-item">
       <a href="<?php echo base_url('gfa/dimp_skills'); ?>" class="menu-link">
         <i class="menu-icon tf-icons ti ti-user"></i>
         <div data-i18n="DIMP Skills">Explore Courses </div>
       </a>
-    </li>
+    </li> -->
      <!--Group Members -->
      <?php
         $stateRd = $StartupArray[0]['State'];

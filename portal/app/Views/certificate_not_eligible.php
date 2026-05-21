@@ -89,7 +89,7 @@
         $course_id = $this->gfa_model->getCourseIdByUserEmail($email);
 
                                       // GetUserProgressAssignedCourses
-       $courseTrack = $this->gfa_model->GetUserSoftProgressAssignedCoursesWema($email, $course_id);
+       $courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email, $course_id);
        // $courseTrack = $this->gfa_model->GetUserEndProgress($email);
   ?>
   <div class="col-lg-6 mb-4 mb-md-0">

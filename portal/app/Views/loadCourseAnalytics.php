@@ -2,9 +2,9 @@
   $this->gfa_model = model('App\Models\GfaModel');
   $email = session()->get('email');
   // $loginkey = $this->gfa_model->getWpCred($email);
-// $cohort = $this->gfa_model->getCohortDetails($email);
-$courseId = $this->gfa_model->getCourseIdByUserEmail($email);
-	$courseTrack = $this->gfa_model->GetUserSoftProgressAssignedCoursesWema($email, $courseId);
+  // $cohort = $this->gfa_model->getCohortDetails($email);
+  $courseId = $this->gfa_model->getCourseIdByUserEmail($email);
+	$courseTrack = $this->gfa_model->GetUserProgressAssignedCoursesWema($email, $courseId);
 ?>
 <div class="col-sm-6 col-xl-3">
     <div class="card">

@@ -208,9 +208,9 @@ class GfaModel extends Model
         return $query->getResultArray()[0]['course'];     
     }
 
-    public function  GetUserSoftProgressAssignedCoursesWema($userEmail, $courseId){
+    public function  GetUserProgressAssignedCoursesWema($userEmail, $courseId){
 
-    $query = $this->db->query("CALL GetUserSoftProgressAssignedCoursesWema(?, ?)", [$userEmail, $courseId]);
+    $query = $this->db->query("CALL GetUserProgressAssignedCoursesWema(?, ?)", [$userEmail, $courseId]);
 
     // Check if the query was successful
     if ($query) {
@@ -302,7 +302,7 @@ public function hasUserStartedCourse($email, $courseId)
 
 public function checkCompletionSingleCourse($email, $courseId)
 {
-    $courseProgress = $this->GetUserSoftProgressAssignedCoursesWema($email, $courseId);
+    $courseProgress = $this->GetUserProgressAssignedCoursesWema($email, $courseId);
 
     $progressValue = 0;
     if (!empty($courseProgress) && isset($courseProgress[0]['Progress'])) {
