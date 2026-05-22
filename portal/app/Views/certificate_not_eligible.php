@@ -101,7 +101,7 @@
           <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-check text-heading"></i><span class="fw-medium mx-2 text-heading">St:</span> <span>Active</span></li> -->
           <li class="d-flex align-items-center mb-3"><i class="ti ti-pencil text-heading"></i><span class="fw-medium mx-2 text-heading">Score:</span> <span><?php echo $courseTrack[0]['Progress'] ?></span></li>
           <!-- <li class="d-flex align-items-center mb-3"><i class="ti ti-flag text-heading"></i><span class="fw-medium mx-2 text-heading">Country:</span> <span>USA</span></li> -->
-          <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span><?php echo $getCerticateData[0]['OngoingCourse'] ?></span></li>
+          <li class="d-flex align-items-center mb-3"><i class="ti ti-file-description text-heading"></i><span class="fw-medium mx-2 text-heading">Course:</span> <span><?php echo $courseTrack[0]['OngoingCourse'] ?></span></li>
         </ul>
       </div>
     </div>
