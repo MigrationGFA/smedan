@@ -90,36 +90,77 @@ class GfaModel extends Model
 
 
     public function ExportWemaEkitiCompletedCoursePassedQuiz($program_type){
+        $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
+        return $query->getResultArray(); 
+    }
 
-    $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedCoursePassedQuiz(?)", [$program_type]);
-    // $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
-   
-   return $query->getResultArray(); 
-   }
+    public function ExportWemaEkitiSoftCompletedCoursePassedQuiz($program_type){
+        $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedCoursePassedQuiz(?)", [$program_type]);
+        return $query->getResultArray(); 
+    }
+
    public function ExportWemaEkitiCompletedAtLeastACourse($program_type) {
+    $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
+    return $query->getResultArray(); 
+   }
 
+   public function ExportWemaEkitiSoftCompletedAtLeastACourse($program_type) {
     $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedAtLeastACourse(?)", [$program_type]);
-    // $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
-   
-   return $query->getResultArray(); 
-   
+    return $query->getResultArray(); 
    }
+
    public function ExportWemaEkitiStartedLearning($program_type) {
+    $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
+    return $query->getResultArray(); 
+   }
 
+   public function ExportWemaEkitiSoftStartedLearning($program_type) {
     $query = $this->db->query("CALL ExportWemaEkitiSoftStartedLearning(?)", [$program_type]);
-    // $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
-   
-   return $query->getResultArray(); 
-   
+    return $query->getResultArray(); 
    }
-   public function ExportWemaEkitiLoggedIn($program_type) {
 
-    $query = $this->db->query("CALL ExportWemaEkitiSoftLoggedIn(?)", [$program_type]);
-    // $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
-   
-   return $query->getResultArray(); 
-   
+   public function ExportWemaEkitiLoggedIn($program_type) {
+    $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
+    return $query->getResultArray(); 
    }
+
+   public function ExportWemaEkitiSoftLoggedIn($program_type) {
+    $query = $this->db->query("CALL ExportWemaEkitiSoftLoggedIn(?)", [$program_type]);
+    return $query->getResultArray(); 
+   }
+
+
+//     public function ExportWemaEkitiCompletedCoursePassedQuiz($program_type){
+
+//     $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedCoursePassedQuiz(?)", [$program_type]);
+//     // $query = $this->db->query("CALL ExportWemaEkitiCompletedCoursePassedQuiz(?)", [$program_type]);
+   
+//    return $query->getResultArray(); 
+//    }
+//    public function ExportWemaEkitiCompletedAtLeastACourse($program_type) {
+
+//     $query = $this->db->query("CALL ExportWemaEkitiSoftCompletedAtLeastACourse(?)", [$program_type]);
+//     // $query = $this->db->query("CALL ExportWemaEkitiCompletedAtLeastACourse(?)", [$program_type]);
+   
+//    return $query->getResultArray(); 
+   
+//    }
+//    public function ExportWemaEkitiStartedLearning($program_type) {
+
+//     $query = $this->db->query("CALL ExportWemaEkitiSoftStartedLearning(?)", [$program_type]);
+//     // $query = $this->db->query("CALL ExportWemaEkitiStartedLearning(?)", [$program_type]);
+   
+//    return $query->getResultArray(); 
+   
+//    }
+//    public function ExportWemaEkitiLoggedIn($program_type) {
+
+//     $query = $this->db->query("CALL ExportWemaEkitiSoftLoggedIn(?)", [$program_type]);
+//     // $query = $this->db->query("CALL ExportWemaEkitiLoggedIn(?)", [$program_type]);
+   
+//    return $query->getResultArray(); 
+   
+//    }
 
     public function WemaEkitiAnalytics($program_type) {
 
