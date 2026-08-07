@@ -6356,14 +6356,14 @@ $data_connection = array(
             $created    = strtotime($existingUser['date']);
             $daysPassed = (time() - $created) / 86400;
 
-            if ($daysPassed > 30) {
-                // Expired — clear everything and redirect
-                session()->destroy();
-                delete_cookie('wema_email');
-                delete_cookie('first_name');
-                delete_cookie('last_name');
-                return redirect()->to('https://smedan.remsana.com');
-            }
+            // if ($daysPassed > 30) {
+            //     // Expired — clear everything and redirect
+            //     session()->destroy();
+            //     delete_cookie('wema_email');
+            //     delete_cookie('first_name');
+            //     delete_cookie('last_name');
+            //     return redirect()->to('https://smedan.remsana.com');
+            // }
         }
 
         // 2. Access valid — now set session and cookie
