@@ -6379,6 +6379,7 @@ $data_connection = array(
         set_cookie('first_name', $first_name, 2592000);
         set_cookie('last_name',  $last_name,  2592000);
 
+        
         if (!$existingUser) {
             // User does NOT exist → insert
             $data = [
